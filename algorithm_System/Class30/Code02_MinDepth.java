@@ -1,6 +1,5 @@
 package Class30;
 
-import java.util.logging.XMLFormatter;
 
 public class Code02_MinDepth {
 
@@ -21,11 +20,12 @@ public class Code02_MinDepth {
 
         return p(head);
     }
-
+    //计算X为头的子树的最小深度
     public static int p(TreeNode x) {
         if (x.left == null && x.right == null) {
             return 1;
         }
+        //去二叉树的左右递归去拿深度值
         int leftH = Integer.MAX_VALUE;
         if (x.left != null) {
             leftH = p(x.left);
@@ -48,7 +48,9 @@ public class Code02_MinDepth {
         while (cur != null) {
             mostRight = cur.left;
             if (mostRight != null) {
+                //记录当前左子树右边界数量为1
                 int rightBoardSize = 1;
+                //找到最右节点，沿途记录右边界节点的数量
                 while (mostRight.right != null && mostRight.right != cur) {
                     rightBoardSize++;
                     mostRight = mostRight.right;
@@ -66,11 +68,12 @@ public class Code02_MinDepth {
                     mostRight.right = null;
                 }
             } else {
+                //移到下一层了
                 curLevel++;
             }
             cur = cur.right;
         }
-
+    //该部分已经成功处理了回指行为
         int finalRight = 1;
         cur = head;
         while (cur.right != null) {

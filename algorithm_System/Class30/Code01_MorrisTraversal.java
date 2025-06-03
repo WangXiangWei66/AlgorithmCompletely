@@ -1,7 +1,7 @@
 package Class30;
 
 public class Code01_MorrisTraversal {
-
+    //定义二叉树的节点
     public static class Node {
         public int value;
         Node right;
@@ -31,22 +31,27 @@ public class Code01_MorrisTraversal {
         Node mostRight = null;
         while (cur != null) {
             mostRight = cur.left;
+            //如果cur有左树
             if (mostRight != null) {
+                //去找左子树的最右节点
                 while (mostRight != null && mostRight.right != cur) {
+                    //来到了最右节点的右指针位置
                     mostRight = mostRight.right;
                 }
+                //如果最右节点的右指针为空，将他指向cur，cur左移
                 if (mostRight == null) {
                     mostRight.right = cur;
                     cur = cur.left;
                     continue;
                 } else {
+                    //如果右指针已经指向cur了，则将他置为空
                     mostRight.right = null;
                 }
             }
             cur = cur.right;
         }
     }
-
+    //在访问回节点之前输出当前节点（根左右）
     public static void morrisPre(Node head) {
         if (head == null) {
             return;
@@ -56,6 +61,7 @@ public class Code01_MorrisTraversal {
         while (cur != null) {
             mostRight = cur.left;
             if (mostRight != null) {
+                //这一步是去找左数的最右节点
                 while (mostRight.right != null && mostRight.right != cur) {
                     mostRight = mostRight.right;
                 }
@@ -74,7 +80,7 @@ public class Code01_MorrisTraversal {
         }
         System.out.println();
     }
-
+    //在断开回指之后打印（左跟右）
     public static void morrisIn(Node head) {
         if (head == null) {
             return;
@@ -100,7 +106,7 @@ public class Code01_MorrisTraversal {
         }
         System.out.println();
     }
-
+    //在断开连接后，逆序输出当前节点的左子树右边界
     public static void morrisPos(Node head) {
         if (head == null) {
             return;
@@ -127,7 +133,7 @@ public class Code01_MorrisTraversal {
         printEdge(head);
         System.out.println();
     }
-
+    //先逆序，然后再逆序回来
     public static void printEdge(Node head) {
         Node tail = reverseEdge(head);
         Node cur = tail;
@@ -137,7 +143,7 @@ public class Code01_MorrisTraversal {
         }
         reverseEdge(tail);
     }
-
+    //实现了链表反转功能
     public static Node reverseEdge(Node from) {
         Node pre = null;
         Node next = null;
@@ -155,30 +161,36 @@ public class Code01_MorrisTraversal {
         printInOrder(head, 0, "H", 17);
         System.out.println();
     }
-
+    //核心递归方法，负责按层输出节点
+    //右子树用v,左子树用^
     public static void printInOrder(Node head, int height, String to, int len) {
         if (head == null) {
             return;
         }
         printInOrder(head.right, height + 1, "v", len);
+        //用方向标记包裹节点值
         String val = to + head.value + to;
+        //计算值的总长度
         int lenM = val.length();
+        //计算左右侧填充的空格数
         int lenL = (len - lenM) / 2;
         int lenR = len - lenM - lenL;
         val = getSpace(lenL) + val + getSpace(lenR);
+        //height * len 为层级缩进
         System.out.println(getSpace(height * len) + val);
         printInOrder(head.left, height + 1, "^", len);
     }
 
     public static String getSpace(int num) {
         String space = " ";
+        //StringBuilder可以实现高效拼接字符串
         StringBuilder buf = new StringBuilder("");
         for (int i = 0; i < num; i++) {
             buf.append(space);
         }
         return buf.toString();
     }
-
+    //BST：Binary Search Tree
     public static boolean isBST(Node head) {
         if (head == null) {
             return true;
