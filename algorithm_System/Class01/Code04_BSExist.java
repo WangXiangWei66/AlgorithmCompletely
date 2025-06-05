@@ -10,7 +10,8 @@ public class Code04_BSExist {
         int L = 0;
         int R = sortedArr.length - 1;
         int mid = 0;
-        while (L <= R) {//此时L...R最少有两个数
+        //此时L...R最少有两个数
+        while (L <= R) {
             mid = L + ((R - L) >> 1);
             if (sortedArr[mid] == num) {
                 return true;
@@ -39,12 +40,13 @@ public class Code04_BSExist {
         }
         return arr;
     }
-    public static void printArray(int[]arr){
-        if(arr==null){
+
+    public static void printArray(int[] arr) {
+        if (arr == null) {
             return;
         }
-        for(int i=0;i<arr.length;i++){
-            System.out.print(arr[i]+" ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
         }
         System.out.println();
     }
@@ -61,9 +63,9 @@ public class Code04_BSExist {
             if (test(arr, value) != exist(arr, value)) {
                 printArray(arr);
                 System.out.println(value);
-                System.out.println(test(arr,value));
-                System.out.println(exist(arr,value));
-                succeed=false;
+                System.out.println(test(arr, value));
+                System.out.println(exist(arr, value));
+                succeed = false;
                 break;
             }
         }
