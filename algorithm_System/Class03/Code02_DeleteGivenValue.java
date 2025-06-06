@@ -11,7 +11,7 @@ public class Code02_DeleteGivenValue {
         }
     }
 
-    //head=removevalue(head,2)
+    //head=removeValue(head,2)
 
     public static Node removeValue(Node head, int num) {
         //head来到第一个不需要删的位置
@@ -26,7 +26,7 @@ public class Code02_DeleteGivenValue {
         Node pre = head;
         Node cur = head;
         while (cur != null) {
-            if (cur.value != num) {
+            if (cur.value == num) {
                 pre.next = cur.next;
             } else {
                 pre = cur;

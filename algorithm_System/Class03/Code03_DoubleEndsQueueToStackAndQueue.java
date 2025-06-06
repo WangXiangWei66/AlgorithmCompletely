@@ -20,6 +20,7 @@ public class Code03_DoubleEndsQueueToStackAndQueue {
         public Node<T> head;
         public Node<T> tail;
 
+        //将新节点加到链表的头部，作为新的头
         public void addFromHead(T value) {
             Node<T> cur = new Node<T>(value);
             if (head == null) {
@@ -32,6 +33,7 @@ public class Code03_DoubleEndsQueueToStackAndQueue {
             }
         }
 
+        //将新节点加到链表的尾部，最为新的尾节点
         public void addFromBottom(T value) {
             Node<T> cur = new Node<T>(value);
             if (head == null) {
@@ -81,6 +83,7 @@ public class Code03_DoubleEndsQueueToStackAndQueue {
         }
     }
 
+    //用双向链表实现栈
     public static class MyStack<T> {
         private DoubleEndsQueue<T> queue;
 
@@ -101,6 +104,7 @@ public class Code03_DoubleEndsQueueToStackAndQueue {
         }
     }
 
+    //双端队列实现队列
     public static class MyQueue<T> {
         private DoubleEndsQueue<T> queue;
 

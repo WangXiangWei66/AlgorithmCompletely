@@ -28,6 +28,7 @@ public class Code01_reverseList {
     //   a    ->   b    ->  c  ->  null
     //   c    ->   b    ->  a  ->  null
     public static Node reverseLinkedList(Node head) {
+        //设置两个指针  pre 和 next
         Node pre = null;
         Node next = null;
         while (head != null) {
@@ -43,8 +44,8 @@ public class Code01_reverseList {
         DoubleNode pre = null;
         DoubleNode next = null;
         while (head != null) {
-            next = head.next;
-            head.next = pre;
+            next = head.next;//next节点后移
+            head.next = pre;//head的next指空
             head.last = next;
             pre = head;
             head = next;
@@ -52,6 +53,7 @@ public class Code01_reverseList {
         return pre;
     }
 
+    //用容器法反转单链表
     public static Node testReverseLinkedList(Node head) {
         if (head == null) {
             return null;
@@ -128,7 +130,7 @@ public class Code01_reverseList {
         return head;
     }
 
-    // for test
+    // for test 提取单向链表的节点值
     public static List<Integer> getLinkedListOriginOrder(Node head) {
         List<Integer> ans = new ArrayList<>();
         while (head != null) {
