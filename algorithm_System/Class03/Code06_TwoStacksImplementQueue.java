@@ -4,42 +4,43 @@ import java.util.Stack;
 
 public class Code06_TwoStacksImplementQueue {
     public static class TwoStackQueue{
-        public Stack<Integer> stackpush;
-        public Stack<Integer> stackpop;
+        public Stack<Integer> stackPush;
+        public Stack<Integer> stackPop;
 
         public TwoStackQueue(){
-            stackpush=new Stack<Integer>();
-            stackpop=new Stack<Integer>();
+            stackPush =new Stack<Integer>();
+            stackPop =new Stack<Integer>();
         }
 
         //push栈向pop栈导入数据
         public void pushToPop(){
-            if(stackpop.empty()){
-                while(!stackpush.empty()){
-                    stackpop.push(stackpush.pop());
+            //pop栈为空，才能去导数据
+            if(stackPop.empty()){
+                while(!stackPush.empty()){
+                    stackPop.push(stackPush.pop());
                 }
             }
         }
 
         public void add(int pushInt){
-            stackpush.push(pushInt);
+            stackPush.push(pushInt);
             pushToPop();
         }
 
         public int poll(){
-            if(stackpop.empty()&&stackpush.empty()){
+            if(stackPop.empty()&& stackPush.empty()){
                 throw new RuntimeException("Queue is empty!");
             }
             pushToPop();
-            return stackpop.pop();
+            return stackPop.pop();
         }
 
         public int peek(){
-            if(stackpop.empty()&&stackpush.empty()){
+            if(stackPop.empty()&& stackPush.empty()){
                 throw new RuntimeException("Queue is empty");
             }
             pushToPop();
-            return stackpop.peek();
+            return stackPop.peek();
         }
     }
 

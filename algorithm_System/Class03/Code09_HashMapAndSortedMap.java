@@ -1,25 +1,26 @@
 package Class03;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.TreeMap;
 
 public class Code09_HashMapAndSortedMap {
-    public static class Node{
+    public static class Node {
         public int value;
 
-        public Node(int v){
-            value=v;
+        public Node(int v) {
+            value = v;
         }
     }
+
     public static class Zuo {
         public int value;
 
-        public Zuo(int v){
-            value=v;
+        public Zuo(int v) {
+            value = v;
         }
     }
-    public static void main(String[]args){
+
+    public static void main(String[] args) {
 //        HashMap<Integer,Integer>test=new HashMap<>();
 //        Integer a=19000000;
 //        Integer b=19000000;
@@ -77,11 +78,11 @@ public class Code09_HashMapAndSortedMap {
 //        Integer f=127;
 //        System.out.println(e==f);
 //
-        HashMap<Node,String>map2=new HashMap<>();
-        Node node1=new Node(1);
-        Node node2=node1;
-        map2.put(node1,"我是node1");
-        map2.put(node2,"我是node1");
+        HashMap<Node, String> map2 = new HashMap<>();
+        Node node1 = new Node(1);
+        Node node2 = node1;
+        map2.put(node1, "我是node1");
+        map2.put(node2, "我是node1");
         System.out.println(map2.size());
         System.out.println("=======");
 
@@ -90,20 +91,20 @@ public class Code09_HashMapAndSortedMap {
         //有序表的时间复杂度是O(logN）
 
         System.out.println("有序表测试开始");
-        TreeMap<Integer,String>treeMap = new TreeMap<>();
+        TreeMap<Integer, String> treeMap = new TreeMap<>();
 
-        treeMap.put(3,"我是3");
-        treeMap.put(4,"我是4");
-        treeMap.put(8,"我是8");
-        treeMap.put(5,"我是5");
-        treeMap.put(7,"我是7");
-        treeMap.put(1,"我是1");
-        treeMap.put(2,"我是2");
+        treeMap.put(3, "我是3");
+        treeMap.put(4, "我是4");
+        treeMap.put(8, "我是8");
+        treeMap.put(5, "我是5");
+        treeMap.put(7, "我是7");
+        treeMap.put(1, "我是1");
+        treeMap.put(2, "我是2");
         System.out.println(treeMap.containsKey(1));
         System.out.println(treeMap.containsKey(10));
         System.out.println(treeMap.get(4));
         System.out.println(treeMap.get(10));
-        treeMap.put(4,"他是4");
+        treeMap.put(4, "他是4");
         System.out.println(treeMap.get(4));
 
         System.out.println("新鲜：");
@@ -114,13 +115,6 @@ public class Code09_HashMapAndSortedMap {
         System.out.println(treeMap.floorKey(4));
         //>=4
         System.out.println(treeMap.ceilingKey(4));
-
-
-
-
-
-
-
 
 
     }

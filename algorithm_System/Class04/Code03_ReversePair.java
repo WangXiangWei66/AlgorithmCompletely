@@ -22,39 +22,44 @@ public class Code03_ReversePair {
         int mid = L + ((R - L) >> 1);
         return process(arr, L, mid) + process(arr, mid + 1, R) + merge(arr, L, mid, R);
     }
-    public static int merge(int[]arr,int L,int M,int R){
-        int[]help=new int[R-L+1];
-        int i=help.length-1;
-        int p1=M;
-        int p2=R;
-        int res=0;
-        while(p1>=L&&p2>M){
-            res+=arr[p1]>arr[p2]?(p2-M):0;
-            help[i--]=arr[p1]>arr[p2]?arr[p1--]:arr[p2--];
+
+    public static int merge(int[] arr, int L, int M, int R) {
+        int[] help = new int[R - L + 1];
+        int i = help.length - 1;
+        //p1为中点位置
+        int p1 = M;
+        int p2 = R;
+        int res = 0;
+        while (p1 >= L && p2 > M) {
+            res += arr[p1] > arr[p2] ? (p2 - M) : 0;
+            //从右往左merge的过程
+            help[i--] = arr[p1] > arr[p2] ? arr[p1--] : arr[p2--];
         }
-        while(p1>=L){
-            help[i--]=arr[p1--];
+        while (p1 >= L) {
+            help[i--] = arr[p1--];
         }
-        while(p2>M){
-            help[i--]=arr[p2--];
+        while (p2 > M) {
+            help[i--] = arr[p2--];
         }
-        for(i=0;i<help.length;i++){
-            arr[L+i]=help[i];
+        //将原数组覆盖的过程
+        for (i = 0; i < help.length; i++) {
+            arr[L + i] = help[i];
         }
         return res;
     }
 
-    public static int comparator(int[]arr){
-        int res=0;
-        for(int i=0;i<arr.length;i++){
-            for(int j=0;j<i;j++){
-                if(arr[j]>arr[i]){
+    public static int comparator(int[] arr) {
+        int res = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < i; j++) {
+                if (arr[j] > arr[i]) {
                     res++;
                 }
             }
         }
         return res;
     }
+
     public static int[] generateRandomArray(int maxSize, int maxValue) {
         int[] arr = new int[(int) ((maxSize + 1) * Math.random())];
         for (int i = 0; i < arr.length; i++) {
@@ -110,7 +115,7 @@ public class Code03_ReversePair {
         for (int i = 0; i < testTime; i++) {
             int[] arr1 = generateRandomArray(maxSize, maxValue);
             int[] arr2 = copyArray(arr1);
-            if (reversePairNum(arr1)!=comparator(arr2)) {
+            if (reversePairNum(arr1) != comparator(arr2)) {
                 System.out.println("出错了!");
                 printArray(arr1);
                 printArray(arr2);

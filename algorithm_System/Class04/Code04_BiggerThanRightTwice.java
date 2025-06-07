@@ -2,59 +2,63 @@ package Class04;
 
 public class Code04_BiggerThanRightTwice {
     //该问题也是返回的总个数
-    public static int reversePairsTwice(int[]arr){
-        if(arr==null||arr.length<2){
+    public static int reversePairsTwice(int[] arr) {
+        if (arr == null || arr.length < 2) {
             return 0;
         }
-        return process(arr,0,arr.length-1);
+        return process(arr, 0, arr.length - 1);
     }
-    public static int process(int[]arr,int L,int R){
-        if(L==R){
+
+    public static int process(int[] arr, int L, int R) {
+        if (L == R) {
             return 0;
         }
-        int mid=L+((R-L)>>1);
-        return process(arr,L,mid)+process(arr,mid+1,R)+merge(arr,L, mid,R);
+        int mid = L + ((R - L) >> 1);
+        return process(arr, L, mid) + process(arr, mid + 1, R) + merge(arr, L, mid, R);
     }
-    public static int merge(int[]arr,int l,int m,int r){
-        int ans=0;
+
+    public static int merge(int[] arr, int l, int m, int r) {
+        int ans = 0;
         //目前囊括进来的数，是从[m+1,windowR)
-        int windowR=m+1;
-        for(int i=l;i<=m;i++){
-            while(windowR<=r&&(long)arr[i]>(long)arr[windowR]*2){
+        int windowR = m + 1;
+        for (int i = l; i <= m; i++) {
+            while (windowR <= r && (long) arr[i] > (long) arr[windowR] * 2) {
                 windowR++;
             }
-            ans+=windowR-m-1;
+            ans += windowR - m - 1;
         }
 
-        int[]help=new int[r-l+1];
-        int i=0;
-        int p1=l;
-        int p2=m+1;
-        while(p1<=m&&p2<=r){
-            help[i++]=arr[p1]<=arr[p2]?arr[p1++]:arr[p2++];
+        int[] help = new int[r - l + 1];
+        int i = 0;
+        int p1 = l;
+        int p2 = m + 1;
+        while (p1 <= m && p2 <= r) {
+            help[i++] = arr[p1] <= arr[p2] ? arr[p1++] : arr[p2++];
         }
-        while(p1<=m){
-            help[i++]=arr[p1++];
+        while (p1 <= m) {
+            help[i++] = arr[p1++];
         }
-        while(p2<=r){
-            help[i++]=arr[p2++];
+        while (p2 <= r) {
+            help[i++] = arr[p2++];
         }
-        for(i=0;i<help.length;i++){
-            arr[l+i]=help[i];
+        for (i = 0; i < help.length; i++) {
+            arr[l + i] = help[i];
         }
         return ans;
     }
-    public static int comparator(int[]arr){
-        int res=0;
-        for(int i=0;i<arr.length;i++){
-            for(int j=0;j<i;j++){
-                if(arr[j]>(arr[i]<<1)){
+
+    public static int comparator(int[] arr) {
+        int res = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < i; j++) {
+                if (arr[j] > (arr[i] << 1)) {
                     res++;
                 }
             }
         }
         return res;
     }
+
     public static int[] generateRandomArray(int maxSize, int maxValue) {
         int[] arr = new int[(int) ((maxSize + 1) * Math.random())];
         for (int i = 0; i < arr.length; i++) {
@@ -110,7 +114,7 @@ public class Code04_BiggerThanRightTwice {
         for (int i = 0; i < testTime; i++) {
             int[] arr1 = generateRandomArray(maxSize, maxValue);
             int[] arr2 = copyArray(arr1);
-            if (reversePairsTwice(arr1)!=comparator(arr2)) {
+            if (reversePairsTwice(arr1) != comparator(arr2)) {
                 System.out.println("出错了!");
                 printArray(arr1);
                 printArray(arr2);

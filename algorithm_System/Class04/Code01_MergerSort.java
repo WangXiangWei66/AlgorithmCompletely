@@ -1,7 +1,5 @@
 package Class04;
 
-import javax.swing.*;
-import java.util.function.IntToLongFunction;
 
 public class Code01_MergerSort {
 
@@ -55,23 +53,24 @@ public class Code01_MergerSort {
         }
         int N = arr.length;
         //步长
-        int mergeSize = 1;
-        while (mergeSize < N) {
+        int step = 1;
+        while (step < N) {
             //当前左组的第一个位置
             int L = 0;
             while (L < N) {
-                if (mergeSize >= N - L) {
+                //提前终止内层循环，避免处理无效的有组和不必要的合并操作
+                if (step >= N - L) {
                     break;
                 }
-                int M = L + mergeSize - 1;
-                int R = M + Math.min(mergeSize, N - M - 1);
+                int M = L + step - 1;
+                int R = M + Math.min(step, N - M - 1);
                 merge(arr, L, M, R);
             }
             //防止溢出
-            if (mergeSize > N / 2) {
+            if (step > N / 2) {
                 break;
             }
-            mergeSize <<= 1;
+            step <<= 1;
         }
     }
 

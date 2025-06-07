@@ -29,6 +29,7 @@ public class Code02_smallSum {
         int p2 = M + 1;
         int res = 0;
         while (p1 <= M && p2 <= R) {
+            //只有左边的数小于右边的数的时候，才会合并
             res += arr[p1] < arr[p2] ? (R - p2 + 1) * arr[p1] : 0;
             help[i++] = arr[p1] < arr[p2] ? arr[p1++] : arr[p2++];
         }
@@ -38,6 +39,7 @@ public class Code02_smallSum {
         while (p2 <= R) {
             help[i++] = arr[p2++];
         }
+        //将临时数组 help 中的有序元素复制回原数组 arr，从而完成对子数组 [L, R] 的排序
         for (i = 0; i < help.length; i++) {
             arr[L + i] = help[i];
         }

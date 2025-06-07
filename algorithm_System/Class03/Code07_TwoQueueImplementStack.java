@@ -1,6 +1,5 @@
 package Class03;
 
-import java.nio.channels.NonWritableChannelException;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -15,15 +14,19 @@ public class Code07_TwoQueueImplementStack {
             help = new LinkedList<>();
         }
 
+        //往queue里面加数
         public void push(T value) {
             queue.offer(value);
         }
 
+        //先将数加入help中
         public T poll() {
             while (queue.size() > 1) {
                 help.offer(queue.poll());
             }
+            //要弹出的数为queue的栈顶元素，即还剩的最后一个元素
             T ans = queue.poll();
+            //将queue与help队列交换一下
             Queue<T> tmp = queue;
             queue = help;
             help = tmp;
@@ -31,6 +34,7 @@ public class Code07_TwoQueueImplementStack {
         }
 
         public T peek() {
+            //先将数导入help
             while (queue.size() > 1) {
                 help.offer(queue.poll());
             }
