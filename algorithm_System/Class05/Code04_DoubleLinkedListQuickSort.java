@@ -19,9 +19,10 @@ public class Code04_DoubleLinkedListQuickSort {
         if (h == null) {
             return null;
         }
-        int N = 0;
-        Node c = h;
-        Node e = null;
+        int N = 0;//链表的长度
+        Node c = h;//头节点的指针
+        Node e = null;//尾节点的指针
+        //获取链表的长度
         while (c != null) {
             N++;
             e = c;
@@ -43,7 +44,7 @@ public class Code04_DoubleLinkedListQuickSort {
     //L...R是一个双向链表的头和尾
     //L的last指针指向null，R的next指针指向null
     //也就是说L的左边没有节点，R 的右边也没有节点
-    //就是一个正常的双线链表，一共有N个节点
+    //就是一个正常的双向链表，一共有N个节点
     //将这一段用随机快排的方式排好序
     //返回排好序之后的双向链表的头和尾
     public static HeadTail process(Node L, Node R, int N) {
@@ -99,12 +100,15 @@ public class Code04_DoubleLinkedListQuickSort {
     }
 
     public static class Info {
+        //小于
         public Node lh;
         public Node lt;
         public int ls;
+        //大于
         public Node rh;
         public Node rt;
         public int rs;
+        //等于
         public Node eh;
         public Node et;
 
@@ -123,7 +127,7 @@ public class Code04_DoubleLinkedListQuickSort {
     //(L...一直到空)是一个双向链表
     //pivot是一个不在(L....一直到空)的独立节点，他作为划分值
     //根据荷兰国旗问题的划分方式，把(L....一直到空)划分成
-    //<pivot  =pivot >pivot 三个部分，然后把pivot 融进=pvot的部分
+    //<pivot  =pivot >pivot 三个部分，然后把pivot 融进=pivot的部分
     //比如4(L)->6->7->1->5->0->9->null pivot=5(这个5和链表中的5，是不同的节点)
     //调整完成后：
     //4->1->0是小于的部分
@@ -145,7 +149,9 @@ public class Code04_DoubleLinkedListQuickSort {
         Node et = pivot;
         Node tmp = null;
         while (L != null) {
+            //保存下一个节点
             tmp = L.next;
+            //将节点断开
             L.next = null;
             L.last = null;
             if (L.value < pivot.value) {
@@ -187,11 +193,13 @@ public class Code04_DoubleLinkedListQuickSort {
         }
     }
 
+    //将链表进行排序的过程
     public static Node sort(Node head) {
         if (head == null) {
             return null;
         }
         ArrayList<Node> arr = new ArrayList<>();
+        //将节点加入动态链表中
         while (head != null) {
             arr.add(head);
             head = head.next;
@@ -216,6 +224,7 @@ public class Code04_DoubleLinkedListQuickSort {
         }
         Node[] arr = new Node[n];
         for (int i = 0; i < n; i++) {
+            //随机产生节点值
             arr[i] = new Node((int) (Math.random() * v));
         }
         Node head = arr[0];
@@ -228,7 +237,7 @@ public class Code04_DoubleLinkedListQuickSort {
         return head;
     }
 
-    public static Node cloneDoubleLinkedLIist(Node head) {
+    public static Node cloneDoubleLinkedList(Node head) {
         if (head == null) {
             return null;
         }
@@ -249,6 +258,7 @@ public class Code04_DoubleLinkedListQuickSort {
         return doubleLinkedListToString(h1).equals(doubleLinkedListToString(h2));
     }
 
+    //通过正反向遍历生成字符串
     public static String doubleLinkedListToString(Node head) {
         Node cur = head;
         Node end = null;
@@ -274,7 +284,7 @@ public class Code04_DoubleLinkedListQuickSort {
         for (int i = 0; i < testTime; i++) {
             int size = (int) (Math.random() * N);
             Node head1 = generateRandomDoubleLinkedList(size, V);
-            Node head2 = cloneDoubleLinkedLIist(head1);
+            Node head2 = cloneDoubleLinkedList(head1);
             Node sort1 = quickSort(head1);
             Node sort2 = sort(head2);
             if (!equal(sort1, sort2)) {

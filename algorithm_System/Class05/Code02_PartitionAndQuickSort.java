@@ -24,13 +24,15 @@ public class Code02_PartitionAndQuickSort {
             }
             index++;
         }
+        //最后返回基准元素，需要在的位置
         swap(arr, ++lessEqual, R);
         return lessEqual;
     }
 
     //arr[L...R]玩荷兰国旗划分，以arr[R]做划分值
     //<  =  >
-    public static int[] netherlandsFlag(int[] arr, int L, int R) {//本问题返回的是等于区域的下标
+    ////本问题返回的是等于区域的下标
+    public static int[] netherlandsFlag(int[] arr, int L, int R) {
         if (L > R) {
             return new int[]{-1, -1};
         }
@@ -49,6 +51,7 @@ public class Code02_PartitionAndQuickSort {
                 swap(arr, index, --more);
             }
         }
+        //将末尾位置的元素，移动到大于区域的起始位置
         swap(arr, more, R);
         return new int[]{less + 1, more};
     }

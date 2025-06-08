@@ -29,6 +29,8 @@ public class Code01_countOfRangeSum {
         int windowR = L;
         //窗口的范围是[windowL,windowR)
         for (int i = M + 1; i <= R; i++) {
+            //这个arr已经是加工成了前缀和数组
+            //求右组中的每个数Low与Upp，判断左边有多少个达标，最后总体累加
             long min = arr[i] - upper;
             long max = arr[i] - lower;
             while (windowR <= M && arr[windowR] <= max) {

@@ -7,7 +7,7 @@ import java.util.Stack;
 public class Code03_QuickSortRecursiveAndUnrecursive {
 
     //荷兰国旗问题
-
+    //把最后一个元素作为了基准元素
     public static int[] netherlandsFlag(int[] arr, int L, int R) {
         if (L > R) {
             return new int[]{-1, -1};
@@ -48,6 +48,7 @@ public class Code03_QuickSortRecursiveAndUnrecursive {
         if (L >= R) {
             return;
         }
+        //随机选择一个数来作为基准元素
         swap(arr, L + (int) (Math.random() * (R - L + 1)), R);
         int[] equalArea = netherlandsFlag(arr, L, R);
         process(arr, L, equalArea[0] - 1);
@@ -76,7 +77,10 @@ public class Code03_QuickSortRecursiveAndUnrecursive {
         int[] equalArea = netherlandsFlag(arr, 0, N - 1);
         int el = equalArea[0];
         int er = equalArea[1];
+        //通过栈的push和pop操作模拟递归调用的压栈和出栈过程
         Stack<Op> stack = new Stack<>();
+        //将左右子数组的区间信息压入栈中
+        // （注意顺序：先右后左，确保左子数组先被处理）。
         stack.push(new Op(0, el - 1));
         stack.push(new Op(er + 1, N - 1));
         while (!stack.isEmpty()) {
@@ -93,6 +97,7 @@ public class Code03_QuickSortRecursiveAndUnrecursive {
     }
 
     //快排的非递归版本，用队列来实现
+    //子数组的处理顺序从深度优先变为广度优先，但最终排序结果相同。
     public static void quickSort3(int[] arr) {
         if (arr == null || arr.length < 2) {
             return;
