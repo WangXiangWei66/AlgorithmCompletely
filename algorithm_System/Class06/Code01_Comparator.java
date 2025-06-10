@@ -24,7 +24,7 @@ public class Code01_Comparator {
         //范围0的时候，认为无所谓谁在前面
     }
 
-    public static class IdshengAgeJiang implements Comparator<Student> {
+    public static class IdShengAgeJiang implements Comparator<Student> {
         //根据id从小到大，但是id一样时，根据年龄从大到小
 
         @Override
@@ -76,14 +76,14 @@ public class Code01_Comparator {
         System.out.println();
     }
 
-    public static class Mycomp implements Comparator<Integer> {
+    public static class MyComp implements Comparator<Integer> {
         @Override
         public int compare(Integer o1, Integer o2) {
             return o2 - o1;
         }
     }
 
-    public static class Acomp implements Comparator<Integer> {
+    public static class AComp implements Comparator<Integer> {
         @Override
         public int compare(Integer arg0, Integer arg1) {
             return arg0 - arg1;
@@ -93,7 +93,7 @@ public class Code01_Comparator {
     public static void main(String[] args) {
         Integer[] arr = {5, 4, 3, 2, 7, 9, 1, 0};
 
-        Arrays.sort(arr, new Acomp());
+        Arrays.sort(arr, new AComp());
 
         for (int i = 0; i < arr.length; i++) {
             System.out.println(arr[i]);
@@ -124,7 +124,7 @@ public class Code01_Comparator {
         studentList.add(student3);
         studentList.add(student4);
         studentList.add(student5);
-        studentList.sort(new IdshengAgeJiang());
+        studentList.sort(new IdShengAgeJiang());
         for (int i = 0; i < studentList.size(); i++) {
             Student s = studentList.get(i);
             System.out.println(s.name + "," + s.id + "," + s.age);

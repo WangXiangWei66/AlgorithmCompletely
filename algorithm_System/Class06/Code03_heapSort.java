@@ -56,9 +56,9 @@ public class Code03_heapSort {
     }
 
     public static void swap(int[] arr, int i, int j) {
-      int tmp=arr[i];
-      arr[i]=arr[j];
-      arr[j]=tmp;
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
     }
 
     //下面的做法是为了写对数器

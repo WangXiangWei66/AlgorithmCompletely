@@ -8,17 +8,18 @@ public class Code04_SortArrDistanceLessK {
         if (k == 0) {
             return;
         }
-        //默认使用小根堆
+        //默认使用小根堆，用于动态维护当前最小元素
         PriorityQueue<Integer> heap = new PriorityQueue<>();
         int index = 0;
-        //0...K-1
+        //0...K-1，将数组前k个数加入堆
         for (; index <= Math.min(arr.length - 1, k - 1); index++) {
             heap.add(arr[index]);
         }
         int i = 0;
+        //index从k开始，遍历到数组的末尾
         for (; index < arr.length ; i++, index++) {
             heap.add(arr[index]);
-            arr[i] = heap.poll();
+            arr[i] = heap.poll();//弹出栈顶元素，即当前数中的最小值
         }
         while (!heap.isEmpty()) {
             arr[i++] = heap.poll();
@@ -41,6 +42,7 @@ public class Code04_SortArrDistanceLessK {
         //swap[i]=false,表示i位置没有参与过交换
         boolean[] isSwap = new boolean[arr.length];
         for (int i = 0; i < arr.length; i++) {
+            //对于每个位置的数，生成一个随机的偏移量
             int j = Math.min(i + (int) (Math.random() * (k + 1)), arr.length - 1);
             if (!isSwap[i] && !isSwap[j]) {
                 isSwap[i] = true;

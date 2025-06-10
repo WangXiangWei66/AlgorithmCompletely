@@ -6,7 +6,9 @@ import java.util.PriorityQueue;
 public class Code02_Heap {
     public static class MyMaxHeap {
         private int[] heap;
+        //limit是堆的最大容量，即数组的最大长度
         private final int limit;
+        //heapSize：当前堆中实际存储的元素数量。它指示数组中有效元素的范围，同时也用于确定下一个插入元素的位置。
         private int heapSize;
 
         public MyMaxHeap(int limit) {
@@ -98,6 +100,7 @@ public class Code02_Heap {
             if (size == limit) {
                 throw new RuntimeException("heap is full");
             }
+            //size+1标志数组中有效元素增加
             arr[size++] = value;
         }
 
@@ -109,6 +112,7 @@ public class Code02_Heap {
                 }
             }
             int ans = arr[maxIndex];
+            //用数组最后一个元素来覆盖最大元素位置
             arr[maxIndex] = arr[--size];
             return ans;
         }
