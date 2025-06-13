@@ -9,10 +9,11 @@ public class Code03_HeapGreater {
 
 
     public static class HeapGreater<T> {
-        private ArrayList<T> heap;
-        private HashMap<T, Integer> indexMap;
-        private int heapSize;
-        private Comparator<? super T> comp;
+        private ArrayList<T> heap;//使用 ArrayList 实现的堆数组，存储所有元素
+        private HashMap<T, Integer> indexMap;// 哈希表，用于快速查找元素在堆中的位置
+        private int heapSize;//堆的当前大小
+        //泛型通配符 < ? super T >
+        private Comparator<? super T> comp;//比较器，决定了堆的排序规则
 
         public HeapGreater(Comparator<? super T> c) {
             heap = new ArrayList<>();
@@ -52,6 +53,7 @@ public class Code03_HeapGreater {
             return ans;
         }
 
+        //获取堆中最后一个元素为替换元素
         public void remove(T obj) {
             T replace = heap.get(heapSize - 1);
             int index = indexMap.get(obj);
@@ -107,7 +109,5 @@ public class Code03_HeapGreater {
             indexMap.put(o2, i);
             indexMap.put(o1, j);
         }
-
     }
-
 }

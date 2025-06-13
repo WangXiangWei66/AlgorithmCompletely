@@ -36,9 +36,13 @@ public class Code05_EveryStepShowBoss {
     }
 
     public static class WhosYourDaddy {
+        //快速查找客户ID和对应的客户对象
         private HashMap<Integer, Customer> customers;
+        //存储候选区的用户
         private Code03_HeapGreater.HeapGreater<Customer> candHeap;
+        //存储得奖区的用户
         private Code03_HeapGreater.HeapGreater<Customer> daddyHeap;
+        //得奖区中元素数的限制
         private final int daddyLimit;
 
         public WhosYourDaddy(int limit) {
@@ -119,6 +123,8 @@ public class Code05_EveryStepShowBoss {
         }
     }
 
+    //外层表示整个操作的时间线
+    //内层表示一次操作的TopK结果
     public static List<List<Integer>> topK(int[] arr, boolean[] op, int k) {
         List<List<Integer>> ans = new ArrayList<>();
         WhosYourDaddy whoDaddies = new WhosYourDaddy(k);
@@ -212,7 +218,7 @@ public class Code05_EveryStepShowBoss {
                 noZero.add(c);
             }
         }
-        arr.clear();
+        arr.clear();//用来清空集合中的所有元素
         for (Customer c : noZero) {
             arr.add(c);
         }
