@@ -2,6 +2,7 @@ package Class08;
 
 import java.util.Arrays;
 
+//基数排序：通过按位处理数据来实现排序
 public class Code04_RadixSort {
 
     //only for no-negative value
@@ -27,29 +28,30 @@ public class Code04_RadixSort {
 
     //arr[L...R]排序,最大值的十进制数digit
     public static void radixSort(int[] arr, int L, int R, int digit) {
-        final int radix = 10;
+        final int radix = 10;//设置基数，表示是10进制
         int i = 0, j = 0;
         //有多少个数，准备多少个辅助空间
         int[] help = new int[R - L + 1];
-        for (int d = 1; d <=digit; d++) {//有多少位，就进出几次
+        for (int d = 1; d <= digit; d++) {//有多少位，就进出几次
             //10个空间
             //count[0]当前位(d位)是0的数字有多少个
             //count[1]当前位(d位)是(0和1)的数字有多少个
             //count[2]当前位(d位)是(0、1、2)的数字有多少个
             //count[i]当前位(d位)是(0~i)的数字有多少个
-            int[] count = new int[radix];//count[0...9]
+            int[] count = new int[radix];//count[0...9]，计数数组，统计每一位数出现的次数
             for (i = L; i <= R; i++) {
                 //103  1  3
                 //209  1  9
-                j = getDigit(arr[i], d);
+                j = getDigit(arr[i], d);//获取d位数字
                 count[j]++;
             }
             for (i = 1; i < radix; i++) {
-                count[i] = count[i] + count[i - 1];
+                count[i] = count[i] + count[i - 1];//计算前缀和，统计每个数出现的位置
             }
+            //从右往左走，决定去哪个位置，将词频减减
             for (i = R; i >= L; i--) {
                 j = getDigit(arr[i], d);
-                help[count[j ]- 1] = arr[i];
+                help[count[j] - 1] = arr[i];
                 count[j]--;
             }
             for (i = L, j = 0; i <= R; i++, j++) {
@@ -57,9 +59,11 @@ public class Code04_RadixSort {
             }
         }
     }
-    public static int getDigit(int x,int d){
-        return ((x/(int)Math.pow(10,d-1))%10);
+
+    public static int getDigit(int x, int d) {
+        return ((x / (int) Math.pow(10, d - 1)) % 10);
     }
+
     public static void comparator(int[] arr) {
         Arrays.sort(arr);
     }

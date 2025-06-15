@@ -1,7 +1,7 @@
 package Class08;
 
 import java.util.Arrays;
-
+//计数排序
 public class Code03_CountSort {
 
     //Only for  0~200  的值
@@ -11,14 +11,18 @@ public class Code03_CountSort {
             return;
         }
         int max = Integer.MIN_VALUE;
+        //遍历获取系统最大值
         for (int i = 0; i < arr.length; i++) {
             max = Math.max(max, arr[i]);
         }
+        //准备桶数组的大小
         int[] bucket = new int[max + 1];
+        //遍历，记录每个数出现的次数
         for (int i = 0; i < arr.length; i++) {
             bucket[arr[i]]++;
         }
         int i = 0;
+        //将统计的桶中的数据，重新填回原数组
         for (int j = 0; j < bucket.length; j++) {
             while (bucket[j]-- > 0) {
                 arr[i++] = j;

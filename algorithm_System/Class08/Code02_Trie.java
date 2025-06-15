@@ -4,7 +4,8 @@ import java.util.HashMap;
 
 public class Code02_Trie {
     class Trie {
-        //该前缀树的路由哈希表实现
+        //该前缀树的路由哈希表实现，如果路很多的情况下
+        //如果字符种类很多，用哈希表形式表示下级路，每个KEY都是字符转成整型后的ASCII码值
         class Node {
             public int pass;
             public int end;

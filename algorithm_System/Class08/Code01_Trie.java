@@ -1,6 +1,5 @@
 package Class08;
 
-import java.nio.file.Path;
 
 public class Code01_Trie {
 
@@ -8,6 +7,7 @@ public class Code01_Trie {
         class Node {
             public int pass;
             public int end;
+            //nexts数组的初始长度为26.在字符数量不多时，小写字母即可表示
             public Node[] nexts;
 
             public Node() {
@@ -23,6 +23,7 @@ public class Code01_Trie {
             root = new Node();
         }
 
+        //用底层节点是否为空标记路是否存在
         public void insert(String word) {
             if (word == null) {
                 return;
@@ -30,7 +31,7 @@ public class Code01_Trie {
             char[] str = word.toCharArray();
             Node node = root;
             node.pass++;
-            int path = 0;
+            int path = 0;//临时变量，当前字符走哪条路
             for (int i = 0; i < str.length; i++) {//从左往右遍历字符
                 path = str[i] - 'a';//由字符对应走向哪条路
                 if (node.nexts[path] == null) {
@@ -43,7 +44,7 @@ public class Code01_Trie {
         }
 
         public void erase(String word) {
-            if (countWordsEqualTo(word) != 0) {
+            if (countWordsEqualTo(word) != 0) {//先查是否有，为了防止内存泄露
                 char[] chs = word.toCharArray();
                 Node node = root;
                 node.pass--;
@@ -60,6 +61,7 @@ public class Code01_Trie {
             }
         }
 
+        //匹配完全给定字符串的单词数量
         public int countWordsEqualTo(String word) {
             if (word == null) {
                 return 0;
@@ -77,6 +79,7 @@ public class Code01_Trie {
             return node.end;
         }
 
+        //用来匹配前缀的数量
         public int countWordsStringWith(String pre) {
             if (pre == null) {
                 return 0;
