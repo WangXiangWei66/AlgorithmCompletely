@@ -28,7 +28,9 @@ public class Code03_SmallEqualBigger {
             nodeArr[i] = cur;
             cur = cur.next;
         }
+        //对数组进行分区操作
         arrPartition(nodeArr, pivot);
+        //重新链接数组中的节点，形成新链表
         for (i = 1; i != nodeArr.length; i++) {
             nodeArr[i - 1].next = nodeArr[i];
         }
@@ -96,42 +98,42 @@ public class Code03_SmallEqualBigger {
             }
             head = next;
         }
-       //小于区域的尾巴，连等于区域的头，等于区域的尾巴连大于区域的头
-        if(sT!=null){//如果有小于区域
-            sT.next=eH;
-            eT=eT==null?sT : eT;//下一步,谁去连大于区域的头,谁就变成eT
+        //小于区域的尾巴，连等于区域的头，等于区域的尾巴连大于区域的头
+        if (sT != null) {//如果有小于区域
+            sT.next = eH;
+            eT = eT == null ? sT : eT;//下一步,谁去连大于区域的头,谁就变成eT
         }
         //下一步，一定是需要用eT去接大于区域的头
         //有等于区域，eT->等于区域的尾节点
         //无等于区域，eT->小于区域的尾节点
         //eT尽量不为空的尾巴节点
-        if(eT!=null){//如果小于区域和等于区域，不是都没有
-            eT.next=mH;
+        if (eT != null) {//如果小于区域和等于区域，不是都没有
+            eT.next = mH;
         }
-        return sH!=null?sH:(eH!=null?eH : mH);
+        return sH != null ? sH : (eH != null ? eH : mH);
     }
 
-    public static void printLinkedList(Node node){
+    public static void printLinkedList(Node node) {
         System.out.println("Linked List：");
-        while(node!=null){
-            System.out.print(node.value+"->");
-            node=node.next;
+        while (node != null) {
+            System.out.print(node.value + "->");
+            node = node.next;
         }
         System.out.println();
     }
 
 
-    public static void main(String[]args){
-        Node head1=new Node(7);
-        head1.next=new Node(9);
-        head1.next.next=new Node(1);
-        head1.next.next.next=new Node(8);
-        head1.next.next.next.next=new Node(5);
-        head1.next.next.next.next.next=new Node(2);
-        head1.next.next.next.next.next.next=new Node(5);
+    public static void main(String[] args) {
+        Node head1 = new Node(7);
+        head1.next = new Node(9);
+        head1.next.next = new Node(1);
+        head1.next.next.next = new Node(8);
+        head1.next.next.next.next = new Node(5);
+        head1.next.next.next.next.next = new Node(2);
+        head1.next.next.next.next.next.next = new Node(5);
 
         printLinkedList(head1);
-        head1=listPartition2(head1,5);
+        head1 = listPartition2(head1, 5);
         printLinkedList(head1);
     }
 }
