@@ -31,6 +31,7 @@ public class Code02_SerializeAndReconstructTree {
         }
     }
 
+    //先序方式序列化，创建出来一个队列
     public static Queue<String> preSerial(Node head) {
         Queue<String> ans = new LinkedList<>();
         pres(head, ans);
@@ -79,6 +80,7 @@ public class Code02_SerializeAndReconstructTree {
         }
     }
 
+    //先序方式反序列化
     public static Node buildByPreQueue(Queue<String> prelist) {
         if (prelist == null || prelist.size() == 0) {
             return null;
@@ -98,6 +100,7 @@ public class Code02_SerializeAndReconstructTree {
     }
 
 
+    //后序遍历反序列化
     public static Node buildByPosQueue(Queue<String> poslist) {
         if (poslist == null || poslist.size() == 0) {
             return null;
@@ -152,6 +155,7 @@ public class Code02_SerializeAndReconstructTree {
         if (levelList == null || levelList.size() == 0) {
             return null;
         }
+        //从队列中弹出首个元素
         Node head = generateNode(levelList.poll());
         Queue<Node> queue = new LinkedList<Node>();
         if (head != null) {
@@ -215,6 +219,7 @@ public class Code02_SerializeAndReconstructTree {
         printInOrder(head, 0, "H", 17);
     }
 
+    //使得右子树在上，左子树在下
     public static void printInOrder(Node head, int height, String to, int len) {
         if (head == null) {
             return;

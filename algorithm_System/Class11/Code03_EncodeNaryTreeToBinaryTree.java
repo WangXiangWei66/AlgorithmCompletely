@@ -22,8 +22,6 @@ public class Code03_EncodeNaryTreeToBinaryTree {
         }
     }
 
-    ;
-
     public static class TreeNode {
         int val;
         TreeNode left;
@@ -44,8 +42,11 @@ public class Code03_EncodeNaryTreeToBinaryTree {
                 return head;
             }
 
+            //将每个节点的第一个子节点作为其左子节点，将下一个兄弟节点作为其右子节点
             public TreeNode en(List<Node> children) {
+                //指向二叉树的根节点
                 TreeNode head = null;
+                //用来遍历并连接当前层的兄弟节点
                 TreeNode cur = null;
                 for (Node child : children) {
                     TreeNode tNode = new TreeNode(child.val);
@@ -62,7 +63,7 @@ public class Code03_EncodeNaryTreeToBinaryTree {
             }
 
             //Decode your binary tree to an n-ary tree
-
+            //二叉树中每个节点的右子链转换为多叉树的子节点列表。
             public List<Node> de(TreeNode root) {
                 List<Node> children = new ArrayList<>();
                 while (root != null) {

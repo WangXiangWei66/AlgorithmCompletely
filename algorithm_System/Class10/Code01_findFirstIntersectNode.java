@@ -1,6 +1,6 @@
 package Class10;
 
-//intersect:详见
+//intersect:相交、交集
 public class Code01_findFirstIntersectNode {
 
     public static class Node {
