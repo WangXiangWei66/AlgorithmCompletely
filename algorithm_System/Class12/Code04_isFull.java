@@ -15,33 +15,33 @@ public class Code04_isFull {
     //第一种方法
     //收集整棵树的高度h，和节点数n
     //只有满二叉树满足:2^h-1==n
-    public static boolean isFull1(Node head){
-        if(head==null){
+    public static boolean isFull1(Node head) {
+        if (head == null) {
             return true;
         }
-        Info1 all=process1(head);
-        return (1<<all.height)-1==all.nodes;
+        Info1 all = process1(head);
+        return (1 << all.height) - 1 == all.nodes;
     }
 
-    public static class Info1{
+    public static class Info1 {
         public int height;
         public int nodes;
 
-        public Info1(int h,int n){
-            height=h;
-            nodes=n;
+        public Info1(int h, int n) {
+            height = h;
+            nodes = n;
         }
     }
 
-    public static Info1 process1(Node head){
-        if(head==null){
-            return new  Info1(0,0);
+    public static Info1 process1(Node head) {
+        if (head == null) {
+            return new Info1(0, 0);
         }
-        Info1 leftInfo=process1(head.left);
-        Info1 rightInfo=process1(head.right);
-        int height=Math.max(leftInfo.height, rightInfo.height)+1;
-        int nodes= leftInfo.nodes+ rightInfo.nodes+1;
-        return new Info1(height,nodes);
+        Info1 leftInfo = process1(head.left);
+        Info1 rightInfo = process1(head.right);
+        int height = Math.max(leftInfo.height, rightInfo.height) + 1;
+        int nodes = leftInfo.nodes + rightInfo.nodes + 1;
+        return new Info1(height, nodes);
     }
 
 
@@ -49,32 +49,32 @@ public class Code04_isFull {
     //收集子树是否为满二叉树
     //收集子树的高度
     //左数满&&右数满&&左右数高度一样->整棵树是满的
-    public static  boolean isFull2(Node head){
-        if(head==null){
+    public static boolean isFull2(Node head) {
+        if (head == null) {
             return true;
         }
         return process2(head).isFull;
     }
 
-    public static class Info2{
+    public static class Info2 {
         public boolean isFull;
         public int height;
 
-        public Info2(boolean f,int h){
-            isFull=f;
-            height=h;
+        public Info2(boolean f, int h) {
+            isFull = f;
+            height = h;
         }
     }
 
-    public static Info2 process2(Node h){
-        if(h==null){
-            return new Info2(true,0);
+    public static Info2 process2(Node h) {
+        if (h == null) {
+            return new Info2(true, 0);
         }
-        Info2 leftInfo=process2(h.left);
-        Info2 rightInfo=process2(h.right);
-        boolean isFull=leftInfo.isFull&& rightInfo.isFull&&leftInfo.height== rightInfo.height;
-        int height=Math.max(leftInfo.height, rightInfo.height)+1;
-        return new Info2(isFull,height);
+        Info2 leftInfo = process2(h.left);
+        Info2 rightInfo = process2(h.right);
+        boolean isFull = leftInfo.isFull && rightInfo.isFull && leftInfo.height == rightInfo.height;
+        int height = Math.max(leftInfo.height, rightInfo.height) + 1;
+        return new Info2(isFull, height);
     }
 
     public static Node generateRandomBST(int maxLevel, int maxValue) {
@@ -92,8 +92,6 @@ public class Code04_isFull {
     }
 
     public static void main(String[] args) {
-
-
         int maxLevel = 4;
         int maxValue = 100;
         int testTime = 1000000;

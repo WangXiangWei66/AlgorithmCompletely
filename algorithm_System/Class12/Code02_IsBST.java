@@ -110,8 +110,6 @@ public class Code02_IsBST {
     }
 
     public static void main(String[] args) {
-
-
         int maxLevel = 4;
         int maxValue = 100;
         int testTime = 1000000;

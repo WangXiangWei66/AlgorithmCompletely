@@ -16,8 +16,9 @@ public class Code01_IsCBT {
 
     public static boolean isCBT1(Node head) {
         if (head == null) {
-            return true;
+            return true;//空树算作完全二叉树
         }
+        //队列实现，LinkedList在JAVA中是双端队列
         LinkedList<Node> queue = new LinkedList<>();
         //是否遇到过左右两个孩子不双全的节点
         boolean leaf = false;

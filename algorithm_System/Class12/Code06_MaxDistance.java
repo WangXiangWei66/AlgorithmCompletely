@@ -19,11 +19,13 @@ public class Code06_MaxDistance {
         if (head == null) {
             return 0;
         }
-        ArrayList<Node> arr = getPrelist(head);
+        ArrayList<Node> arr = getPrelist(head);//对二叉树进行了先序遍历
         HashMap<Node, Node> parentMap = getParentMap(head);
         int max = 0;
+        //通过两层for循环遍历二叉树的每一对节点
         for (int i = 0; i < arr.size(); i++) {
             for (int j = i; j < arr.size(); j++) {
+                //使用公共父节点计算任意两个节点的距离
                 max = Math.max(max, distance(parentMap, arr.get(i), arr.get(j)));
             }
         }
@@ -63,9 +65,12 @@ public class Code06_MaxDistance {
         }
     }
 
+    //计算两个二叉树节点之间的距离，通过最近公共祖先
     public static int distance(HashMap<Node, Node> parentMap, Node o1, Node o2) {
+        //创建集合存储从o1到根节点的路径
         HashSet<Node> o1Set = new HashSet<>();
         Node cur = o1;
+        //将o1加入路径集合，因为自己也是路径的一部分
         o1Set.add(cur);
         while (parentMap.get(cur) != null) {
             cur = parentMap.get(cur);
@@ -75,6 +80,7 @@ public class Code06_MaxDistance {
         while (!o1Set.contains(cur)) {
             cur = parentMap.get(cur);
         }
+        //结束循环后，cur即为最近公共祖先
         Node lowestAncestor = cur;
         cur = o1;
         int distance1 = 1;
@@ -88,6 +94,7 @@ public class Code06_MaxDistance {
             cur = parentMap.get(cur);
             distance2++;
         }
+        //最后减1是因为减去重复计算的一次公共祖先
         return distance1 + distance2 - 1;
     }
 
@@ -96,8 +103,8 @@ public class Code06_MaxDistance {
     }
 
     public static class Info {
-        public int maxDistance;
-        public int height;
+        public int maxDistance;//定义最大距离
+        public int height;//定义整棵树的高度
 
         public Info(int m, int h) {
             maxDistance = m;
@@ -134,8 +141,6 @@ public class Code06_MaxDistance {
     }
 
     public static void main(String[] args) {
-
-
         int maxLevel = 4;
         int maxValue = 100;
         int testTime = 1000000;

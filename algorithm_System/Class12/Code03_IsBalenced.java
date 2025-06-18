@@ -1,6 +1,5 @@
 package Class12;
 
-import java.util.HashMap;
 
 public class Code03_IsBalenced {
 
@@ -47,22 +46,22 @@ public class Code03_IsBalenced {
         }
     }
 
-    public static Info process(Node x){
-        if(x==null){
-            return new Info(true,0);
+    public static Info process(Node x) {
+        if (x == null) {
+            return new Info(true, 0);
         }
-        Info leftInfo=process(x.left);
-        Info rightInfo=process(x.right);
-        int height=Math.max(leftInfo.height ,rightInfo.height)+1;
-        boolean isBalanced=true;
-        if(!leftInfo.isBalanced){
-            isBalanced=false;
+        Info leftInfo = process(x.left);
+        Info rightInfo = process(x.right);
+        int height = Math.max(leftInfo.height, rightInfo.height) + 1;
+        boolean isBalanced = true;
+        if (!leftInfo.isBalanced) {
+            isBalanced = false;
         }
-        if(!rightInfo.isBalanced){
-            isBalanced=false;
+        if (!rightInfo.isBalanced) {
+            isBalanced = false;
         }
-        if(Math.abs(leftInfo.height-rightInfo.height)>1){
-            isBalanced=false;
+        if (Math.abs(leftInfo.height - rightInfo.height) > 1) {
+            isBalanced = false;
         }
         return new Info(isBalanced, height);
     }
@@ -82,8 +81,6 @@ public class Code03_IsBalenced {
     }
 
     public static void main(String[] args) {
-
-
         int maxLevel = 4;
         int maxValue = 100;
         int testTime = 1000000;
