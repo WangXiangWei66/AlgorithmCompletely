@@ -25,8 +25,8 @@ public class Code04_MaxHappy {
     //当前来到的节点叫cur
     //up表示cur的上级是否来
     //该函数的含义：
-    //如果up为true,表示在cur的上级已经确定来，的情况下，cur整棵树能够提供的最大快乐值是多少？
-    //如果up为false，表示在cur上级已经确定不来，的情况下，cur整棵树能够提供的最大快乐值是多少？
+    //如果up为true,表示在cur的上级已经确定来的情况下，cur整棵树能够提供的最大快乐值是多少？
+    //如果up为false，表示在cur上级已经确定不来的情况下，cur整棵树能够提供的最大快乐值是多少？
     public static int process1(Employee cur, boolean up) {
         if (up) {//如果cur的上级来的话，cur没得选，只能不来
             int ans = 0;

@@ -42,44 +42,45 @@ public class Code02_MergeSort {
             arr[L + i] = help[i];
         }
     }
+
     //非递归实现
-//    public static void mergeSort2(int[]arr){
-//        if(arr==null&&arr.length<2){
-//            return;
-//        }
-//        int step=1;
-//        int N=arr.length;
-//        while(step<N){
-//            int L=0;
-//            while(L<N){
-//                int M=0;
-//                if(N-L>=step){
-//                    M=L+step-1;
-//                }else{
-//                    M=N-1;
-//                }
-//                if(M==N-1){
-//                    break;
-//                }
-//                int R=0;
-//                if(N-1-M>=step){
-//                    R=M+step;
-//                }else{
-//                    R=N-1;
-//                }
-//                merge(arr,L,M,R);
-//                if(R==N-1){
-//                    break;
-//                }else{
-//                    L=R+1;
-//                }
-//            }
-//            if(step>N/2){
-//                break;
-//            }
-//            step*=2;
-//        }
-//    }
+    public static void mergeSort3(int[] arr) {
+        if (arr == null && arr.length < 2) {
+            return;
+        }
+        int step = 1;
+        int N = arr.length;
+        while (step < N) {
+            int L = 0;
+            while (L < N) {
+                int M = 0;
+                if (N - L >= step) {
+                    M = L + step - 1;
+                } else {
+                    M = N - 1;//如果凑不够数，则去正常merge
+                }
+                if (M == N - 1) {
+                    break;
+                }
+                int R = 0;
+                if (N - 1 - M >= step) {
+                    R = M + step;
+                } else {
+                    R = N - 1;
+                }
+                merge(arr, L, M, R);
+                if (R == N - 1) {
+                    break;
+                } else {
+                    L = R + 1;
+                }
+            }
+            if (step > N / 2) {//防止溢出
+                break;
+            }
+            step *= 2;
+        }
+    }
 
     //非递归方法实现
     public static void mergeSort2(int[] arr) {

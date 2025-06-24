@@ -16,8 +16,10 @@ public class Code05_lowestLexicography {
 
     //strs中所有字符串全排列，返回所有可能的结果
     public static TreeSet<String> process(String[] strs) {
+        //有序表TreeSet为集合，自然会按字典序最小排列
         TreeSet<String> ans = new TreeSet<>();
         if (strs.length == 0) {
+            //如果为0，则去拼接空字符串
             ans.add("");
             return ans;
         }
@@ -46,7 +48,7 @@ public class Code05_lowestLexicography {
         }
         return ans;
     }
-
+    //定义比较器，CompareTo方法实现字符串的拼接
     public static class MyComparator implements Comparator<String> {
 
         @Override

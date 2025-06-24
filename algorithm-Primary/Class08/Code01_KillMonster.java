@@ -1,13 +1,18 @@
 package Class08;
-
+//本代码实现了三种计算怪兽砍死概率的方法
+/*
+N：初始血量
+每次攻击伤害的范围是0-M
+K：攻击的次数
+ */
 public class Code01_KillMonster {
-
+    //暴力方法时间复杂度为O((M+1) ^ K)，空间复杂度为O（K）：递归栈的深度
     public static double right(int N, int M, int K) {
         if (N < 1 || M < 1 || K < 1) {
             return 0;
         }
-        long all = (long) Math.pow(M + 1, K);
-        long kill = process(K, M, N);
+        long all = (long) Math.pow(M + 1, K);//总可能性
+        long kill = process(K, M, N);//砍死的情况数
         return (double) ((double) kill / (double) all);
     }
 
@@ -19,16 +24,17 @@ public class Code01_KillMonster {
         if (times == 0) {
             return hp <= 0 ? 1 : 0;
         }
-        if (hp <= 0) {
+        if (hp <= 0) {//怪兽没血了，随便砍他
             return (long) Math.pow(M + 1, times);
         }
         long ways = 0;
+        //枚举本次攻击的可能性伤害
         for (int i = 0; i <= M; i++) {
             ways += process(times - 1, M, hp - i);
         }
         return ways;
     }
-
+    //时间复杂度O(KN(M+1))	空间复杂度O(K*N)
     public static double dp1(int N, int M, int K) {
         if (N < 1 || M < 1 || K < 1) {
             return 0;
@@ -53,7 +59,8 @@ public class Code01_KillMonster {
         long kill = dp[K][N];
         return (double) ((double) kill / (double) all);
     }
-
+    //使用前缀和优化
+    //O(K*N)	O(K*N)
     public static double dp2(int N, int M, int K) {
         if (N < 1 || M < 1 || K < 1) {
             return 0;
