@@ -1,4 +1,4 @@
-package Class15;
+package Class14;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
@@ -19,6 +19,7 @@ public class Code04_IPO {
             while (!minCostQ.isEmpty() && minCostQ.peek().c <= W) {
                 maxProfitQ.add(minCostQ.poll());
             }
+            //现有的资金无法再解锁出新的项目了
             if (maxProfitQ.isEmpty()) {
                 return W;
             }
@@ -28,8 +29,8 @@ public class Code04_IPO {
     }
 
     public static class Program {
-        public int p;
-        public int c;
+        public int p;//项目的纯利润
+        public int c;//项目的启动资金
 
         public Program(int p, int c) {
             this.p = p;

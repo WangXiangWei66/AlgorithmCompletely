@@ -1,9 +1,9 @@
-package Class15;
+package Class14;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Stack;
-
+//SizeMap中有几条记录，便有几个集合
 public class Code05_UnionFind {
 
     //用map实现的并查集
@@ -21,22 +21,24 @@ public class Code05_UnionFind {
         }
 
         //给你一个节点，请你往上到不能再往上，把代表节点返回
+        //实现了路径压缩
         public V findFather(V cur) {
             Stack<V> path = new Stack<>();
             while (cur != father.get(cur)) {
                 path.push(cur);
                 cur = father.get(cur);
             }
+            //将路径上的所有节点都直接指向根节点
             while (!path.isEmpty()) {
                 father.put(path.pop(), cur);
             }
             return cur;
         }
-
+        //查询两个样本是否在同一个集合
         public boolean isSameSet(V a, V b) {
-            return findFather(a) == findFather(b);
+            return findFather(a) == findFather(b);//用==关心的是同一个节点的内存地址，不用管里面的值
         }
-
+        //将A所在的集合全体，和b所在的集合全体合成一个集合
         public void union(V a, V b) {
             V aFather = findFather(a);
             V bFather = findFather(b);

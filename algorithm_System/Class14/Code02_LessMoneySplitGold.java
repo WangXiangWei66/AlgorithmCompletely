@@ -1,4 +1,4 @@
-package Class15;
+package Class14;
 
 import java.util.PriorityQueue;
 
@@ -31,6 +31,7 @@ public class Code02_LessMoneySplitGold {
         int[] ans = new int[arr.length - 1];
         int ansi = 0;
         for (int arri = 0; arri < arr.length; arri++) {
+            //将除i和j之外的所有元素依次复制到新数组中。
             if (arri != i && arri != j) {
                 ans[ansi++] = arr[arri];
             }
@@ -38,14 +39,14 @@ public class Code02_LessMoneySplitGold {
         ans[ansi] = arr[i] + arr[j];
         return ans;
     }
-
+    //优先级队列本身就是小根堆
     public static int lessMoney(int[] arr) {
         PriorityQueue<Integer> pQ = new PriorityQueue<>();
         for (int i = 0; i < arr.length; i++) {
             pQ.add(arr[i]);
         }
         int sum = 0;
-        int cur = 0;
+        int cur = 0;//从堆中弹出的俩数的总和
         while (pQ.size() > 1) {
             cur = pQ.poll() + pQ.poll();
             sum += cur;

@@ -1,4 +1,4 @@
-package Class15;
+package Class14;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -58,8 +58,8 @@ public class Code03_BestArrange {
     //会议的开始时间和结束时间，都是数值，不会小于0
     public static int bestArrange2(Program[] programs) {
         Arrays.sort(programs, new ProgramComparator());
-        int timeLine = 0;
-        int result = 0;
+        int timeLine = 0;//当前时间点
+        int result = 0;//安排会议数
         //依次遍历每一个会议，结束时间早的会议先遍历
         for (int i = 0; i < programs.length; i++) {
             if (timeLine <= programs[i].start) {
@@ -77,7 +77,7 @@ public class Code03_BestArrange {
             return o1.end - o2.end;
         }
     }
-
+    //生成随机的节目时间安排数组
     public static Program[] generatePrograms(int programSize, int timeMax) {
         Program[] ans = new Program[(int) ((Math.random() * (programSize + 1)))];
         for (int i = 0; i < ans.length; i++) {

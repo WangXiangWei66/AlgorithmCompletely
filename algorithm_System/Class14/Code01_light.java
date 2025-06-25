@@ -1,4 +1,4 @@
-package Class15;
+package Class14;
 
 import java.util.HashSet;
 
@@ -14,9 +14,10 @@ public class Code01_light {
     //str[index...]位置，自由选择放灯还是不放灯
     //str[0...index-1]位置呢?已经做完决定了，那些放了灯的位置，存在lights里
     //要求选出能照亮所有的方案，并且在这些有效的方案中，返回最少需要几个灯
+    //index为索引的位置
     public static int process(char[] str, int index, HashSet<Integer> lights) {
         if (index == str.length) {
-            //结束的时候
+            //结束的时候，下面是检查所有的位置，是否都已经被照亮
             for (int i = 0; i < str.length; i++) {
                 if (str[i] != 'X') {
                     //当前位置是点的话
@@ -33,7 +34,7 @@ public class Code01_light {
             if (str[index] == '.') {
                 lights.add(index);
                 yes = process(str, index + 1, lights);
-                lights.remove(index);
+                lights.remove(index);//这一步为回溯操作
             }
             return Math.min(no, yes);
         }
@@ -67,12 +68,13 @@ public class Code01_light {
     //把灯数累加
     public static int minLight3(String road) {
         char[] str = road.toCharArray();
-        int cur = 0;
-        int light = 0;
+        int cur = 0;//当前连续点的数量
+        int light = 0;//当前灯的数量
         for (char c : str) {
             if (c == 'X') {
+                //如果遇到了障碍物，计算当前连续灯的数量
                 light += (cur + 2) / 3;
-                cur = 0;
+                cur = 0;//重置
             } else {
                 cur++;
             }

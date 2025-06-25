@@ -1,4 +1,4 @@
-package Class14;
+package Class15;
 
 public class Code01_FriendCircles {
 
@@ -6,6 +6,7 @@ public class Code01_FriendCircles {
         int N = M.length;
         //{0}{1}{2}...{N-1}
         UnionFind unionFind = new UnionFind(N);
+        //遍历for循环，但是只会遍历上半区
         for (int i = 0; i < N; i++) {
             for (int j = i + 1; j < N; j++) {
                 if (M[i][j] == 1) {//i和j互相认识
@@ -66,7 +67,7 @@ public class Code01_FriendCircles {
                 sets--;
             }
         }
-
+        //size[i]=k,只有是代表节点的时候才会有意义
         public int sets() {
             return sets;
         }
