@@ -1,4 +1,4 @@
-package class03;
+package Class03;
 
 public class Code04_BSAwesome {
     //首先保证相邻两个数不相等

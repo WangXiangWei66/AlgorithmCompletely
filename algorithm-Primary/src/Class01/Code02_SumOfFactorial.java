@@ -1,4 +1,4 @@
-package class01;
+package Class01;
 
 
 public class Code02_SumOfFactorial {

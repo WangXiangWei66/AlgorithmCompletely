@@ -1,4 +1,4 @@
-package class01;
+package Class01;
 
 public class Code03_Sort {
     public static void swap(int[] arr, int i, int j) {
