@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="68b18f06-30d9-43cf-b173-95234de418a0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AlgorithmCompletely.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/algorithm-Primary/algorithm-Primary.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/algorithm-Primary/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/algorithm_System/algorithm_System.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/algorithm_System/src/Class11/笔记.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/algorithm_System/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coding-for-great-offer/coding-for-great-offer.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class04/Code01_LongestSubstringWithoutRepeaingCharacters.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class04/Code02_HowManyTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class04/Code03_LargestBorderedSquare.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class04/Code04_MaxPairNumber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class04/Code05_BoastsToSavePeople.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class04/Code06_ClosestSubsequenceSum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class04/Code07_FreedomTrail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class04/Code08_DistanceKNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly-problems/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly-problems/weekly-problems.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class01/Code01_PrintBinary.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class01/Code01_PrintBinary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class01/Code02_SumOfFactorial.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class01/Code02_SumOfFactorial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class01/Code03_Sort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class01/Code03_Sort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class01/Code04_SelectionSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class01/Code04_SelectionSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class01/Code05_BubbleSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class01/Code05_BubbleSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class01/Code06_InsertionSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class01/Code06_InsertionSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class01/笔记.txt" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class01/笔记.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class02/Code01_PreSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class02/Code01_PreSum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class02/Code02_RandToRand.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class02/Code02_RandToRand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class02/Code03_Comp.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class02/Code03_Comp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class02/Code03_equalProbabilityRandom.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class02/Code03_equalProbabilityRandom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class03/Code01_BSExist.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class03/Code01_BSExist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class03/Code02_BSNearLeft.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class03/Code02_BSNearLeft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class03/Code03_BSNearRight.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class03/Code03_BSNearRight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class03/Code04_BSAwesome.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class03/Code04_BSAwesome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class03/Code05_HashMapTreeMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class03/Code05_HashMapTreeMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class04/Code01_ReverseList.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class04/Code01_ReverseList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class04/Code02_LinkedListToQueueAndStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class04/Code02_LinkedListToQueueAndStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class04/Code03_DoubleLinkedListToDeque.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class04/Code03_DoubleLinkedListToDeque.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class04/Code04_ReverseNodesInKGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class04/Code04_ReverseNodesInKGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class04/Code05_AddTwoNumbers.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class04/Code05_AddTwoNumbers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class04/Code06_MergeTwoSortedLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class04/Code06_MergeTwoSortedLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class05/Code01_BitMap1.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class05/Code01_BitMap1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class05/Code02_BitMap2.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class05/Code02_BitMap2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class05/Code03_BitAddMinusMultiDiv.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class05/Code03_BitAddMinusMultiDiv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class06/Code01_MergeKSortedLists.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class06/Code01_MergeKSortedLists.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class06/Code02_SameTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class06/Code02_SameTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class06/Code03_SymmetricTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class06/Code03_SymmetricTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class06/Code04_MaximumDepthOfBinaryTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class06/Code04_MaximumDepthOfBinaryTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class06/Code05_ConstructBinaryTreeFromPreorderAndInorderTraversal.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class06/Code05_ConstructBinaryTreeFromPreorderAndInorderTraversal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class06/Code06_ShowComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class06/Code06_ShowComparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class06/Code07_ShowComparator2.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class06/Code07_ShowComparator2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class06/Code08_TraversalBinaryTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class06/Code08_TraversalBinaryTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class07/Code01_BinaryTreeLevelOrderTraversalII.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class07/Code01_BinaryTreeLevelOrderTraversalII.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class07/Code02_BalanceBinaryTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class07/Code02_BalanceBinaryTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class07/Code03_PathSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class07/Code03_PathSum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class07/Code04_PathSumII.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class07/Code04_PathSumII.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class07/Code05_IsBinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class07/Code05_IsBinarySearchTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class08/Code01_GetMax.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class08/Code01_GetMax.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class08/Code01_KillMonster.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class08/Code01_KillMonster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class08/Code02_MergeSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class08/Code02_MergeSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class08/Code03_PartitionAndQuickSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class08/Code03_PartitionAndQuickSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm-Primary/src/Class08/笔记.txt" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm-Primary/src/Class08/笔记.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class00/算法学习与找工作注意事项.txt" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class00/算法学习与找工作注意事项.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class01/Code01_SelectionSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class01/Code01_SelectionSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class01/Code02_BubbleSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class01/Code02_BubbleSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class01/Code03_InsertionSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class01/Code03_InsertionSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class01/Code04_BSExist.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class01/Code04_BSExist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class01/Code05_BSNearLeft.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class01/Code05_BSNearLeft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class01/Code06_BENearRight.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class01/Code06_BENearRight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class01/Code07_BSAwesome.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class01/Code07_BSAwesome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class01/笔记.txt" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class01/笔记.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class02/Code01_swap.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class02/Code01_swap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class02/Code02_EvenTimesOddTimes.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class02/Code02_EvenTimesOddTimes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class02/Code03_KM.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class02/Code03_KM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class02/笔记.txt" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class02/笔记.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class03/Code01_reverseList.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class03/Code01_reverseList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class03/Code02_DeleteGivenValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class03/Code02_DeleteGivenValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class03/Code03_DoubleEndsQueueToStackAndQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class03/Code03_DoubleEndsQueueToStackAndQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class03/Code04_RingArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class03/Code04_RingArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class03/Code05_GetMinStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class03/Code05_GetMinStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class03/Code06_TwoStacksImplementQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class03/Code06_TwoStacksImplementQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class03/Code07_TwoQueueImplementStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class03/Code07_TwoQueueImplementStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class03/Code08_GetMax.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class03/Code08_GetMax.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class03/Code09_HashMapAndSortedMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class03/Code09_HashMapAndSortedMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class03/笔记.txt" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class03/笔记.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class04/Code01_MergerSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class04/Code01_MergerSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class04/Code02_smallSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class04/Code02_smallSum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class04/Code03_ReversePair.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class04/Code03_ReversePair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class04/Code04_BiggerThanRightTwice.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class04/Code04_BiggerThanRightTwice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class04/笔记.txt" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class04/笔记.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class05/Code01_countOfRangeSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class05/Code01_countOfRangeSum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class05/Code02_PartitionAndQuickSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class05/Code02_PartitionAndQuickSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class05/Code03_QuickSortRecursiveAndUnrecursive.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class05/Code03_QuickSortRecursiveAndUnrecursive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class05/Code04_DoubleLinkedListQuickSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class05/Code04_DoubleLinkedListQuickSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class05/笔记.txt" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class05/笔记.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class06/Code01_Comparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class06/Code01_Comparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class06/Code02_Heap.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class06/Code02_Heap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class06/Code03_heapSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class06/Code03_heapSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class06/Code04_SortArrDistanceLessK.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class06/Code04_SortArrDistanceLessK.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class06/笔记.txt" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class06/笔记.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class07/Code01_CoverMax.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class07/Code01_CoverMax.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class07/Code02_ShowHeapGreater.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class07/Code02_ShowHeapGreater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class07/Code03_HeapGreater.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class07/Code03_HeapGreater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class07/Code04_Inner.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class07/Code04_Inner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class07/Code05_EveryStepShowBoss.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class07/Code05_EveryStepShowBoss.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class07/笔记.txt" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class07/笔记.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class08/Code01_Trie.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class08/Code01_Trie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class08/Code02_Trie.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class08/Code02_Trie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class08/Code03_CountSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class08/Code03_CountSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class08/Code04_RadixSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class08/Code04_RadixSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class08/Code05_shellSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class08/Code05_shellSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class08/笔记.txt" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class08/笔记.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class09/Code01_LinkedListMid.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class09/Code01_LinkedListMid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class09/Code02_IsPalindromeList.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class09/Code02_IsPalindromeList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class09/Code03_SmallEqualBigger.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class09/Code03_SmallEqualBigger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class09/Code04_CopyListWithRandom.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class09/Code04_CopyListWithRandom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class09/笔记.txt" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class09/笔记.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class10/Code01_findFirstIntersectNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class10/Code01_findFirstIntersectNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class10/Code02_RecursiveTraversalBT.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class10/Code02_RecursiveTraversalBT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class10/Code03_UnRecursiveTraversalBT.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class10/Code03_UnRecursiveTraversalBT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class10/笔记.txt" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class10/笔记.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class11/Code01_LevelTraversalBT.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class11/Code01_LevelTraversalBT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class11/Code02_SerializeAndReconstructTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class11/Code02_SerializeAndReconstructTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class11/Code03_EncodeNaryTreeToBinaryTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class11/Code03_EncodeNaryTreeToBinaryTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class11/Code04_PrintBinaryTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class11/Code04_PrintBinaryTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class11/Code05_TreeMaxWidth.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class11/Code05_TreeMaxWidth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class11/Code06_SuccessorNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class11/Code06_SuccessorNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class11/Code07_paperFolding.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class11/Code07_paperFolding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class12/Code01_IsCBT.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class12/Code01_IsCBT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class12/Code02_IsBST.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class12/Code02_IsBST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class12/Code03_IsBalenced.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class12/Code03_IsBalenced.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class12/Code04_isFull.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class12/Code04_isFull.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class12/Code05_MaxSubBSTSize.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class12/Code05_MaxSubBSTSize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class12/Code06_MaxDistance.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class12/Code06_MaxDistance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class12/笔记.txt" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class12/笔记.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class13/Code01_IsCBT.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class13/Code01_IsCBT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class13/Code02_MaxSubBSTHead.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class13/Code02_MaxSubBSTHead.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class13/Code03_lowestAncestor.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class13/Code03_lowestAncestor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class13/Code04_MaxHappy.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class13/Code04_MaxHappy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class13/Code05_lowestLexicography.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class13/Code05_lowestLexicography.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class13/笔记.txt" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class13/笔记.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class14/Code01_light.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class14/Code01_light.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class14/Code02_LessMoneySplitGold.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class14/Code02_LessMoneySplitGold.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class14/Code03_BestArrange.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class14/Code03_BestArrange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class14/Code04_IPO.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class14/Code04_IPO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class14/Code05_UnionFind.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class14/Code05_UnionFind.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class14/Code06_UnionFindArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class14/Code06_UnionFindArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class14/笔记.txt" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class14/笔记.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class15/Code01_FriendCircles.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class15/Code01_FriendCircles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class15/Code02_NumberOfIslands.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class15/Code02_NumberOfIslands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class15/Code03_NumberOfIslandsII.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class15/Code03_NumberOfIslandsII.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class15/笔记.txt" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class15/笔记.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class16/Code01_BFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class16/Code01_BFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class16/Code02_DFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class16/Code02_DFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class16/Code03_TopologicalOrderBFS1.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class16/Code03_TopologicalOrderBFS1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class16/Code03_TopologicalOrderBFS2.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class16/Code03_TopologicalOrderBFS2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class16/Code03_TopologicalOrderDFS1.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class16/Code03_TopologicalOrderDFS1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class16/Code03_TopologicalOrderDFS2.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class16/Code03_TopologicalOrderDFS2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class16/Code03_TopologicalSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class16/Code03_TopologicalSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class16/Code04_Kruskal.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class16/Code04_Kruskal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class16/Code04_KruskalNowCoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class16/Code04_KruskalNowCoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class16/Code05_Prim.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class16/Code05_Prim.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class16/Code05_primNowCoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class16/Code05_primNowCoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class16/Code06_Dijkstra.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class16/Code06_Dijkstra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class16/Code06_NetWorkDelayTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class16/Code06_NetWorkDelayTime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class16/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class16/Edge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class16/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class16/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class16/GraphGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class16/GraphGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class16/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class16/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class17/Code01_Dijkstra.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class17/Code01_Dijkstra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class17/Code02_Hanoi.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class17/Code02_Hanoi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class17/Code03_printAllSubsquences.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class17/Code03_printAllSubsquences.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class17/Code04_printAllPermutations.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class17/Code04_printAllPermutations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class17/Code05_ReverseStackUsingRecursive.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class17/Code05_ReverseStackUsingRecursive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class17/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class17/Edge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class17/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class17/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class17/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class17/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class18/Code01_RobotWalk.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class18/Code01_RobotWalk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class18/Code02_CardsInLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class18/Code02_CardsInLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class19/Code01_Knapsack.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class19/Code01_Knapsack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class19/Code02_ConvertToLetterString.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class19/Code02_ConvertToLetterString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class19/Code03_StickersToSpellWord.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class19/Code03_StickersToSpellWord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class19/Code04_LongestCommonSubsequence.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class19/Code04_LongestCommonSubsequence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class20/Code01_PalindromeSubsequence.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class20/Code01_PalindromeSubsequence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class20/Code02_HorseJump.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class20/Code02_HorseJump.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class20/Code03_Coffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class20/Code03_Coffee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class21/Code01_minPathSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class21/Code01_minPathSum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class21/Code02_CoinsWayEveryPaperDifferent.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class21/Code02_CoinsWayEveryPaperDifferent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class21/Code03_CoinsWayNoLimit.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class21/Code03_CoinsWayNoLimit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class21/Code04_CoinsWaySameValueSamePaper.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class21/Code04_CoinsWaySameValueSamePaper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class21/Code05_BobDie.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class21/Code05_BobDie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class22/Code01_KillMonster.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class22/Code01_KillMonster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class22/Code02_MinCoinsNoLimit.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class22/Code02_MinCoinsNoLimit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class22/Code03_SplitNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class22/Code03_SplitNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class23/Code01_SplitSumClosed.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class23/Code01_SplitSumClosed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class23/Code02_SplitSumClosedSizeHalf.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class23/Code02_SplitSumClosedSizeHalf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class23/Code03_NQueens.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class23/Code03_NQueens.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class24/Code01_SlidingWindowMaxArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class24/Code01_SlidingWindowMaxArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class24/Code02_AllLessNumSubArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class24/Code02_AllLessNumSubArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class24/Code03_GasStation.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class24/Code03_GasStation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class24/Code04_MinCoinsOnePaper.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class24/Code04_MinCoinsOnePaper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class25/Code01_MonotonousStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class25/Code01_MonotonousStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class25/Code02_MonotonousStackForNowcoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class25/Code02_MonotonousStackForNowcoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class25/Code03_AllTimesMinToMax.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class25/Code03_AllTimesMinToMax.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class25/Code04_LargestRectangleInHistogram.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class25/Code04_LargestRectangleInHistogram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class25/Code05_MaximalRectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class25/Code05_MaximalRectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class25/Code06_CountSubMatricesWithAllOnes.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class25/Code06_CountSubMatricesWithAllOnes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class26/Code01_SumOfSubArrayMinimums.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class26/Code01_SumOfSubArrayMinimums.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class26/Code02_FibonacciProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class26/Code02_FibonacciProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class26/Code03_ZeroLeftOneStringNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class26/Code03_ZeroLeftOneStringNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class27/Code01_KMP.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class27/Code01_KMP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class27/Code02_IsRotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class27/Code02_IsRotation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class27/Code02_TreeEqual.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class27/Code02_TreeEqual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class28/Code01_Manacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class28/Code01_Manacher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class28/Code02_AddShortEnd.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class28/Code02_AddShortEnd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class29/Code01_FindMinKth.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class29/Code01_FindMinKth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class29/Code02_MaxTopK.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class29/Code02_MaxTopK.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class29/Code03_ReservoirSampling.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class29/Code03_ReservoirSampling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class30/Code01_MorrisTraversal.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class30/Code01_MorrisTraversal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class30/Code02_MinDepth.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class30/Code02_MinDepth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class30/本节内容笔记.txt" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class30/本节内容笔记.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class31/Code01_SegmentTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class31/Code01_SegmentTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class31/Code02_FallingSquares.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class31/Code02_FallingSquares.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class32/Code01_IndexTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class32/Code01_IndexTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class32/Code02_IndexTree2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class32/Code02_IndexTree2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class32/Code03_AC1.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class32/Code03_AC1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class32/Code04_AC2.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class32/Code04_AC2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class33/Hash.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class33/Hash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class34/ReadMe.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class34/ReadMe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class35/Code01_AVLTreeMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class35/Code01_AVLTreeMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class36/Code01_SizeBalancedTreeMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class36/Code01_SizeBalancedTreeMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class36/Code02_SkipListMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class36/Code02_SkipListMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class37/Code01_CountOfRangeSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class37/Code01_CountOfRangeSum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class37/Code02_SlidingWindowMedian.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class37/Code02_SlidingWindowMedian.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class37/Code03_AddRemoveGetIndexGreat.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class37/Code03_AddRemoveGetIndexGreat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class37/Code04_QueueReconstructionByHeight.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class37/Code04_QueueReconstructionByHeight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class37/Compare.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class37/Compare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class38/Code01_AppleMinBags.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class38/Code01_AppleMinBags.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class38/Code02_EatGrass.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class38/Code02_EatGrass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class38/Code03_MSumToN.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class38/Code03_MSumToN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class38/Code04_MoneyProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class38/Code04_MoneyProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class39/Code01_SubsequenceMaxModM.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class39/Code01_SubsequenceMaxModM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class39/Code02_SnacksWays.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class39/Code02_SnacksWays.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class39/Code02_SnacksWaysMain1.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class39/Code02_SnacksWaysMain1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class39/Code02_SnacksWaysMain2.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class39/Code02_SnacksWaysMain2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class39/Code03_10Ways.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class39/Code03_10Ways.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class39/Code04_DifferentBTNum.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class39/Code04_DifferentBTNum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class39/Code05_IsSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class39/Code05_IsSum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class40/Code01_LongestSumSubArrayLengthInPositiveArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class40/Code01_LongestSumSubArrayLengthInPositiveArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class40/Code02_LongestSumSubArrayLLength.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class40/Code02_LongestSumSubArrayLLength.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class40/Code03_LongestLessSumSubArrayLength.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class40/Code03_LongestLessSumSubArrayLength.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class40/Code04_AvgLessEqualValueLongestSubArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class40/Code04_AvgLessEqualValueLongestSubArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class40/Code05_PrintMatrixSpiralOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class40/Code05_PrintMatrixSpiralOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class40/Code06_RotateMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class40/Code06_RotateMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class40/Code07_ZigZagPrintMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class40/Code07_ZigZagPrintMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class40/Code08_printStar.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class40/Code08_printStar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class41/Code01_BestSplitForAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class41/Code01_BestSplitForAll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class41/Code02_bestSplitForEveryPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class41/Code02_bestSplitForEveryPosition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class41/Code03_StoneMerge.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class41/Code03_StoneMerge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class41/Code04_SplitArrayLargestSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class41/Code04_SplitArrayLargestSum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class42/Code01_PostOfficeProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class42/Code01_PostOfficeProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class42/Code03_ThrowChessPiecesProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class42/Code03_ThrowChessPiecesProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class43/Code01_CanIWin.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class43/Code01_CanIWin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class43/Code02_TSP.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class43/Code02_TSP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class43/Code03_PavingTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class43/Code03_PavingTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class43/Code03_PavingTile1.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class43/Code03_PavingTile1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class43/Code03_PavingTile2.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class43/Code03_PavingTile2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class44/Code01_LastSubStringInLexicographicalOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class44/Code01_LastSubStringInLexicographicalOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class44/DC3.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class44/DC3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class45/Code01_InsertS2MakeMostAlphabeticalOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class45/Code01_InsertS2MakeMostAlphabeticalOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class45/Code02_CreatMaximumNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class45/Code02_CreatMaximumNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class45/Code03_LongestCommonSubstringConquerByHeight.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class45/Code03_LongestCommonSubstringConquerByHeight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class45/Code04_LongestRepeatingSubString.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class45/Code04_LongestRepeatingSubString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class46/Code01_BurstBalloons.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class46/Code01_BurstBalloons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class46/Code02_RemoveBoxes.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class46/Code02_RemoveBoxes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class46/Code03_DeleteAdjacentSameCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class46/Code03_DeleteAdjacentSameCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class46/Code04_MaxSumLengthNoMore.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class46/Code04_MaxSumLengthNoMore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class46/Code05_HuffmanTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class46/Code05_HuffmanTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class47/Code01_StrangePrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class47/Code01_StrangePrinter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class47/Code02_RestoreWays.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class47/Code02_RestoreWays.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithm_System/src/Class47/Code03_DinicAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm_System/src/Class47/Code03_DinicAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class01/Code01_CordCoverMaxPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class01/Code01_CordCoverMaxPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class01/Code02_CountFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class01/Code02_CountFiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class01/Code03_Near2Power.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class01/Code03_Near2Power.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class01/Code04_MinSwapStep.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class01/Code04_MinSwapStep.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class01/Code05_LongestIncreasingPath.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class01/Code05_LongestIncreasingPath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class01/Code06_AOE.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class01/Code06_AOE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class01/Code07_TargetSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class01/Code07_TargetSum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class02/Code01_ChooseWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class02/Code01_ChooseWork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class02/Code02_Cola.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class02/Code02_Cola.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class02/Code03_ReceiveAndPrintOrderLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class02/Code03_ReceiveAndPrintOrderLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class02/Code04_Drive.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class02/Code04_Drive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class02/Code05_SetAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class02/Code05_SetAll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class02/Code06_MinLengthForSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class02/Code06_MinLengthForSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class03/Code01_LongestSubstringWithoutRepeaingCharacters.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class03/Code01_LongestSubstringWithoutRepeaingCharacters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class03/Code02_HowManyTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class03/Code02_HowManyTypes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class03/Code03_LargestBorderedSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class03/Code03_LargestBorderedSquare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class03/Code04_MaxPairNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class03/Code04_MaxPairNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class03/Code05_BoastsToSavePeople.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class03/Code05_BoastsToSavePeople.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class03/Code06_ClosestSubsequenceSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class03/Code06_ClosestSubsequenceSum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class03/Code07_FreedomTrail.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class03/Code07_FreedomTrail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class03/Code08_DistanceKNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class03/Code08_DistanceKNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class05/Code01_ConstructBinarySearchTreeFromPreorderTraversal.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class05/Code01_ConstructBinarySearchTreeFromPreorderTraversal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class05/Code02_LeftRightSameTreeNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class05/Code02_LeftRightSameTreeNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class05/Code03_EditCost.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class05/Code03_EditCost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class05/Code04_DeleteMinCost.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class05/Code04_DeleteMinCost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class05/Hash.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class05/Hash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class06/Code01_MaxXOR.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class06/Code01_MaxXOR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class06/Code02_MaximumXorOfTwoNumbersInAnArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class06/Code02_MaximumXorOfTwoNumbersInAnArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class06/Code03_MaximumXorWithAnElementFromArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class06/Code03_MaximumXorWithAnElementFromArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class06/Code04_MostXorZero.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class06/Code04_MostXorZero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class06/Code05_Nim.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class06/Code05_Nim.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class07/Code01_MaxAndValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class07/Code01_MaxAndValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class07/Code02_MinCameraCover.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class07/Code02_MinCameraCover.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class07/Code03_MaxGap.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class07/Code03_MaxGap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class07/Code04_Power2Diffs.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class07/Code04_Power2Diffs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class07/Code05_WorldBreak.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class07/Code05_WorldBreak.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class07/Code06_SplitStringMaxValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class07/Code06_SplitStringMaxValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class08/Code01_ExpressionCompute.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class08/Code01_ExpressionCompute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class08/Code02_ContainerWithMostWater.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class08/Code02_ContainerWithMostWater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class08/Code03_FindWorldInMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class08/Code03_FindWorldInMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class08/Code04_SnakeGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class08/Code04_SnakeGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class09/Code01_LightProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class09/Code01_LightProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class09/Code02_RemoveInvalidParentheses.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class09/Code02_RemoveInvalidParentheses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class09/Code03_LIS.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class09/Code03_LIS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class09/Code04_EnvelopeProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class09/Code04_EnvelopeProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class09/Code05_IsStepSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class09/Code05_IsStepSum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class10/Code01_jumpGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class10/Code01_jumpGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class10/Code02_TopK.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class10/Code02_TopK.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class10/Code03_KInversePairs.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class10/Code03_KInversePairs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class10/Code04_BSTtoDoubleLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class10/Code04_BSTtoDoubleLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class10/Code05_BooleanEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class10/Code05_BooleanEvaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class11/Code01_MinimumInsertionStepsToMakeAStringPalindrome.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class11/Code01_MinimumInsertionStepsToMakeAStringPalindrome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class11/Code02_PalindromePartitioningII.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class11/Code02_PalindromePartitioningII.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class12/Code01_ContainAllCharExactly.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class12/Code01_ContainAllCharExactly.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class12/Code02_FindKthMinNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class12/Code02_FindKthMinNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class12/Code03_LongestConsecutive.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class12/Code03_LongestConsecutive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class12/Code04_RegularExpressionMatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class12/Code04_RegularExpressionMatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class13/Code01_NCardsABWin.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class13/Code01_NCardsABWin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class13/Code02_SuperWashingMachines.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class13/Code02_SuperWashingMachines.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class13/Code03_ScrambleString.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class13/Code03_ScrambleString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class13/Code04_BricksFallingWhenHit.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class13/Code04_BricksFallingWhenHit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class13/Code04_test.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class13/Code04_test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class14/Code01_Parentheses.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class14/Code01_Parentheses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class14/Code02_MaxSubArraySumLessOrEqualK.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class14/Code02_MaxSubArraySumLessOrEqualK.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class14/Code03_BiggestBSTTopologyInTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class14/Code03_BiggestBSTTopologyInTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class14/Code04_CompleteTreeNodeNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class14/Code04_CompleteTreeNodeNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class14/Code05_RecoverBinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class14/Code05_RecoverBinarySearchTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class14/Code06_MissingNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class14/Code06_MissingNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class14/题目与简单笔记.txt" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class14/题目与简单笔记.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class15/Code01_BestTimeToBuyAndSellStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class15/Code01_BestTimeToBuyAndSellStock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class15/Code02_BestTimeToBuyAndSellStockII.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class15/Code02_BestTimeToBuyAndSellStockII.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class15/Code03_BestTimeToBuyAndSellStockIII.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class15/Code03_BestTimeToBuyAndSellStockIII.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class15/Code04_BestTimeToBuyAndSellStockIV.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class15/Code04_BestTimeToBuyAndSellStockIV.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class15/Code05_BestTimeToBuyAndSellStockWithCoolDown.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class15/Code05_BestTimeToBuyAndSellStockWithCoolDown.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class15/Code06_BestTimeToBuyAndSellStockWithTransactionFee.java" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class15/Code06_BestTimeToBuyAndSellStockWithTransactionFee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coding-for-great-offer/src/Class15/笔记.txt" beforeDir="false" afterPath="$PROJECT_DIR$/coding-for-great-offer/src/Class15/笔记.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly-problems/src/class_2022_8_4/Code01_MaxXFromStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/weekly-problems/src/class_2022_8_4/Code01_MaxXFromStock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/算法和数据结构课程全梳理.md" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "WangXiangWei66"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/WangXiangWei66/AlgorithmCompletely.git",
+    "accountId": "210e1c5d-e091-429c-bc58-78b3906ac2f1"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2zPzpSgkuhBU49WbXKGRbiYXehD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Merging master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/A-For-Study/AlgorithmCompletely",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="68b18f06-30d9-43cf-b173-95234de418a0" name="Changes" comment="" />
+      <created>1751647679557</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1751647679557</updated>
+      <workItem from="1751647680982" duration="236000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+  </component>
+</project>
