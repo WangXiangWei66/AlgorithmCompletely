@@ -1,8 +1,6 @@
 package class_2022_8_4;
 
-import javax.swing.plaf.basic.BasicIconFactory;
-
-// 来自美团
+// 来自美团：
 // 小团生日收到妈妈送的两个一模一样的数列作为礼物！
 // 他很开心的把玩，不过不小心没拿稳将数列摔坏了！
 // 现在他手上的两个数列分别为A和B，长度分别为n和m。
@@ -16,7 +14,7 @@ import javax.swing.plaf.basic.BasicIconFactory;
 // 接下来一行m个整数，分别为B1 B2…Bm
 // 对于所有数据，1 ≤ n,m ≤ 2000， |Ai|,|Bi| ≤ 10000
 // 输出一行一个整数，表示最少花费时间，来使得两个数列相同。
-public class ChangeToSame {
+public class Code02_ChangeToSame {
     // A B
     // zuo(A,B,0,0)
     // A[ai.....] 对应 B[bi.....]
