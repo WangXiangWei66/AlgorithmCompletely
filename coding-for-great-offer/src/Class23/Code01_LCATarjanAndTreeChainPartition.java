@@ -167,13 +167,196 @@ public class Code01_LCATarjanAndTreeChainPartition {
                 s[m] += s[l];//更新新集合的大小
             }
         }
+
         //设计集合的标记
         public void setTag(int i, int tag) {
             t[find(i)] = tag;// 找到i所在集合的根节点，将根节点的标记设为tag
         }
+
         //获取集合的标记
         public int getTag(int i) {
             return t[find(i)];
         }
+    }
+
+    // 在线查询最优解 -> 树链剖分
+    // 空间复杂度O(N), 支持在线查询，单次查询时间复杂度O(logN)
+    // 如果有M次查询，时间复杂度O(N + M * logN)
+    //功能：为每个查询计算两个节点的LCA，并返回结果数组
+    public static int[] query3(int[] father, int[][] queries) {
+        TreeChain tc = new TreeChain(father);//完成树的预处理
+        int M = queries.length;//获取查询的数量M
+        int[] ans = new int[M];//用于存储每个查询的LCA结果
+        for (int i = 0; i < M; i++) {
+            if (queries[i][0] == queries[i][1]) {
+                ans[i] = queries[i][0];//节点本身便是LCA
+            } else {
+                ans[i] = tc.lca(queries[i][0], queries[i][1]);
+            }
+        }
+        return ans;
+    }
+
+    public static class TreeChain {
+        private int n;  // 节点总数
+        private int h;  // 根节点
+        private int[][] tree; // 树的邻接表表示
+        private int[] fa; // 父节点数组
+        private int[] dep; // 深度数组
+        private int[] son; // 重儿子数组
+        private int[] siz; // 子树大小数组
+        private int[] top; // 链顶节点数组
+
+        public TreeChain(int[] father) {
+            initTree(father);
+            dfs1(h, 0);// 第一次DFS，计算子树大小、深度、父节点、重儿子
+            dfs2(h, h); // 第二次DFS，划分链，确定链顶节点
+        }
+
+        private void initTree(int[] father) {
+            n = father.length + 1;//计算节点的总数
+            tree = new int[n][];
+            fa = new int[n];
+            dep = new int[n];
+            son = new int[n];
+            siz = new int[n];
+            top = new int[n--]; // 调整n为实际节点数（0-based）
+            int[] cnum = new int[n];// 记录每个节点的子节点数量
+            // 寻找根节点并统计子节点数量
+            for (int i = 0; i < n; i++) {
+                if (father[i] == i) {
+                    h = i + 1;
+                } else {
+                    cnum[father[i]]++;
+                }
+            }
+            //将邻接表初始化
+            tree[0] = new int[0];
+            for (int i = 0; i < n; i++) {
+                tree[i + 1] = new int[cnum[i]];// 为每个节点分配子节点数组空间
+            }
+            //将邻接表填充
+            for (int i = 0; i < n; i++) {
+                if (i + 1 != h) {
+                    // 将节点i+1添加到其父节点的子节点列表中
+                    tree[father[i] + 1][--cnum[father[i]]] = i + 1;
+                }
+            }
+        }
+
+        private void dfs1(int u, int f) {
+            fa[u] = f;
+            dep[u] = dep[f] + 1;
+            siz[u] = 1;//子树的大小初始化为1
+            int maxSize = -1;//用于寻找重儿子
+            //对所有子节点遍历
+            for (int v : tree[u]) {
+                dfs1(v, u);
+                siz[u] += siz[v];//更新子树的大小
+                // 寻找重儿子（子树最大的子节点）
+                if (siz[v] > maxSize) {
+                    maxSize = siz[v];
+                    son[u] = v;
+                }
+            }
+        }
+
+        private void dfs2(int u, int t) {
+            top[u] = t; // 记录当前节点所在链的链顶
+            // 如果有重儿子，优先处理重儿子，保证重链的连续性
+            if (son[u] != 0) {
+                dfs2(son[u], t);//重儿子与当前节点在同一链上
+                for (int v : tree[u]) {
+                    if (v != son[u]) {
+                        dfs2(v, v);//重儿子自身作为轻链的链顶
+                    }
+                }
+            }
+        }
+
+        public int lca(int a, int b) {
+            a++;
+            b++;// 转换为1-based索引
+            while (top[a] != top[b]) {
+                if (dep[top[a]] > dep[top[b]]) {
+                    a = fa[top[a]];
+                } else {
+                    b = fa[top[b]];
+                }
+            }
+            // 当两个节点在同一链上时，深度较小的节点是LCA
+            return (dep[a] < dep[b] ? a : b) - 1;
+        }
+    }
+
+    public static int[] generateFatherArray(int N) {
+        int[] order = new int[N];//创建o~N-1的有序数组
+        for (int i = 0; i < N; i++) {
+            order[i] = i;
+        }
+        //  Fisher-Yates洗牌算法，随机打乱数组
+        for (int i = N - 1; i >= 0; i--) {
+            swap(order, i, (int) (Math.random() * (i + 1)));
+        }
+        //生成父节点数组
+        int[] ans = new int[N];
+        // 第一个元素作为根节点，父节点指向自己
+        ans[order[0]] = order[0];
+        // 为每个节点分配随机父节点（必须是已出现过的节点）
+        for (int i = 1; i < N; i++) {
+            // 从0到i-1之间随机选一个索引，对应order中的节点作为父节点
+            ans[order[i]] = order[(int) (Math.random() * i)];
+        }
+        return ans;
+    }
+
+    public static int[][] generateQueries(int M, int N) {
+        //创建M个查询的二维数组
+        int[][] ans = new int[M][2];
+        // 为每个查询生成两个随机节点
+        for (int i = 0; i < M; i++) {
+            ans[i][0] = (int) (Math.random() * N);
+            ans[i][1] = (int) (Math.random() * N);
+        }
+        return ans;
+    }
+
+    public static void swap(int[] arr, int i, int j) {
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+    }
+
+    public static boolean equal(int[] a, int[] b) {
+        if (a.length != b.length) {
+            return false;
+        }
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] != b[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        int N = 1000;
+        int M = 200;
+        int testTime = 50000;
+        System.out.println("test begin!");
+        for (int i = 0; i < testTime; i++) {
+            int size = (int) (Math.random() * N) + 1;
+            int ques = (int) (Math.random() * M) + 1;
+            int[] father = generateFatherArray(size);
+            int[][] queries = generateQueries(ques, size);
+            int[] ans1 = query1(father, queries);
+            int[] ans2 = query2(father, queries);
+            int[] ans3 = query3(father, queries);
+            if (!equal(ans1, ans2) || !equal(ans1, ans3)) {
+                System.out.println("Oops");
+                break;
+            }
+        }
+        System.out.println("test finish");
     }
 }
