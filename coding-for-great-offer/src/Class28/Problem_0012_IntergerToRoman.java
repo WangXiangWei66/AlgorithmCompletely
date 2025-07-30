@@ -1,4 +1,5 @@
 package Class28;
+
 //罗马数字包含以下七种字符：I，V，X，L，C，D和M
 //字符          数值
 //I             1
@@ -16,4 +17,20 @@ package Class28;
 //给你一个整数，将其转为罗马数字
 //Leetcode题目：https://leetcode.com/problems/integer-to-roman/
 public class Problem_0012_IntergerToRoman {
+
+    public static String intToRoman(int num) {
+        String[][] c = {
+                {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"},
+                {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"},
+                {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"},
+                {"", "M", "MM", "MMM"}
+        };
+        StringBuilder roman = new StringBuilder();//高效拼接罗马字符串
+        //分别取个十百千的数字
+        roman.append(c[3][num / 1000 % 10])
+                .append(c[2][num / 100 % 10])
+                .append(c[1][num / 10 % 10])
+                .append(c[0][num % 10]);
+        return roman.toString();
+    }
 }
