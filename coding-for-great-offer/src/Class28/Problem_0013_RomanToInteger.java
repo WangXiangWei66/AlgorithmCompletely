@@ -1,4 +1,5 @@
 package Class28;
+
 //罗马数字包含以下七种字符:I，V，X，L，C，D和M。
 //字符          数值
 //I             1
@@ -17,4 +18,42 @@ package Class28;
 //给定一个罗马数字，将其转换成整数。输入确保在 1到 3999 的范围内。
 //Leetcode题目：https://leetcode.com/problems/roman-to-integer/
 public class Problem_0013_RomanToInteger {
+    //前小后大则减，前大后小则加
+    public static int romanToInt(String s) {
+        int[] nums = new int[s.length()];
+        for (int i = 0; i < s.length(); i++) {
+            switch (s.charAt(i)) {//根据当前的字符进行判断
+                case 'M':
+                    nums[i] = 1000;
+                    break;
+                case 'D':
+                    nums[i] = 500;
+                    break;
+                case 'C':
+                    nums[i] = 100;
+                    break;
+                case 'L':
+                    nums[i] = 50;
+                    break;
+                case 'X':
+                    nums[i] = 10;
+                    break;
+                case 'V':
+                    nums[i] = 5;
+                    break;
+                case 'I':
+                    nums[i] = 1;
+                    break;
+            }
+        }//循环结束后，nums数组已经存储了所有罗马字符对应的数值
+        int sum = 0;//用于累加计算结果
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] < nums[i + 1]) {
+                sum -= nums[i];
+            } else {
+                sum += nums[i];
+            }
+        }
+        return sum + nums[nums.length - 1];
+    }
 }
