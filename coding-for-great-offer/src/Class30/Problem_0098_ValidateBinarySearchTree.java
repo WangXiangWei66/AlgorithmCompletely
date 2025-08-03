@@ -1,19 +1,43 @@
 package Class30;
-//一条包含字母A-Z 的消息通过以下的方式进行了编码：
-//'A' -> 1
-//'B' -> 2
-//...
-//'Z' -> 26
-//除了上述的条件以外，现在加密字符串可以包含字符 '*'了，字符'*'可以被当做1到9当中的任意一个数字。
-//给定一条包含数字和字符'*'的加密信息，请确定解码方法的总数。
-//同时，由于结果值可能会相当的大，所以你应当对109+ 7取模。（翻译者标注：此处取模主要是为了防止溢出）
-//示例 1 :
-//输入: "*"
-//输出: 9
-//解释: 加密的信息可以被解密为: "A", "B", "C", "D", "E", "F", "G", "H", "I".
-//示例 2 :
-//输入: "1*"
-//输出: 9 + 9 = 18（翻译者标注：这里1*可以分解为1,* 或者当做1*来处理，所以结果是9+9=18）
-//Leetcode题目 : https://leetcode.com/problems/decode-ways-ii/
+//给定一个二叉树，判断其是否是一个有效的二叉搜索树。
+//二叉搜索树的核心性质：中序遍历的结果为严格递增序列
 public class Problem_0098_ValidateBinarySearchTree {
+    //本代码使用了“Morris”中序遍历算法，在不使用递归栈的情况下，验证一颗二叉树是否为有效的二叉搜索树
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+    }
+
+    public boolean isValidBST(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        TreeNode cur = root;
+        TreeNode mostRight = null;//morris遍历中，寻找左子树的最右节点
+        Integer pre = null;//中序遍历中前一个节点的val值
+        boolean ans = true;
+        while (cur != null) {
+            mostRight = cur.left;
+            if (mostRight != null) {
+                //寻找cur左子树的最右节点
+                while (mostRight.right != null && mostRight.right != cur) {
+                    mostRight = mostRight.right;
+                }
+                if (mostRight.right == null) {
+                    mostRight.right = cur;
+                    cur = cur.left;
+                    continue;
+                } else {
+                    mostRight.right = null;
+                }
+            }
+            if (pre != null && pre >= cur.val) {
+                ans = false;
+            }
+            pre = cur.val;
+            cur = cur.right;
+        }
+        return ans;
+    }
 }

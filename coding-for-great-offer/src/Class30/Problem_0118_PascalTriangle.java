@@ -1,16 +1,6 @@
 package Class30;
-//给定一个完美二叉树，其所有叶子节点都在同一层，每个父节点都有两个子节点。二叉树定义如下：
-//struct Node {
-//int val;
-//Node *left;
-//Node *right;
-//Node *next;
-//}
-//填充它的每个 next 指针，让这个指针指向其下一个右侧节点。如果找不到下一个右侧节点，则将 next 指针设置为 NULL。
-//初始状态下，所有next 指针都被设置为 NULL。
-//进阶：
-//这棵树如果是普通二叉树，该怎么做。
-//你只能使用常量级额外空间。
-//Leetcode题目 : https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
+//给定一个非负整数 numRows，生成「杨辉三角」的前 numRows 行。
+//在「杨辉三角」中，每个数是它左上方和右上方的数的和。
+//Leetcode题目 : https://leetcode.com/problems/pascals-triangle/
 public class Problem_0118_PascalTriangle {
 }
