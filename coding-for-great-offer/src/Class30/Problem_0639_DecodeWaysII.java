@@ -1,4 +1,5 @@
 package Class30;
+
 //一条包含字母A-Z 的消息通过以下的方式进行了编码：
 //'A' -> 1
 //'B' -> 2
@@ -16,4 +17,163 @@ package Class30;
 //输出: 9 + 9 = 18（翻译者标注：这里1*可以分解为1,* 或者当做1*来处理，所以结果是9+9=18）
 //Leetcode题目 : https://leetcode.com/problems/decode-ways-ii/
 public class Problem_0639_DecodeWaysII {
+
+    public static int numDecodings0(String str) {
+        return f(str.toCharArray(), 0);
+    }
+
+    //计算从索引i开始，有多少种编码方式
+    public static int f(char[] str, int i) {
+        //已经处理完了所有的字符
+        if (i == str.length) {
+            return 1;
+        }
+        //如果当前的字符是0，则无法单独解码
+        if (str[i] == '0') {
+            return 0;
+        }
+        if (str[i] != '*') {
+            int p1 = f(str, i + 1);
+            if (i + 1 == str.length) {
+                return p1;
+            }
+            if (str[i + 1] != '*') {
+                int num = (str[i] - '0') * 10 + str[i + 1] - '0';
+                int p2 = 0;
+                if (num < 27) {
+                    p2 = f(str, i + 2);
+                }
+                return p1 + p2;
+                //下一个字符是*
+            } else {
+                int p2 = 0;
+                if (str[i] < '3') {
+                    // 如果当前字符是'1'，*可以是1-9，共9种；如果是'2'，*可以是1-6，共6种
+                    p2 = f(str, i + 2) * (str[i] == '1' ? 9 : 6);
+                }
+                return p1 + p2;
+            }
+            //当前的字符是*
+        } else {
+            int p1 = 9 * f(str, i + 1);
+            if (i + 1 == str.length) {
+                return p1;
+            }
+            if (str[i + 1] != '*') {
+                // 如果下一个字符小于'7'，*可以是1或2，共2种；否则只能是1，共1种
+                int p2 = (str[i + 1] < '7' ? 2 : 1) * f(str, i + 2);
+                return p1 + p2;
+            } else {
+                //下一个字符也是*
+                int p2 = 15 * f(str, i + 2);//共有15种可能：11-19(9种)和21-26(6种)
+                return p1 + p2;
+            }
+        }
+    }
+
+    public static long mod = 1000000007;
+
+    //时间复杂度为O(N)
+    public static int numDecodings1(String str) {
+        long[] dp = new long[str.length()];
+        return (int) ways1(str.toCharArray(), 0, dp);
+    }
+
+    //计算从索引i开始的字串有多少种解码的方式
+    //dp数组是为了存储中间的结果
+    public static long ways1(char[] s, int i, long[] dp) {
+        if (i == s.length) {
+            return 1;
+        }
+        if (s[i] == '0') {
+            return 0;
+        }
+        if (dp[i] != 0) {
+            return dp[i];
+        }
+        long ans = ways1(s, i + 1, dp) * (s[i] == '*' ? 9 : 1);
+        if (s[i] == '1' || s[i] == '2' || s[i] == '*') {
+            if (i + 1 < s.length) {
+                if (s[i + 1] == '*') {
+                    ans += ways1(s, i + 2, dp) * (s[i] == '*' ? 15 : (s[i] == '1' ? 9 : 6));
+                } else {
+                    if (s[i] == '*') {
+                        ans += ways1(s, i + 2, dp) * (s[i + 1] < '7' ? 2 : 1);
+                        //当前字符为1或2，下一个是数字
+                    } else {
+                        ans += ((s[i] - '0') * 10 + s[i + 1] - '0') < 27 ? ways1(s, i + 2, dp) : 0;
+                    }
+                }
+            }
+        }
+        ans %= mod;
+        dp[i] = ans;
+        return ans;
+    }
+
+    public static int numDecodings2(String str) {
+        char[] s = str.toCharArray();
+        int n = s.length;
+        //dp[i]:从索引i开始到结尾的字串的解码方式的总数
+        //长度为n+1是为了处理i = n-1时的边界情况
+        long[] dp = new long[n + 1];
+        dp[n] = 1;//空字符串本身有一种解码情况
+        for (int i = n - 1; i >= 0; i--) {
+            if (s[i] != '0') {
+                dp[i] = dp[i + 1] * (s[i] == '*' ? 9 : 1);
+                if (s[i] == '1' || s[i] == '2' || s[i] == '*') {
+                    if (i + 1 < n) {
+                        if (s[i + 1] == '*') {
+                            dp[i] += dp[i + 2] * (s[i] == '*' ? 15 : (s[i] == '1' ? 9 : 6));
+                        } else {
+                            if (s[i] == '*') {
+                                dp[i] += dp[i + 2] * (s[i + 1] < '7' ? 2 : 1);
+                            } else {
+                                dp[i] += ((s[i] - '0') * 10 + s[i + 1] - '0') < 27 ? dp[i + 2] : 0;
+                            }
+                        }
+                    }
+                }
+                dp[i] %= mod;
+            }
+            //如果s[i]为0，则dp[i]就保持为0
+        }
+        return (int) dp[0];
+    }
+
+    //本方法将空间复杂度降为了O(1)
+    public static int numDecodings3(String str) {
+        char[] s = str.toCharArray();
+        int n = s.length;
+        //定义了三个变量代替dp数组，存储最近的三个状态
+        //a相当于dp[i+2]
+        //b相当于dp[i+1]
+        //c相当于dp[i]
+        long a = 1;//初始状态：dp[n] = 1（空字符串的解码方式）
+        long b = 1;//初始状态：dp[n-1]的初始值（会根据实际字符更新）
+        long c = 0; //用于计算当前位置的解码方式数
+        for (int i = n - 1; i >= 0; i--) {
+            if (s[i] != '0') {
+                c = b * (s[i] == '*' ? 9 : 1);
+                if (s[i] == '1' || s[i] == '2' || s[i] == '*') {
+                    if (i + 1 < n) {
+                        if (s[i + 1] == '*') {
+                            c += a * (s[i] == '*' ? 15 : (s[i] == '1' ? 9 : 6));
+                        } else {
+                            if (s[i] == '*') {
+                                c += a * (s[i + 1] < '7' ? 2 : 1);
+                            } else {
+                                c += a * (((s[i] - '0') * 10 + s[i + 1] - '0') < 27 ? 1 : 0);
+                            }
+                        }
+                    }
+                }
+            }
+            c %= mod;
+            a = b;
+            b = c;
+            c = 0;//将c重置，用于计算下一个位置
+        }
+        return (int) b;
+    }
 }
