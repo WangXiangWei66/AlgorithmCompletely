@@ -1,5 +1,6 @@
 package Class32;
-//给你一个字符串 columnTitle ，表示 Excel 表格中的列名称。返回该列名称对应的列序号。
+
+//给你一个字符串columnTitle ，表示 Excel 表格中的列名称。返回该列名称对应的列序号。
 //例如，
 //A -> 1
 //B -> 2
@@ -21,4 +22,13 @@ package Class32;
 //输出: 2147483647
 //Leetcode题目 : https://leetcode.com/problems/excel-sheet-column-number/
 public class Problem_0171_ExcelSheetColumnNumber {
+
+    public static int titleToNumber(String s) {
+        char[] str = s.toCharArray();
+        int ans = 0;
+        for (int i = 0; i < str.length; i++) {
+            ans = ans * 26 + (str[i] - 'A') + 1;
+        }
+        return ans;
+    }
 }

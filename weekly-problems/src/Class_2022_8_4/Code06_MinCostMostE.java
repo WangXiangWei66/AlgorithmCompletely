@@ -1,4 +1,4 @@
-package class_2022_8_4;
+package Class_2022_8_4;
 
 // 来自网易
 // 小红拿到了一个仅由r、e、d组成的字符串

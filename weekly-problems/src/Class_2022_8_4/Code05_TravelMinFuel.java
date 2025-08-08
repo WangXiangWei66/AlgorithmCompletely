@@ -1,4 +1,4 @@
-package class_2022_8_4;
+package Class_2022_8_4;
 
 import java.util.ArrayList;
 
