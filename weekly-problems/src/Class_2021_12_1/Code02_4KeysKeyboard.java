@@ -1,0 +1,4 @@
+package Class_2021_12_1;
+
+public class Code02_4KeysKeyboard {
+}

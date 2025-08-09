@@ -1,0 +1,4 @@
+package class_2022_02_2;
+
+public class Code02_DesignBitset {
+}
