@@ -1,4 +1,5 @@
 package Class32;
+
 //编写一个函数，输入是一个无符号整数（以二进制串的形式），返回其二进制表达式中数字位数为 '1' 的个数（也被称为汉明重量）。
 //示例 1：
 //输入：00000000000000000000000000001011
@@ -18,4 +19,24 @@ package Class32;
 //如果多次调用这个函数，你将如何优化你的算法？
 //Leetcode题目 : https://leetcode.com/problems/number-of-1-bits/
 public class Problem_0191_NumberOf1Bits {
+
+    public static int hammingWeight1(int n) {
+        int bits = 0;
+        int rightOne = 0;//存储最右侧的‘1’及其右侧的0组成的数
+        while (n != 0) {
+            bits++;
+            rightOne = n & (-n);
+            n ^= rightOne;//清除最右侧的1
+        }
+        return bits;
+    }
+
+    public static int hammingWeight2(int n) {
+        n = (n & 0x55555555) + ((n >>> 1) & 0x55555555);//计算出每组2位中1的个数
+        n = (n & 0x33333333) + ((n >>> 2) & 0x33333333);
+        n = (n & 0x0f0f0f0f) + ((n >>> 4) & 0x0f0f0f0f);
+        n = (n & 0x00ff00ff) + ((n >>> 8) & 0x00ff00ff);
+        n = (n & 0x0000ffff) + ((n >>> 16) & 0x0000ffff);
+        return n;
+    }
 }
