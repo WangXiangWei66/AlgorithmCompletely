@@ -1,4 +1,7 @@
 package Class33;
+
+import java.util.ArrayList;
+
 //现在你总共有 n 门课需要选，记为0到n-1。
 //在选修某些课程之前需要一些先修课程。例如，想要学习课程 0 ，你需要先完成课程1 ，我们用一个匹配来表示他们: [0,1]
 //给定课程总量以及它们的先决条件，返回你为了学完所有课程所安排的学习顺序。
@@ -14,4 +17,38 @@ package Class33;
 //    因此，一个正确的课程顺序是[0,1,2,3] 。另一个正确的排序是[0,2,1,3] 。
 //Leetcode题目 : https://leetcode.com/problems/course-schedule-ii/
 public class Problem_0210_CourseScheduleII {
+
+    public static int[] findOrder(int numCourses, int[][] prerequisites) {
+        ArrayList<ArrayList<Integer>> graph = new ArrayList<>();//存储课程的依赖关系图
+        for (int i = 0; i < numCourses; i++) {
+            graph.add(new ArrayList<>());
+        }
+        int[] indegree = new int[numCourses];//记录每一门课程的入度
+        for (int[] arr : prerequisites) {
+            int to = arr[0];
+            int from = arr[1];
+            graph.get(from).add(to);
+            indegree[to]++;
+        }
+        int[] zeroQueue = new int[numCourses];
+        int l = 0;
+        int r = 0;
+        for (int i = 0; i < numCourses; i++) {
+            if (indegree[i] == 0) {
+                zeroQueue[r++] = i;
+            }
+        }
+        int count = 0;
+        while (l < r) {
+            int cur = zeroQueue[l++];//取出队列头部的课程
+            count++;
+            for (int next : graph.get(cur)) {
+                if (--indegree[next] == 0) {
+                    zeroQueue[r++] = next;
+                }
+            }
+        }
+        return count == numCourses ? zeroQueue : new int[0];
+
+    }
 }
