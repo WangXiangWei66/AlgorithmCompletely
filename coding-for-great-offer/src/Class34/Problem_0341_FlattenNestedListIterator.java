@@ -1,4 +1,9 @@
 package Class34;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Stack;
+
 //给你一个嵌套的整数列表 nestedList 。每个元素要么是一个整数，要么是一个列表；
 //该列表的元素也可能是整数或者是其他列表。请你实现一个迭代器将其扁平化，使之能够遍历这个列表中的所有整数。
 //实现扁平迭代器类 NestedIterator ：
@@ -22,4 +27,96 @@ package Class34;
 //解释：通过重复调用next直到hasNext 返回 false，next返回的元素的顺序应该是: [1,4,6]。
 //Leetcode题目 : https://leetcode.com/problems/flatten-nested-list-iterator/
 public class Problem_0341_FlattenNestedListIterator {
+
+    public interface NestedInteger {
+        public boolean isInteger();//判断当前元素是否为整数
+
+        public Integer getInteger();//如果是整数，返回整数的值
+
+        public List<NestedInteger> getList();//列表，就返回包含的元素列表
+    }
+
+    public class NestedIterator implements Iterator<Integer> {
+
+        private List<NestedInteger> list;//存储原始的嵌套列表
+        private Stack<Integer> stack;//记录当前遍历位置的索引路径
+        private boolean used;//标记当前元素是否已被next()方法返回
+
+        public NestedIterator(List<NestedInteger> nestedList) {
+            list = nestedList;
+            stack = new Stack<>();
+            stack.push(-1);
+            used = true;//需要去寻找下一个元素
+            hasNext();
+        }
+
+        @Override
+        public boolean hasNext() {
+            if (stack.isEmpty()) {
+                return false;
+            }
+            if (!used) {
+                return true;
+            }
+            if (findNext(list, stack)) {
+                used = false;
+            }
+            return !used;
+        }
+
+        @Override
+        public Integer next() {
+            Integer ans = null;
+            if (!used) {
+                ans = get(list, stack);//根据栈中记录的路径获取整数
+                used = true;
+                hasNext();
+            }
+            return ans;
+        }
+
+        private Integer get(List<NestedInteger> nestedList, Stack<Integer> stack) {
+            int index = stack.pop();
+            Integer ans = null;
+            //递归获取嵌套列表中对应的索引元素
+            if (!stack.isEmpty()) {
+                ans = get(nestedList.get(index).getList(), stack);
+            } else {
+                ans = nestedList.get(index).getInteger();
+            }
+            stack.push(index);//重新将索引压回栈
+            return ans;
+        }
+
+        private boolean findNext(List<NestedInteger> nestedList, Stack<Integer> stack) {
+            int index = stack.pop();
+            if (!stack.isEmpty() && findNext(nestedList.get(index).getList(), stack)) {
+                stack.push(index);
+                return true;
+            }
+            //从当前索引的下一位开始遍历列表
+            for (int i = index + 1; i < nestedList.size(); i++) {
+                if (pickFirst(nestedList.get(i), i, stack)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        //返回当前列表索引为i的元素是否为整数，如果是整数就返回
+        private boolean pickFirst(NestedInteger nested, int position, Stack<Integer> stack) {
+            if (nested.isInteger()) {
+                stack.add(position);
+                return true;
+            } else {
+                List<NestedInteger> actualList = nested.getList();
+                for (int i = 0; i < actualList.size(); i++) {
+                    if (pickFirst(actualList.get(i), i, stack)) {
+                        stack.add(position);
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+    }
 }
