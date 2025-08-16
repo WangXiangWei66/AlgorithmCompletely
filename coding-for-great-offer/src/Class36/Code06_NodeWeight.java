@@ -1,4 +1,7 @@
 package Class36;
+
+import java.util.HashMap;
+
 //来自美团
 //有一棵树，给定头节点h，和结构数组m，下标0弃而不用
 //比如h = 1, m = [ [] , [2,3], [4], [5,6], [], [], []]
@@ -15,4 +18,23 @@ package Class36;
 //}
 //请计算所有孩子的权值并返回
 public class Code06_NodeWeight {
+    //h：树的头节点编号
+    //m[i]:树的结构数组，里面存储的是所有直接孩子
+    //w[i]节点权值数组
+    //c[i]：节点颜色数组
+    public static void w(int h, int[][] m, int[] w, int[] c) {
+        if (m[h].length == 0) {
+            return;
+        }
+        HashMap<Integer, Integer> colors = new HashMap<Integer, Integer>();//颜色+该颜色孩子的个数
+        HashMap<Integer, Integer> weights = new HashMap<Integer, Integer>();//颜色+该颜色孩子的权值之和
+        for (int child : m[h]) {
+            w(child, m, w, c);//递归计算当前孩子的权值
+            colors.put(c[child], colors.getOrDefault(c[child], 0) + 1);
+            weights.put(c[child], weights.getOrDefault(c[child], 0) + w[child]);
+        }
+        for (int color : colors.keySet()) {
+            w[h] = Math.max(w[h], colors.get(color) + weights.get(color));
+        }
+    }
 }
