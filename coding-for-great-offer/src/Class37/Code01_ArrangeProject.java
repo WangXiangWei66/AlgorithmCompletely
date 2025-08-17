@@ -1,4 +1,9 @@
 package Class37;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+//有向无环图的拓扑排序
 //来自网易
 //刚入职网易互娱，新人mini项目便如火如荼的开展起来。为了更好的项目协作与管理，
 //小易决定将学到的甘特图知识用于mini项目时间预估。小易先把项目中每一项工作以任务的形式列举出来，
@@ -11,4 +16,37 @@ package Class37;
 //之后为Ki个整数Mj，表示第Mj个任务是第i个任务的前置任务。
 //数据范围：对于所有数据，满足1<=T<=3, 1<=N, Mj<=100000, 0<=Di<=1000, 0<=sum(Ki)<=N*2。
 public class Code01_ArrangeProject {
+
+    public static int dayCount(ArrayList<Integer>[] nums, int[] days, int[] headCount) {
+        //获取所有无前置任务的节点
+        Queue<Integer> head = countHead(headCount);
+        int maxDay = 0;//完成所有任务的最大时间
+        int[] countDay = new int[days.length];//每个任务的最早完成时间
+        while (!head.isEmpty()) {
+            int cur = head.poll();
+            countDay[cur] += days[cur];
+            //遍历当前任务的所有后续任务
+            for (int j = 0; j < nums[cur].size(); j++) {
+                headCount[nums[cur].get(j)]--;//将后续任务的前置任务的数量减1
+                if (headCount[nums[cur].get(j)] == 0) {
+                    head.offer(nums[cur].get(j));//后续任务的前置任务已经完全执行，则加入队列
+                }
+                countDay[nums[cur].get(j)] = Math.max(countDay[nums[cur].get(j)], countDay[cur]);
+            }
+        }
+        for (int i = 0; i < countDay.length; i++) {
+            maxDay = Math.max(maxDay, countDay[i]);
+        }
+        return maxDay;
+    }
+
+    public static Queue<Integer> countHead(int[] headCount) {
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < headCount.length; i++) {
+            if (headCount[i] == 0) {
+                queue.offer(i);
+            }
+        }
+        return queue;
+    }
 }
