@@ -1,4 +1,5 @@
 package Class38;
+
 //360笔试题
 //长城守卫军
 //题目描述：
@@ -19,4 +20,170 @@ package Class38;
 //样例输出
 //6
 public class Code02_GreatWall {
+    //wall：初始强度数组
+    //m:最大加固次数
+    //x：每次加固的作用范围
+    //k：每次加固增加的强度
+    public static int maxForce(int[] wall, int m, int x, int k) {
+        long L = 0;
+        long R = 0;
+        for (int num : wall) {
+            R = Math.max(R, num);
+        }
+        R += m * k;//上界：最大初始强度+全部加固资源的总增量
+        long ans = 0;
+        while (L <= R) {
+            long M = (L + R) / 2;
+            if (can(wall, m, x, k, M)) {
+                ans = M;
+                L = M + 1;
+            } else {
+                R = M - 1;
+            }
+        }
+        return (int) ans;
+    }
+
+    public static boolean can(int[] wall, int m, int x, int k, long limit) {
+        int N = wall.length;
+        SegmentTree st = new SegmentTree(wall);
+        st.build(1, N, 1);//时间复杂度为O(logN)
+        int need = 0;//已使用的加固次数
+        for (int i = 0; i < N; i++) {
+            long cur = st.query(i + 1, i + 1, 1, N, 1);//查询i+1位置的火力
+            if (cur < limit) {
+                int add = (int) ((limit - cur + k - 1) / k);//实现向上取整
+                need += add;
+                if (need > m) {
+                    return false;
+                }
+                st.add(i + 1, Math.min(i + x, N), add * k, 1, N, 1);
+            }
+        }
+        return true;
+    }
+
+    //构建树O(n),查询、更新、添加操作均为O(logN)
+    public static class SegmentTree {
+        private int MAXN;//数组长度
+        private int[] arr;//原始数组
+        private int[] sum;//线段树节点的值
+        private int[] lazy;//延迟区间查询的操作
+        private int[] change;//存储更新的值
+        private boolean[] update;
+
+        public SegmentTree(int[] origin) {
+            MAXN = origin.length + 1;
+            arr = new int[MAXN];
+            for (int i = 1; i < MAXN; i++) {
+                arr[i] = origin[i - 1];//转化为1~based索引
+            }
+            sum = new int[MAXN << 2];
+            lazy = new int[MAXN << 2];
+            change = new int[MAXN << 2];
+            update = new boolean[MAXN << 2];
+        }
+
+        private void pushUp(int rt) {
+            sum[rt] = sum[rt << 1] + sum[rt << 1 | 1];
+        }
+
+        //先处理更新操作，优先级高于添加
+        private void pushDown(int rt, int ln, int rn) {
+            if (update[rt]) {
+                update[rt << 1] = true;
+                update[rt << 1 | 1] = true;
+                change[rt << 1] = change[rt];
+                change[rt << 1 | 1] = change[rt];
+                //更新操作会覆盖添加
+                lazy[rt << 1] = 0;
+                lazy[rt << 1 | 1] = 0;
+                //更新左右子节点的值
+                sum[rt << 1] = change[rt] * ln;
+                sum[rt << 1 | 1] = change[rt] * rn;
+                update[rt] = false;
+            }
+            //处理添加操作
+            if (lazy[rt] != 0) {
+                lazy[rt << 1] += lazy[rt];
+                sum[rt << 1] += lazy[rt] * ln;
+                lazy[rt << 1 | 1] += lazy[rt];
+                sum[rt << 1 | 1] += lazy[rt] * rn;
+                lazy[rt] = 0;
+            }
+        }
+
+        //构造线段树方法
+        public void build(int l, int r, int rt) {
+            if (l == r) {
+                sum[rt] = arr[l];
+                return;
+            }
+            int mid = (l + r) >> 1;
+            build(l, mid, rt << 1);
+            build(mid + 1, r, rt << 1 | 1);
+            pushUp(rt);//由子树更新当前节点的和
+        }
+
+        public void update(int L, int R, int C, int l, int r, int rt) {
+            if (L <= l && r <= R) {
+                update[rt] = true;
+                change[rt] = C;
+                sum[rt] = C * (r - l + 1);
+                lazy[rt] = 0;//更新操作会覆盖添加
+                return;
+            }
+            //拆分处理，先传递标记
+            int mid = (l + r) >> 1;
+            pushDown(rt, mid - l + 1, r - mid);
+            if (L <= mid) {
+                update(L, R, C, l, mid, rt << 1);
+            }
+            if (R > mid) {
+                update(L, R, C, mid + 1, r, rt << 1 | 1);
+            }
+            pushUp(rt);
+        }
+
+        public void add(int L, int R, int C, int l, int r, int rt) {
+            if (L <= l && r <= R) {
+                sum[rt] += C * (r - l + 1);
+                lazy[rt] += C;
+                return;
+            }
+            int mid = (l + r) >> 1;
+            pushDown(rt, mid - l + 1, r - mid);
+            if (L <= mid) {
+                add(L, R, C, l, mid, rt << 1);
+            }
+            if (R > mid) {
+                add(L, R, C, mid + 1, r, rt << 1 | 1);
+            }
+            pushUp(rt);
+        }
+
+        public long query(int L, int R, int l, int r, int rt) {
+            if (L <= l && r <= R) {
+                return sum[rt];
+            }
+            int mid = (l + r) >> 1;
+            pushDown(rt, mid - l + 1, r - mid);
+            long ans = 0;
+            if (L <= mid) {
+                ans += query(L, R, l, mid, rt << 1);
+            }
+            if (R > mid) {
+                ans += query(L, R, mid + 1, r, rt << 1 | 1);
+            }
+            return ans;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] wall = {3, 1, 1, 1, 3};
+        int m = 2;
+        int x = 3;
+        int k = 1;
+        System.out.println(maxForce(wall, m, x, k));
+    }
 }
