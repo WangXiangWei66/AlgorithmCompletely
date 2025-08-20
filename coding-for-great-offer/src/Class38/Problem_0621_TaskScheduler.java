@@ -1,5 +1,6 @@
 package Class38;
-//给你一个用字符数组 tasks 表示的 CPU 需要执行的任务列表。其中每个字母表示一种不同种类的任务。任务可以以任意顺序执行，并且每个任务都可以在 1 个单位时间内执行完。
+
+//给你一个用字符数组tasks 表示的 CPU 需要执行的任务列表。其中每个字母表示一种不同种类的任务。任务可以以任意顺序执行，并且每个任务都可以在 1 个单位时间内执行完。
 //在任何一个单位时间，CPU 可以完成一个任务，或者处于待命状态。
 //然而，两个 相同种类 的任务之间必须有长度为整数 n 的冷却时间，因此至少有连续 n 个单位时间内 CPU 在执行不同的任务，或者在待命状态。
 //你需要计算完成所有任务所需要的 最短时间 。
@@ -24,4 +25,27 @@ package Class38;
 //A -> B -> C -> A -> D -> E -> A -> F -> G -> A -> (待命) -> (待命) -> A -> (待命) -> (待命) -> A
 //Leetcode题目 : https://leetcode.com/problems/task-scheduler/
 public class Problem_0621_TaskScheduler {
+
+    //时间复杂度未O(n)
+    public static int leastInterval(char[] tasks, int free) {
+        int[] count = new int[256];
+        int maxCount = 0;//记录出现次数最多的任务的出现次数
+        for (char task : tasks) {
+            count[task]++;
+            maxCount = Math.max(maxCount, count[task]);
+        }
+        int maxKinds = 0;//由多少种任务有最大次数
+        for (int task = 0; task < 256; task++) {
+            if (count[task] == maxCount) {
+                maxKinds++;
+            }
+        }
+        //计算除了最后一组最大频率任务外的所有任务数量
+        int tasksExceptFinalTeam = tasks.length - maxKinds;
+        //最大频率任务所需的间隔时间总数
+        int spaces = (free + 1) * (maxCount - 1);
+        //用其他任务来填充这些空闲空间
+        int restSpaces = Math.max(0, spaces - tasksExceptFinalTeam);
+        return tasks.length + restSpaces;
+    }
 }
