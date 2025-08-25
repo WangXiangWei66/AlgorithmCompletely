@@ -1,7 +1,8 @@
 package Class41;
+
 //实现获取 下一个排列 的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列（即，组合出下一个更大的整数）。
 //如果不存在下一个更大的排列，则将数字重新排列成最小的排列（即升序排列）。
-//必须 原地 修改，只允许使用额外常数空间。
+//必须原地修改，只允许使用额外常数空间。
 //示例 1：
 //输入：nums = [1,2,3]
 //输出：[1,3,2]
@@ -16,4 +17,41 @@ package Class41;
 //输出：[1]
 //leetcode题目 : https://leetcode.com/problems/next-permutation/
 public class Problem_0031_NextPermutation {
+
+    public static void nextPermutation(int[] nums) {
+        int N = nums.length;
+        int firstLess = -1;//从右往左，找到第一个小于右边的位置
+        for (int i = N - 2; i >= 0; i--) {
+            if (nums[i] < nums[i + 1]) {
+                firstLess = i;
+                break;
+            }
+        }
+        if (firstLess < 0) {
+            reverse(nums, 0, N - 1);
+        } else {
+            //从右往左找到第一个比firstLess大的位置
+            int rightClosestMore = -1;
+            for (int i = N - 1; i > firstLess; i--) {
+                if (nums[i] > nums[firstLess]) {
+                    rightClosestMore = i;
+                    break;
+                }
+            }
+            swap(nums, firstLess, rightClosestMore);
+            reverse(nums, firstLess + 1, N - 1);
+        }
+    }
+
+    public static void reverse(int[] nums, int L, int R) {
+        while (L < R) {
+            swap(nums, L++, R--);
+        }
+    }
+
+    public static void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
 }
