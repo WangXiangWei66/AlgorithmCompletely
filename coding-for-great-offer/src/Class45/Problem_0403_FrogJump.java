@@ -1,4 +1,8 @@
 package Class45;
+
+import java.util.HashMap;
+import java.util.HashSet;
+
 //一只青蛙想要过河。 假定河流被等分为若干个单元格，并且在每一个单元格内都有可能放有一块石子（也有可能没有）。 青蛙可以跳上石子，但是不可以跳入水中
 //给你石子的位置列表 stones（用单元格序号 升序 表示），请判定青蛙能否成功过河（即能否在最后一步跳至最后一块石子上）
 //开始时，青蛙默认已站在第一块石子上，并可以假定它第一步只能跳跃一个单位（即只能从单元格 1 跳至单元格 2 ）
@@ -13,4 +17,41 @@ package Class45;
 //解释：这是因为第 5 和第 6 个石子之间的间距太大，没有可选的方案供青蛙跳跃过去。
 //leetcode题目：https://leetcode.com/problems/frog-jump/
 public class Problem_0403_FrogJump {
+    //采用了递归回溯+记忆化搜索
+    public static boolean canCross(int[] stones) {
+        //将石子存在HashSet中，用于O(1)判断某个位置是否有石子
+        HashSet<Integer> set = new HashSet<>();
+        for (int num : stones) {
+            set.add(num);
+        }
+        //外层key是当前所在石子位置cur，内层key：上一步的跳跃距离pre：value：该状态能否到达终点
+        HashMap<Integer, HashMap<Integer, Boolean>> dp = new HashMap<>();
+        return Jump(1, 1, stones[stones.length - 1], set, dp);
+    }
+    //cur：青蛙当前所在的石子位置
+    //pre：青蛙上一步的跳跃距离
+    //end：最后一块石子的位置
+    public static boolean Jump(int cur, int pre, int end, HashSet<Integer> set, HashMap<Integer, HashMap<Integer, Boolean>> dp) {
+        if (cur == end) {
+            return true;
+        }
+        //当前位置没有石子
+        if (!set.contains(cur)) {
+            return false;
+        }
+        if (dp.containsKey(cur) && dp.get(cur).containsKey(pre)) {
+            return dp.get(cur).get(pre);
+        }
+        //递归尝试三种跳跃方式
+        boolean ans = (pre > 1 && Jump(cur + pre - 1, pre - 1, end, set, dp))
+                || Jump(cur + pre, pre, end, set, dp)
+                || Jump(cur + pre + 1, pre + 1, end, set, dp);
+        if (!dp.containsKey(cur)) {
+            dp.put(cur, new HashMap<>());
+        }
+        if (!dp.get(cur).containsKey(pre)) {
+            dp.get(cur).put(pre, ans);
+        }
+        return ans;
+    }
 }
