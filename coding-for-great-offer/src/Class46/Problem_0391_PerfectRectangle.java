@@ -1,6 +1,9 @@
 package Class46;
+
+import java.util.HashMap;
+
 //我们有 N 个与坐标轴对齐的矩形, 其中 N > 0, 判断它们是否能精确地覆盖一个矩形区域。
-//每个矩形用左下角的点和右上角的点的坐标来表示。例如， 一个单位正方形可以表示为 [1,1,2,2]。 ( 左下角的点的坐标为 (1, 1) 以及右上角的点的坐标为 (2, 2) )。
+//每个矩形用左下角的点和右上角的点的坐标来表示。例如，一个单位正方形可以表示为 [1,1,2,2]。( 左下角的点的坐标为 (1, 1) 以及右上角的点的坐标为 (2, 2) )。
 //示例 1:
 //rectangles = [
 //[1,1,3,3],
@@ -10,7 +13,7 @@ package Class46;
 //[2,3,3,4]
 //]
 //返回 true。5个矩形一起可以精确地覆盖一个矩形区域。
-//示例 2:
+//示例2:
 //rectangles = [
 //[1,1,2,3],
 //[1,3,2,4],
@@ -36,4 +39,59 @@ package Class46;
 //返回 false。因为中间有相交区域，虽然形成了矩形，但不是精确覆盖。
 //leetcode题目：https://leetcode.com/problems/perfect-rectangle/
 public class Problem_0391_PerfectRectangle {
+
+    public static boolean isRectangleCover(int[][] matrix) {
+        if (matrix.length == 0 || matrix[0].length == 0) {
+            return false;
+        }
+        //记录所有句型的最小和最大坐标
+        int l = Integer.MAX_VALUE;//最左X坐标
+        int r = Integer.MIN_VALUE;//最右X坐标
+        int d = Integer.MAX_VALUE;//最下Y坐标
+        int u = Integer.MIN_VALUE;//最上Y坐标
+        //记录所有矩形顶点的出现次数
+        HashMap<Integer, HashMap<Integer, Integer>> map = new HashMap<>();
+        int area = 0;
+        for (int[] rect : matrix) {
+            add(map, rect[0], rect[1]);//左下
+            add(map, rect[0], rect[3]);//左上
+            add(map, rect[2], rect[1]);//右下
+            add(map, rect[2], rect[3]);//右上
+            area += (rect[2] - rect[0]) * (rect[3] - rect[1]);
+            l = Math.min(rect[0], l);
+            d = Math.min(rect[1], d);
+            r = Math.max(rect[2], r);
+            u = Math.max(rect[3], u);
+        }
+        return checkPoints(map, l, d, r, u) && area == (r - 1) * (u - d);
+    }
+
+    public static void add(HashMap<Integer, HashMap<Integer, Integer>> map, int row, int col) {
+        if (!map.containsKey(row)) {
+            map.put(row, new HashMap<>());
+        }
+        map.get(row).put(col, map.get(row).getOrDefault(col, 0) + 1);
+    }
+    //检查顶点是否符合条件
+    public static boolean checkPoints(HashMap<Integer, HashMap<Integer, Integer>> map, int l, int d, int r, int u) {
+        //检查顶点是否只出现了一次
+        if (map.get(l).getOrDefault(d, 0) != 1
+                || map.get(l).getOrDefault(u, 0) != 1
+                || map.get(r).getOrDefault(d, 0) != 1 ||
+                map.get(r).getOrDefault(u, 0) != 1) {
+            return false;
+        }
+        map.get(l).remove(d);
+        map.get(l).remove(u);
+        map.get(r).remove(d);
+        map.get(r).remove(u);
+        for (int key : map.keySet()) {
+            for (int value : map.get(key).values()) {
+                if ((value & 1) != 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
