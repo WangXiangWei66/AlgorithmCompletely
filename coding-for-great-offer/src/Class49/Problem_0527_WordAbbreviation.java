@@ -1,4 +1,9 @@
 package Class49;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 //规定单词一定要遵循如下的缩写规则：
 //1）一个单词保留若干长度的前缀，以及保留最后一个字符，中间用数字代表长度的方式来缩写
 //2）如果缩写后的长度没有原始长度小，则该缩写依然保持原始串的样子
@@ -22,4 +27,44 @@ package Class49;
 //输出: ["aa","aaa"]
 //leetcode题目：https://leetcode.com/problems/word-abbreviation/
 public class Problem_0527_WordAbbreviation {
+
+    public static List<String> wordsAbbreviation(List<String> words) {
+        int len = words.size();
+        List<String> res = new ArrayList<>();
+        //键为缩写的字符串，值为该缩写对应的单词索引列表
+        HashMap<String, List<Integer>> map = new HashMap<>();
+        for (int i = 0; i < len; i++) {
+            res.add(makeAbbr(words.get(i), 1));
+            List<Integer> list = map.getOrDefault(res.get(i), new ArrayList<>());
+            list.add(i);
+            map.put(res.get(i), list);
+        }
+        int[] prefix = new int[len];//记录每个单词需要的前缀长度
+        for (int i = 0; i < len; i++) {
+            if (map.get(res.get(i)).size() > 1) {//判断是否冲突
+                List<Integer> indexes = map.get(res.get(i));
+                map.remove(res.get(i));
+                for (int j : indexes) {
+                    prefix[j]++;//增加单词的前缀长度
+                    res.set(j, makeAbbr(words.get(j), prefix[j]));
+                    List<Integer> list = map.getOrDefault(res.get(j), new ArrayList<>());
+                    list.add(j);
+                    map.put(res.get(j), list);
+                }
+                i--;//更新后可能会有新的冲突
+            }
+        }
+        return res;
+    }
+
+    public static String makeAbbr(String s, int k) {
+        if (k >= s.length() - 2) {
+            return s;
+        }
+        StringBuilder builder = new StringBuilder();
+        builder.append(s.substring(0, k));
+        builder.append(s.length() - 1 - k);
+        builder.append(s.charAt(s.length() - 1));
+        return builder.toString();
+    }
 }
