@@ -1,4 +1,5 @@
 package Class50;
+
 //力扣想让一个最优秀的员工在 N 个城市间旅行来收集算法问题。
 //但只工作不玩耍，聪明的孩子也会变傻，所以您可以在某些特定的城市和星期休假。
 //您的工作就是安排旅行使得最大化你可以休假的天数，但是您需要遵守一些规则和限制。
@@ -11,4 +12,46 @@ package Class50;
 //给定 flights 矩阵和 days 矩阵，您需要输出 K 周内可以休假的最长天数。
 //leetcode题目：https://leetcode.com/problems/maximum-vacation-days/
 public class Problem_0568_MaximumVacationDays {
+
+    public static int maxVacationDays(int[][] fly, int[][] day) {
+        int n = fly.length;//城市的数量
+        int k = day[0].length;//周数
+        //pass[i]:存储所有能直接飞到城市i的城市列表
+        int[][] pass = new int[n][];
+        for (int i = 0; i < n; i++) {
+            int s = 0;
+            for (int j = 0; j < n; j++) {
+                if (fly[j][i] != 0) {
+                    s++;//统计能够飞到城市i的城市数量
+                }
+            }
+            pass[i] = new int[s];//为城市i创建数组，存储可以直达的城市数量
+            for (int j = n - 1; j >= 0; j--) {
+                if (fly[j][i] != 0) {
+                    pass[i][--s] = j;
+                }
+            }
+        }
+        //dp[i][j]:第i周在城市j能获得的最大休假天数
+        int[][] dp = new int[k][n];
+        dp[0][0] = day[0][0];
+        for (int j = 1; j < n; j++) {
+            dp[0][j] = fly[0][j] != 0 ? day[j][0] : -1;
+        }
+        for (int i = 1; i < k; i++) {
+            for (int j = 0; j < n; j++) {
+                int max = dp[i - 1][j];//不飞，继续留在该城市
+                //检查所有能飞到城市j的前序城市
+                for (int p : pass[j]) {
+                    max = Math.max(max, dp[i - 1][p]);
+                }
+                dp[i][j] = max != -1 ? max + day[j][i] : -1;
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            ans = Math.max(ans, dp[k - 1][i]);
+        }
+        return ans;
+    }
 }
