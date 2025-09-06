@@ -1,4 +1,10 @@
 package Class51;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.TreeSet;
+
 //为搜索引擎设计一个搜索自动完成系统。用户可以输入一个句子(至少一个单词，并以一个特殊的字符'#'结尾)。
 //对于除'#'之外的每个字符，您需要返回与已输入的句子部分前缀相同的前3个历史热门句子。具体规则如下:
 //一个句子的热度定义为用户输入完全相同句子的次数。 返回的前3个热门句子应该按照热门程度排序(第一个是最热的)。
@@ -33,4 +39,107 @@ package Class51;
 //List input(char c): 输入字符c可以是26个小写英文字母，也可以是空格，以'#'结尾。返回输入字符前缀对应频率最高的至多3个句子，频率相等时按字典序排列。
 //leetcode题目：https://leetcode.com/problems/design-search-autocomplete-system/
 public class Problem_0642_DesignSearchAutocompleteSystem {
+
+    class AutoCompleteSystem {
+        //前缀树节点类
+        public class TrieNode {
+            public TrieNode father;
+            public String path;//前缀
+            public TrieNode[] nexts;//子节点数组，对应26个字母和空格
+
+            public TrieNode(TrieNode f, String p) {
+                father = f;
+                path = p;
+                nexts = new TrieNode[27];
+            }
+        }
+        //词频统计类
+        public class WordCount implements Comparable<WordCount> {
+
+            public String word;//句子
+            public int count;//出现次数
+
+            public WordCount(String w, int c) {
+                word = w;
+                count = c;
+            }
+            //先按次数降序，次数相同按照字典序升序
+            public int compareTo(WordCount o) {
+                return count != o.count ? (o.count - count) : word.compareTo(o.word);
+            }
+        }
+
+        public final int top = 3;//最多返回三个结果
+        public final TrieNode root = new TrieNode(null, "");//前缀树根节点
+        //每个前缀树节点对应的热门句子集合
+        public HashMap<TrieNode, TreeSet<WordCount>> nodeRankMap = new HashMap<>();
+        //记录所有句子的出现次数
+        public HashMap<String, WordCount> wordCountMap = new HashMap<>();
+
+        public String path;//当前输入的路径
+        public TrieNode cur;//当前前缀树节点
+        //将字符映射为0~26索引
+        private int f(char c) {
+            return c == ' ' ? 0 : (c - '`');
+        }
+
+
+        public AutoCompleteSystem(String[] sentences, int[] times) {
+            path = "";
+            cur = root;
+            for (int i = 0; i < sentences.length; i++) {
+                String word = sentences[i];
+                int count = times[i];
+                WordCount wc = new WordCount(word, count - 1);
+                wordCountMap.put(word, wc);
+                //模拟用户输入每个字符的过程
+                for (char c : word.toCharArray()) {
+                    input(c);
+                }
+                input('#');
+            }
+        }
+
+        public List<String> input(char c) {
+            List<String> ans = new ArrayList<>();
+            if (c != '#') {
+                path += c;//将字符添加到当前路径
+                int i = f(c);
+                //子节点不存在，则创建
+                if (cur.nexts[i] == null) {
+                    cur.nexts[i] = new TrieNode(cur, path);
+                }
+                cur = cur.nexts[i];
+                if (!nodeRankMap.containsKey(cur)) {
+                    nodeRankMap.put(cur, new TreeSet<>());
+                }
+                //从排序中取前三个结果
+                int k = 0;
+                for (WordCount wc : nodeRankMap.get(cur)) {
+                    if (k == top) {
+                        break;
+                    }
+                    ans.add(wc.word);
+                    k++;
+                }
+            }
+            if (c == '#' && !path.equals("")) {
+                if (!wordCountMap.containsKey(path)) {
+                    wordCountMap.put(path, new WordCount(path, 0));
+                }
+                //创建新的wordCount
+                WordCount oldOne = wordCountMap.get(path);
+                WordCount newOne = new WordCount(path, oldOne.count + 1);
+                //回溯更新所有前缀节点的排序集合
+                while (cur != root) {
+                    nodeRankMap.get(cur).remove(oldOne);
+                    nodeRankMap.get(cur).add(newOne);
+                    cur = cur.father;
+                }
+                wordCountMap.put(path, newOne);
+                path = "";
+            }
+            return ans;
+        }
+    }
 }

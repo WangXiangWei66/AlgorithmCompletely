@@ -1,5 +1,9 @@
 package Class51;
-//这里有 n 门不同的在线课程，他们按从 1 到 n编号。每一门课程有一定的持续上课时间（课程时间）t 以及关闭时间第 d 天。一门课要持续学习 t 天直到第 d 天时要完成，你将会从第 1 天开始。
+
+import java.util.Arrays;
+import java.util.PriorityQueue;
+
+//这里有 n 门不同的在线课程，他们按从 1 到 n编号。每一门课程有一定的持续上课时间（课程时间）t 以及关闭时间第 d天。一门课要持续学习 t 天直到第 d 天时要完成，你将会从第 1 天开始。
 //给出 n 个在线课程用 (t, d) 对表示。你的任务是找出最多可以修几门课。
 //示例：
 //输入: [[100, 200], [200, 1300], [1000, 1250], [2000, 3200]]
@@ -15,4 +19,22 @@ package Class51;
 //你不能同时修两门课程。
 //leetcode题目：https://leetcode.com/problems/course-schedule-iii/
 public class Problem_0630_CourseScheduleIII {
+
+    public static int scheduleCourse(int[][] courses) {
+        Arrays.sort(courses, (a, b) -> (a[1] - b[1]));
+        PriorityQueue<Integer> heap = new PriorityQueue<>((a, b) -> b - a);
+        int time = 0;//当前花费的总时间
+        for (int[] c : courses) {
+            if (time + c[0] <= c[1]) {
+                heap.add(c[0]);
+                time += c[0];
+            } else {
+                if (!heap.isEmpty() && heap.peek() > c[0]) {
+                    heap.add(c[0]);
+                    time += c[0] - heap.poll();//将耗时更长的课程去掉
+                }
+            }
+        }
+        return heap.size();
+    }
 }
