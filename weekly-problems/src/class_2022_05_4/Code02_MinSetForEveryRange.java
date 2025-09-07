@@ -1,4 +1,9 @@
 package class_2022_05_4;
-
+//给定区间的范围[xi,yi]，xi<=yi，且都是正整数
+//找出一个坐标集合set，set中有若干个数字
+//set要和每个给定的区间，有交集
+//求set的最少需要几个数
+//比如给定区间 : [5, 8] [1, 7] [2, 4] [1, 9]
+//set最小可以是: {2, 6}或者{2, 5}或者{4, 5}
 public class Code02_MinSetForEveryRange {
 }

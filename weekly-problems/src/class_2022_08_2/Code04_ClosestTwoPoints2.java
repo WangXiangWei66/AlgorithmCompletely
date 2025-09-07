@@ -1,4 +1,7 @@
 package class_2022_08_2;
-
+//给定平面上n个点，x和y坐标都是整数
+//找出其中的一对点的距离，使得在这n个点的所有点对中，该距离为所有点对中最小的
+//返回最短距离，精确到小数点后面4位
+//测试链接 : https://www.luogu.com.cn/problem/P1429
 public class Code04_ClosestTwoPoints2 {
 }
