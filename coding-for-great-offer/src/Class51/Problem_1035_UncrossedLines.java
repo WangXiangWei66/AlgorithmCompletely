@@ -1,4 +1,7 @@
 package Class51;
+
+import java.util.HashMap;
+
 //在两条独立的水平线上按给定的顺序写下 nums1 和 nums2 中的整数。
 //现在，可以绘制一些连接两个数字 nums1[i]和 nums2[j]的直线，这些直线需要同时满足满足：
 //nums1[i] == nums2[j]
@@ -7,4 +10,74 @@ package Class51;
 //以这种方法绘制线条，并返回可以绘制的最大连线数。
 //leetcode题目：https://leetcode.com/problems/uncrossed-lines/
 public class Problem_1035_UncrossedLines {
+
+    public static int maxUncrossedLine1(int[] A, int[] B) {
+        if (A == null || A.length == 0 || B == null || B.length == 0) {
+            return 0;
+        }
+
+        int N = A.length;
+        int M = B.length;
+        int[][] dp = new int[N][M];
+        if (A[0] == B[0]) {
+            dp[0][0] = 1;
+        }
+        for (int j = 1; j < M; j++) {
+            dp[0][j] = A[0] == B[j] ? 1 : dp[0][j - 1];
+        }
+        for (int i = 1; i < N; i++) {
+            dp[i][0] = A[i] == B[0] ? 1 : dp[i - 1][0];
+        }
+
+        HashMap<Integer, Integer> AvalueLastIndex = new HashMap<>();
+        AvalueLastIndex.put(A[0], 0);
+        HashMap<Integer, Integer> BvalueLastIndex = new HashMap<>();
+        for (int i = 1; i < N; i++) {
+            AvalueLastIndex.put(A[i], i);
+            BvalueLastIndex.put(B[0], 0);
+            for (int j = 1; j < M; j++) {
+                BvalueLastIndex.put(B[j], j);
+                int p1 = dp[i - 1][j];
+                int p2 = dp[i][j - 1];
+                int p3 = 0;
+                if (BvalueLastIndex.containsKey(A[i])) {
+                    int last = BvalueLastIndex.get(A[i]);
+                    p3 = (last > 0 ? dp[i - 1][last - 1] : 0) + 1;
+                }
+                int p4 = 0;
+                if (AvalueLastIndex.containsKey(B[j])) {
+                    int last = AvalueLastIndex.get(B[j]);
+                    p4 = (last > 0 ? dp[last - 1][j - 1] : 0) + 1;
+                }
+                dp[i][j] = Math.max(Math.max(p1, p2), Math.max(p3, p4));
+            }
+            BvalueLastIndex.clear();
+        }
+        return dp[N - 1][M - 1];
+    }
+
+    public static int maxUncrossedLine2(int[] A, int[] B) {
+        if (A == null || A.length == 0 || B == null || B.length == 0) {
+            return 0;
+        }
+        int N = A.length;
+        int M = B.length;
+        int[][] dp = new int[N][M];
+        dp[0][0] = A[0] == B[0] ? 1 : 0;
+        for (int j = 1; j < M; j++) {
+            dp[0][j] = A[0] == B[j] ? 1 : dp[0][j - 1];
+        }
+        for (int i = 1; i < N; i++) {
+            dp[i][0] = A[i] == B[0] ? 1 : dp[i - 1][0];
+        }
+        for (int i = 1; i < N; i++) {
+            for (int j = 1; j < M; j++) {
+                int p1 = dp[i - 1][j];
+                int p2 = dp[i][j - 1];
+                int p3 = A[i] == B[j] ? (1 + dp[i - 1][j - 1]) : 0;
+                dp[i][j] = Math.max(p1, Math.max(p2, p3));
+            }
+        }
+        return dp[N - 1][M - 1];
+    }
 }
