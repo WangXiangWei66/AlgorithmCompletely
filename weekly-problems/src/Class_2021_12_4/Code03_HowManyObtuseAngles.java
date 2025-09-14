@@ -1,4 +1,7 @@
 package Class_2021_12_4;
+
+import java.util.Arrays;
+
 //来自hulu
 //有一个以原点为圆心，半径为1的圆
 //在这个圆的圆周上，有一些点
@@ -9,4 +12,27 @@ package Class_2021_12_4;
 //这样一来，所有的点都可以用[0, 36000)范围上的数字来表示
 //那么任意三个点都可以组成一个三角形，返回能组成钝角三角形的数量
 public class Code03_HowManyObtuseAngles {
+
+    public static long obtuseAngles(int[] arr) {
+        int n = arr.length;
+        int m = n << 1; //扩展数组的长度
+        int[] enlarge = new int[m];
+        Arrays.sort(arr);
+        for (int i = 0; i < n; i++) {
+            enlarge[i] = arr[i];
+            enlarge[i + n] = arr[i] + 36000;
+        }
+        long ans = 0;
+        for (int L = 0, R = 0; L < n; L++) {
+            while (R < m && enlarge[R] - enlarge[L] < 18000) {
+                R++;
+            }
+            ans += num(R - L - 1);
+        }
+        return ans;
+    }
+
+    public static long num(long nodes) {
+        return nodes < 2 ? 0 : ((nodes - 1) * nodes) >> 1;
+    }
 }
