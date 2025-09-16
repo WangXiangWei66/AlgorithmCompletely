@@ -52,8 +52,8 @@ public class Code03_MaximumScoreFromPerformingMultiplicationOperations {
         int[][] dp = new int[M + 1][M + 1];
         for (int L = M - 1; L >= 0; L--) {
             for (int j = L + 1; j <= M; j++) {
-                int R = N - M + j - 1;
-                int indexB = L + N - R - 1;
+                int R = N - M + j - 1;//当前右边界的实际索引
+                int indexB = L + N - R - 1;//计算当前乘数的索引
                 dp[L][j] = Math.max(A[L] * B[indexB] + dp[L + 1][j], A[R] * B[indexB] + dp[L][j - 1]);
             }
         }
