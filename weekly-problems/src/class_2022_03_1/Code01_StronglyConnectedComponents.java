@@ -79,7 +79,7 @@ public class Code01_StronglyConnectedComponents {
                 do {
                     top = stack[--stackSize];
                     scc[top] = sccn;
-                } while (top != p);//已知弹，直到根被弹出
+                } while (top != p);//一直弹，直到根被弹出
             }
         }
 
