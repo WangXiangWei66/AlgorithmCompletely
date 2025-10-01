@@ -1,4 +1,8 @@
 package class_2022_03_4;
+
+import java.util.Arrays;
+import java.util.PriorityQueue;
+
 //来自学员的考试
 //来自华为
 //给定一个n*2的二维数组，表示有n个任务
@@ -7,4 +11,53 @@ package class_2022_03_4;
 //你需要将所有任务的执行时间，位于开始做的时间和最后期限之间
 //返回你能否做到这一点
 public class Code01_ArrangeJob {
+
+    //时间节点类，标记任务的开始和结束条件
+    public static class TimePoint {
+        public int time;//时间点
+        public int end;//任务的结束期限
+        public boolean add;//true表示任务可开始，false表示任务截止
+
+        public TimePoint(int t, int e, boolean a) {
+            time = t;
+            end = e;
+            add = a;
+        }
+    }
+
+    public static boolean canDo(int[][] jobs) {
+        if (jobs == null || jobs.length < 2) {
+            return true;
+        }
+        int n = jobs.length;
+        //创建2n个时间点
+        TimePoint[] arr = new TimePoint[n << 1];
+        for (int i = 0; i < n; i++) {
+            arr[i] = new TimePoint(jobs[i][0], jobs[i][1], true);
+            arr[i + n] = new TimePoint(jobs[i][1], jobs[i][1], false);
+        }
+        //按照时间点排序
+        Arrays.sort(arr, (a, b) -> a.time - b.time);
+        //优先处理截止时间早的任务
+        PriorityQueue<Integer> heap = new PriorityQueue<>();
+        for (int i = 0, lastTime = arr[0].time; i < arr.length; i++) {
+            if (arr[i].add) {
+                heap.add(arr[i].end);
+            } else {
+                int curTime = arr[i].time;//遇到任务的截止时间点
+                for (int j = lastTime; j < curTime; j++) {
+                    if (heap.isEmpty()) {
+                        break;
+                    }
+                    heap.poll();
+                }
+                //检查是否还有未完成的任务
+                if (heap.peek() <= curTime) {
+                    return false;
+                }
+                lastTime = curTime;
+            }
+        }
+        return true;
+    }
 }
