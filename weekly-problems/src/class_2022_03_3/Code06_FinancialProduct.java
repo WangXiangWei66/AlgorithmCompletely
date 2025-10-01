@@ -1,4 +1,7 @@
 package class_2022_03_3;
+
+import java.util.Arrays;
+
 //来自银联编程比赛
 //某公司计划推出一批投资项目。 product[i] = price 表示第 i 个理财项目的投资金额 price 。
 //客户在按需投资时，需要遵循以下规则：
@@ -9,4 +12,42 @@ package class_2022_03_3;
 //若对所有理财项目中最多进行 limit 次交易，使得投入金额总和最大，请返回这个最大值的总和。
 //测试链接 : https://leetcode-cn.com/contest/cnunionpay-2022spring/problems/I4mOGz/
 public class Code06_FinancialProduct {
+
+    public static long mod = 1000000007L;
+
+    public int maxInvestment(int[] arr, int limit) {
+        Arrays.sort(arr);
+        int n = arr.length;
+        long ans = 0;
+        int r = n - 1;//右指针，从最大金融项目开始
+        int l = r;//左指针，寻找相同金额的项目
+        //有机会交易且还有项目可投资
+        while (limit > 0 && r != -1) {
+            //寻找和最大金额相同的项目
+            while (l >= 0 && arr[l] == arr[r]) {
+                l--;
+            }
+            int big = arr[r];
+            int small = l == -1 ? 0 : arr[l];
+            int teams = n - l - 1;//当前金额等级的项目数量
+            int all = (big - small) * teams;
+            //能完成所有的
+            if (limit >= all) {
+                ans += get(big, small + 1, teams);//累加当前等级的总投资
+                ans %= mod;
+                limit -= all;
+            } else {
+                int a = limit / teams;//计算所需的完整轮数
+                ans += get(big, big - a + 1, teams) + (long) (big - a) * (long) (limit % teams);
+                ans %= mod;
+                limit = 0;
+            }
+            r = l;
+        }
+        return (int) (ans % mod);
+    }
+    //利用等差数列求和公式 (首项+末项)×项数÷2，再乘以项目数量
+    public static long get(long up, long down, long num) {
+        return num * ((up + down) * (up - down + 1) / 2);
+    }
 }
