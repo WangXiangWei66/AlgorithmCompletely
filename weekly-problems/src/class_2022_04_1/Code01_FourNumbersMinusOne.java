@@ -1,4 +1,7 @@
 package class_2022_04_1;
+
+import java.util.Arrays;
+
 //来自阿里笔试
 //牛牛今年上幼儿园了，老师叫他学习减法
 //老师给了他5个数字，他每次操作可以选择其中的4个数字减1
@@ -7,4 +10,48 @@ package class_2022_04_1;
 //扩展问题来自leetcode 2141，掌握了这个题原始问题就非常简单了
 //leetcode测试链接 : https://leetcode.com/problems/maximum-running-time-of-n-computers/
 public class Code01_FourNumbersMinusOne {
+
+    public static long maxRunTime(int n, int[] arr) {
+        Arrays.sort(arr);
+        int size = arr.length;
+        long[] sums = new long[size];//用于存储前缀和
+        sums[0] = arr[0];
+        for (int i = 1; i < size; i++) {
+            sums[i] = sums[i - 1] + arr[i];
+        }
+        long l = 0;
+        long m = 0;
+        //每次消耗4个单位点，总共消耗4*k<=sums[size-1]
+        long r = sums[size - 1] / n;
+        long ans = -1;
+        while (l <= r) {
+            m = (l + r) / 2;
+            if (ok(arr, sums, m, n)) {
+                ans = m;
+                l = m + 1;
+            } else {
+                r = m - 1;
+            }
+        }
+        return ans;
+    }
+
+    public static boolean ok(int[] arr, long[] sum, long time, int num) {
+        int l = 0;
+        int m = 0;
+        int r = arr.length - 1;
+        int left = arr.length;//初始化数组长度，表示没找到
+        while (l <= r) {
+            m = (l + r) / 2;
+            if (arr[m] >= time) {
+                left = m;
+                r = m - 1;
+            } else {
+                l = m + 1;
+            }
+        }
+        num -= arr.length - left;//计算自身就能承受times操作的数量
+        long rest = left == 0 ? 0 : sum[left - 1];//剩余需要互相配合才能进行time操作的数量
+        return time * (long) num <= rest;
+    }
 }
