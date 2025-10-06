@@ -1,13 +1,109 @@
 package class_2022_04_1;
-//来自小红书
-//小红书第三题：
-//薯队长最近在玩一个游戏，这个游戏桌上会有一排不同颜色的方块，
-//每次薯队长可以选择一个方块，便可以消除这个方块以及和他左右相临的
-//若干的颜色相同的方块，而每次消除的方块越多，得分越高。
-//具体来说，桌上有以个方块排成一排 (1 <= N <= 200），
-//每个方块有一个颜色，用1~N之间的一个整数表示，相同的数宇代表相同的颜色，
-//每次消除的时候，会把连续的K个相同颜色的方块消除，并得到K*K的分数，
-//直到所有方块都消除。显然，不同的消除顺序得分不同，薯队长希望您能告诉他，这个游戏最多能得到多少分
-//体系学习班，代码46节，视频在47节，消箱子原题，RemoveBoxes
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.PriorityQueue;
+
+// 给定一个数组arr，含有n个数字，都是非负数
+// 给定一个正数k
+// 返回所有子序列中，累加和最小的前k个子序列累加和
+// 假设K不大，怎么算最快？
 public class Code06_TopMinSubsquenceSum {
+
+    public static int[] topMinSum1(int[] arr, int k) {
+        //集合存储所有子序列的累加和
+        ArrayList<Integer> allAns = new ArrayList<>();
+        process(arr, 0, 0, allAns);
+        allAns.sort((a, b) -> a.compareTo(b));//对所有累加和从小到大排序
+        int[] ans = new int[k];
+        for (int i = 0; i < k; i++) {
+            ans[i] = allAns.get(i);
+        }
+        return ans;
+    }
+
+    public static void process(int[] arr, int index, int sum, ArrayList<Integer> ans) {
+        if (index == arr.length) {
+            ans.add(sum);
+        } else {
+            process(arr, index + 1, sum, ans);
+            process(arr, index + 1, sum + arr[index], ans);
+        }
+    }
+
+    public static int[] topMinSum2(int[] arr, int k) {
+        Arrays.sort(arr);
+        // 小根堆：存储[最后一个元素索引, 当前累加和]，按累加和从小到大排序
+        PriorityQueue<int[]> heap = new PriorityQueue<>((a, b) -> a[1] - b[1]);
+        heap.add(new int[]{0, arr[0]});
+        int[] ans = new int[k];
+        //循环k-1次，获取前k小的元素
+        for (int i = 1; i < k; i++) {
+            int[] cur = heap.poll();
+            int last = cur[0];
+            int sum = cur[1];
+            ans[i] = sum;
+            if (last + 1 < arr.length) {
+                heap.add(new int[]{last + 1, sum - arr[last] + arr[last + 1]});
+                heap.add(new int[]{last + 1, sum + arr[last + 1]});
+            }
+        }
+        return ans;
+    }
+
+    public static int[] randomArray(int len, int value) {
+        int[] arr = new int[len];
+        for (int i = 0; i < len; i++) {
+            arr[i] = (int) (Math.random() * value);
+        }
+        return arr;
+    }
+
+    // 为了测试
+    public static boolean equals(int[] ans1, int[] ans2) {
+        if (ans1.length != ans2.length) {
+            return false;
+        }
+        for (int i = 0; i < ans1.length; i++) {
+            if (ans1[i] != ans2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // 为了测试
+    public static void main(String[] args) {
+        int n = 10;
+        int v = 40;
+        int testTime = 5000;
+        System.out.println("测试开始");
+        for (int i = 0; i < testTime; i++) {
+            int len = (int) (Math.random() * n) + 1;
+            int[] arr = randomArray(len, v);
+            int k = (int) (Math.random() * ((1 << len) - 1)) + 1;
+            int[] ans1 = topMinSum1(arr, k);
+            int[] ans2 = topMinSum2(arr, k);
+            if (!equals(ans1, ans2)) {
+                System.out.println("出错了！");
+                System.out.print("arr : ");
+                for (int num : arr) {
+                    System.out.print(num + " ");
+                }
+                System.out.println();
+                System.out.println("k : " + k);
+                for (int num : ans1) {
+                    System.out.print(num + " ");
+                }
+                System.out.println();
+                for (int num : ans2) {
+                    System.out.print(num + " ");
+                }
+                System.out.println();
+                break;
+            }
+        }
+        System.out.println("测试结束");
+    }
+
 }
