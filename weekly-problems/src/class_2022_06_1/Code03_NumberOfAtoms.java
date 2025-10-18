@@ -1,4 +1,7 @@
 package class_2022_06_1;
+
+import java.util.TreeMap;
+
 //给你一个字符串化学式 formula ，返回 每种原子的数量 。
 //原子总是以一个大写字母开始，接着跟随 0 个或任意个小写字母，表示原子的名字。
 //如果数量大于 1，原子后会跟着数字表示原子的数量。如果数量等于 1 则不会跟数字。
@@ -23,4 +26,84 @@ package class_2022_06_1;
 //解释：原子的数量是 {'K': 4, 'N': 2, 'O': 14, 'S': 4}。
 //测试链接 : https://leetcode.com/problems/number-of-atoms/
 public class Code03_NumberOfAtoms {
+
+    public static String countOfAtoms(String str) {
+        char[] s = str.toCharArray();
+        Info info = process(s, 0);
+        StringBuilder builder = new StringBuilder();
+        //遍历排序后的原子map
+        for (String key : info.cntMap.keySet()) {
+            builder.append(key);
+            int cnt = info.cntMap.get(key);
+            //数量为1时，不显示数字
+            if (cnt > 1) {
+                builder.append(cnt);
+            }
+        }
+        return builder.toString();
+    }
+
+    public static class Info {
+        public TreeMap<String, Integer> cntMap;//存储原子及其数量的有序map，保证了原子按照字典序排列
+        public int end;//当前处理结束的索引位置
+
+        public Info(TreeMap<String, Integer> c, int e) {
+            cntMap = c;
+            end = e;
+        }
+    }
+
+    public static Info process(char[] s, int i) {
+        TreeMap<String, Integer> cntMap = new TreeMap<>();//当前层级的原子计数map
+        int cnt = 0;//累加数字
+        StringBuilder builder = new StringBuilder();
+        Info info = null;//接收子括号处理的结果
+        while (i < s.length && s[i] != ')') {
+
+            if (s[i] >= 'A' && s[i] <= 'Z' || s[i] == '(') {
+                //先结算之前未处理的
+                if (builder.length() != 0 || info != null) {
+                    cnt = cnt == 0 ? 1 : cnt;
+                    if (builder.length() != 0) {
+                        String key = builder.toString();
+                        cntMap.put(key, cntMap.getOrDefault(key, 0) + cnt);
+                        builder.delete(0, builder.length());
+                    //处理子括号结束
+                    } else {
+                        for (String key : info.cntMap.keySet()) {
+                            cntMap.put(key, cntMap.getOrDefault(key, 0) + info.cntMap.get(key) * cnt);
+                        }
+                        info = null;
+                    }
+                    cnt = 0;
+                }
+                if (s[i] == '(') {
+                    info = process(s, i + 1);
+                    i = info.end + 1;
+                } else {
+                    builder.append(s[i++]);
+                }
+            } else if (s[i] >= 'a' && s[i] <= 'z') {
+                builder.append(s[i++]);
+            } else {
+                cnt = cnt * 10 + s[i++] - '0';
+            }
+        }
+        //循环结束，处理剩余的
+        if (builder.length() != 0 || info != null) {
+            cnt = cnt == 0 ? 1 : cnt;
+            if (builder.length() != 0) {
+                String key = builder.toString();
+                cntMap.put(key, cntMap.getOrDefault(key, 0) + cnt);
+                builder.delete(0, builder.length());
+            } else {
+                for (String key : info.cntMap.keySet()) {
+                    cntMap.put(key, cntMap.getOrDefault(key, 0) + info.cntMap.get(key) * cnt);
+                }
+                info = null;
+            }
+            cnt = 0;
+        }
+        return new Info(cntMap, i);
+    }
 }
