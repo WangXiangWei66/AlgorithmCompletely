@@ -1,4 +1,4 @@
-package Class_2021_12_1;
+package class_2021_12_1;
 
 import java.util.PriorityQueue;
 

@@ -1,4 +1,4 @@
-package Class_2021_12_2;
+package class_2021_12_2;
 
 import java.util.ArrayList;
 import java.util.Arrays;

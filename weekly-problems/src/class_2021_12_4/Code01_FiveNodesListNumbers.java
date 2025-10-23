@@ -1,4 +1,4 @@
-package Class_2021_12_4;
+package class_2021_12_4;
 
 import java.util.HashSet;
 

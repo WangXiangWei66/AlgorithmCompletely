@@ -1,4 +1,4 @@
-package Class_2021_12_2;
+package class_2021_12_2;
 
 //来自美团
 //所有黑洞的中心点记录在holes数组里

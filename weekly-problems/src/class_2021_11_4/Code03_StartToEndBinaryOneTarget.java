@@ -1,4 +1,4 @@
-package Class_2021_11_4;
+package class_2021_11_4;
 
 import java.util.Arrays;
 
