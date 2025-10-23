@@ -1,4 +1,4 @@
-package Class_2022_08_4;
+package class_2022_08_4;
 
 // 来自美团:
 // 8.20笔试

@@ -1,4 +1,4 @@
-package Class_2023_03_1;
+package class_2023_03_1;
 //主席树详解
 //测试链接 : https://www.luogu.com.cn/problem/P3834
 //请同学们务必参考如下代码中关于输入、输出的处理
