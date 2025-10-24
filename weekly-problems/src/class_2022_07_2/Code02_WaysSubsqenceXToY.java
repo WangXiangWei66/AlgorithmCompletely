@@ -1,4 +1,7 @@
 package class_2022_07_2;
+
+import java.util.HashSet;
+
 //来自SnowFlake
 //给定一个正数n，比如6
 //表示数轴上有 0,1,2,3,4,5,6
@@ -22,4 +25,142 @@ package class_2022_07_2;
 //比如s中，有很多个rr的子序列，但是算一个
 //数据规模 : s串长度 <= 1000, x,y,n <= 2500
 public class Code02_WaysSubsqenceXToY {
+
+    public static int f(char[] str, int index, int cur, int n, int aim) {
+        if (index == str.length) {
+            return cur == aim ? 1 : 0;
+        }
+        int ways1 = f(str, index + 1, cur, n, aim);
+        int ways2 = 0;
+        if (str[index] == 'L') {
+            if (cur - 1 >= 0) {
+                ways2 = f(str, index + 1, cur - 1, n, aim);
+            }
+        } else {
+            if (cur + 1 <= n) {
+                ways2 = f(str, index + 1, cur + 1, n, aim);
+            }
+        }
+        return ways1 + ways2;
+    }
+
+    public static int ways1(String s, int n, int x, int y) {
+        HashSet<String> set = new HashSet<>();
+        process1(s, 0, new StringBuilder(), set);
+        int ans = 0;
+        int cur = 0;
+        for (String path : set) {
+            cur = x;
+            for (char cha : path.toCharArray()) {
+                cur += cha == 'r' ? 1 : -1;
+                if (cur < 0 || cur > n) {
+                    cur = -1;
+                    break;
+                }
+            }
+            if (cur == y) {
+                ans++;
+            }
+        }
+        return ans;
+    }
+
+    public static void process1(String s, int index, StringBuilder builder, HashSet<String> set) {
+        if (index == s.length()) {
+            set.add(builder.toString());
+        } else {
+            process1(s, index + 1, builder, set);
+            builder.append(s.charAt(index));
+            process1(s, index + 1, builder, set);
+            builder.deleteCharAt(builder.length() - 1);
+        }
+    }
+
+    // 最优解
+    // 思路来自：Code01，DistinctSubseqValue问题
+    // 如果字符串长度为m，位置数量n
+    // 时间复杂度O(m * n)
+    public static int ways2(String s, int n, int x, int y) {
+        int[] all = new int[n + 1];
+        int[] r = new int[n + 1];
+        int[] l = new int[n + 1];
+        int[] add = new int[n + 1];//用于计算新增的子序列
+        all[x] = 1;
+        for (char cha : s.toCharArray()) {
+            if (cha == 'r') {
+                for (int i = 0; i < n; i++) {
+                    add[i + 1] += all[i];
+                }
+                //去重并更新状态
+                for (int i = 0; i <= n; i++) {
+                    add[i] -= r[i];
+                    all[i] += add[i];
+                    r[i] += add[i];
+                    add[i] = 0;
+                }
+            } else {
+                for (int i = 1; i <= n; i++) {
+                    add[i - 1] += all[i];
+                }
+                for (int i = 0; i <= n; i++) {
+                    add[i] -= l[i];
+                    all[i] += add[i];
+                    l[i] += add[i];
+                    add[i] = 0;
+                }
+            }
+        }
+        return all[y];
+    }
+
+    public static String randomLRString(int n) {
+        char[] str = new char[n];
+        for (int i = 0; i < n; i++) {
+            str[i] = Math.random() < 0.5 ? 'r' : 'l';
+        }
+        return String.valueOf(str);
+    }
+
+    // 为了测试
+    public static void main(String[] args) {
+        int max = 16;
+        int testTime = 2000;
+        System.out.println("功能测试开始");
+        for (int i = 0; i < testTime; i++) {
+            int n = (int) (Math.random() * max) + 1;
+            int m = (int) (Math.random() * max) + 1;
+            String s = randomLRString(m);
+            int x = (int) (Math.random() * (n + 1));
+            int y = (int) (Math.random() * (n + 1));
+            int ans1 = ways1(s, n, x, y);
+            int ans2 = ways2(s, n, x, y);
+            if (ans1 != ans2) {
+                System.out.println("出错了!");
+                System.out.println(s);
+                System.out.println(n);
+                System.out.println(x);
+                System.out.println(y);
+                System.out.println(ans1);
+                System.out.println(ans2);
+                break;
+            }
+        }
+        System.out.println("功能测试结束");
+
+        System.out.println("性能测试开始");
+        int n = 25000;
+        int m = 10000;
+        System.out.println("位置规模 : " + n);
+        System.out.println("字符串规模 : " + m);
+        String s = randomLRString(m);
+        int x = (int) (Math.random() * (n + 1));
+        int y = (int) (Math.random() * (n + 1));
+        long start = System.currentTimeMillis();
+        ways2(s, n, x, y);
+        long end = System.currentTimeMillis();
+        System.out.println("运行时间: " + (end - start) + " 毫秒");
+        System.out.println("性能测试结束");
+
+    }
+
 }
