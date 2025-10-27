@@ -1,4 +1,7 @@
 package class_2022_07_3;
+
+import java.util.ArrayList;
+
 //特殊的二进制序列是具有以下两个性质的二进制序列：
 //0 的数量与 1 的数量相等。
 //二进制序列的每一个前缀码中 1 的数量要大于等于 0 的数量。
@@ -8,4 +11,46 @@ package class_2022_07_3;
 //在任意次数的操作之后，交换后的字符串按照字典序排列的最大的结果是什么？
 //测试链接 : https://leetcode.cn/problems/special-binary-string/
 public class Code04_SpecialBinaryString {
+    //记录处理后的子串及其位置（原字符）
+    public static class Info {
+        public String ans;
+        public int end;
+
+        public Info(String a, int e) {
+            ans = a;
+            end = e;
+        }
+    }
+
+    public static String makeLargestSpecial(String s) {
+        //收集当前层级所有可分解的特殊子串
+        ArrayList<String> arr = new ArrayList<>();
+        for (int index = 0; index < s.length(); ) {
+            Info info = process(s, index + 1);
+            arr.add(info.ans);
+            index = info.end + 1;
+        }
+        StringBuilder builder = new StringBuilder();
+        //按照字典序降序排列
+        arr.sort((a, b) -> b.compareTo(a));
+        for (String cur : arr) {
+            builder.append(cur);
+        }
+        return builder.toString();
+    }
+
+    public static Info process(String s, int index) {
+        ArrayList<String> arr = new ArrayList<>();//存储当前层的嵌套子串
+        while (s.charAt(index) != '0') {
+            Info info = process(s, index + 1);
+            arr.add(info.ans);
+            index = info.end + 1;
+        }
+        StringBuilder builder = new StringBuilder();
+        arr.sort((a, b) -> b.compareTo(a));
+        for (String cur : arr) {
+            builder.append(cur);
+        }
+        return new Info("1" + builder.toString() + "0", index);
+    }
 }
