@@ -1,4 +1,7 @@
 package class_2022_09_1;
+
+import java.util.Arrays;
+
 //来自美团
 //有n个城市，城市从0到n-1进行编号。小美最初住在k号城市中
 //在接下来的m天里，小美每天会收到一个任务
@@ -19,4 +22,168 @@ package class_2022_09_1;
 //0 <= ai, bi <= 10^9
 //输出描述 输出一个整数，表示小美合理完成任务能得到的最大收益
 public class Code02_MoveCityGetMoney {
+
+    public static int maxPorfit1(int n, int m, int k, int[] c, int[] a, int[] b) {
+        //dp[cur][i]:第i天结束后在城市cur,累积的最大收益
+        int[][] dp = new int[n][m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                dp[i][j] = -1;
+            }
+        }
+        return process1(k, 0, m, c, a, b, dp);
+    }
+
+    // cur : 小美当前在哪！
+    // i : 当前面临的是任务编号！
+    // m : 一共有多少任务，固定
+    // c[i] : 第i号任务要在哪个城里完成
+    // a[i] : 恰好在！收益
+    // b[i] : 赶过去！收益
+    // 返回 : i....... 小美获得的最大收益
+    public static int process1(int cur, int i, int m, int[] c, int[] a, int[] b, int[][] dp) {
+        if (i == m) {
+            return 0;
+        }
+        if (dp[cur][i] != -1) {
+            return dp[cur][i];
+        }
+        int p1 = process1(cur, i + 1, m, c, a, b, dp);
+        int p2 = 0;
+        if (cur == c[i]) {
+            p2 = a[i] + process1(c[i], i + 1, m, c, a, b, dp);
+        } else {
+            p2 = b[i] + process1(c[i], i + 1, m, c, a, b, dp);
+        }
+        int ans = Math.max(p1, p2);
+        dp[cur][i] = ans;
+        return ans;
+    }
+
+    public static class SegmentTree {
+        private int n;
+        private int[] max;
+
+        public SegmentTree(int N) {
+            n = N;
+            max = new int[(n + 1) << 2];
+            Arrays.fill(max, Integer.MIN_VALUE);//初始时,无元素到达,收益为极小值
+        }
+
+        public int max(int l, int r) {
+            //将原始的城市编号变成1~based索引
+            l++;
+            r++;
+            if (l > r) {
+                return Integer.MIN_VALUE;
+            }
+            return max(l, r, 1, n, 1);
+        }
+
+        public void update(int i, int v) {
+            i++;
+            update(i, i, v, 1, n, 1);
+        }
+
+        private void pushUp(int rt) {
+            max[rt] = Math.max(max[rt << 1], max[rt << 1 | 1]);
+        }
+
+        private void update(int L, int R, int C, int l, int r, int rt) {
+            if (L <= l && r <= R) {
+                max[rt] = Math.max(max[rt], C);
+                return;
+            }
+            int mid = (l + r) >> 1;
+            if (L <= mid) {
+                update(L, R, C, l, mid, rt << 1);
+            }
+            if (R > mid) {
+                update(L, R, C, mid + 1, r, rt << 1 | 1);
+            }
+            pushUp(rt);
+        }
+
+        private int max(int L, int R, int l, int r, int rt) {
+            if (L <= l && r <= R) {
+                return max[rt];
+            }
+            int mid = (l + r) >> 1;
+            int left = Integer.MIN_VALUE;
+            int right = Integer.MIN_VALUE;
+            if (L <= mid) {
+                left = max(L, R, l, mid, rt << 1);
+            }
+            if (R > mid) {
+                right = max(L, R, mid + 1, r, rt << 1 | 1);
+            }
+            return Math.max(left, right);
+        }
+    }
+
+    //n：城市数，m：任务数，k：初始城市。
+    public static int maxPorfit2(int n, int m, int k, int[] c, int[] a, int[] b) {
+        SegmentTree st = new SegmentTree(n);
+        //初始时小美在城市k,收益为0
+        st.update(k, 0);
+        int ans = 0;
+        for (int i = 0; i < m; i++) {
+            int curAns = Math.max(Math.max(st.max(0, c[i] - 1), st.max(c[i] + 1, n - 1)) + b[i], st.max(c[i], c[i]) + a[i]);
+            ans = Math.max(ans, curAns);
+            st.update(c[i], curAns);
+        }
+        return ans;
+    }
+
+    public static int[] randomArray(int n, int v) {
+        int[] ans = new int[n];
+        for (int i = 0; i < n; i++) {
+            ans[i] = (int) (Math.random() * v);
+        }
+        return ans;
+    }
+
+    // 为了测试
+    public static void main(String[] args) {
+        int N = 100;
+        int M = 100;
+        int V = 10000;
+        int testTimes = 5000;
+        System.out.println("功能测试开始");
+        for (int i = 0; i < testTimes; i++) {
+            int n = (int) (Math.random() * N) + 1;
+            int m = (int) (Math.random() * M) + 1;
+            int k = (int) (Math.random() * n);
+            int[] c = randomArray(m, n);
+            int[] a = randomArray(m, V);
+            int[] b = randomArray(m, V);
+            int ans1 = maxPorfit1(n, m, k, c, a, b);
+            int ans2 = maxPorfit2(n, m, k, c, a, b);
+            if (ans1 != ans2) {
+                System.out.println("出错了!");
+                System.out.println(ans1);
+                System.out.println(ans2);
+                break;
+            }
+        }
+        System.out.println("功能测试结束");
+
+        System.out.println("性能测试开始");
+        int n = 100000;
+        int m = 100000;
+        int v = 1000000;
+        int k = (int) (Math.random() * n);
+        int[] c = randomArray(m, n);
+        int[] a = randomArray(m, v);
+        int[] b = randomArray(m, v);
+        System.out.println("城市数量 : " + n);
+        System.out.println("任务天数 : " + m);
+        System.out.println("收益数值规模 : " + v);
+        long start = System.currentTimeMillis();
+        maxPorfit2(n, m, k, c, a, b);
+        long end = System.currentTimeMillis();
+        System.out.println("运行时间 : " + (end - start) + "毫秒");
+        System.out.println("性能测试结束");
+
+    }
 }
