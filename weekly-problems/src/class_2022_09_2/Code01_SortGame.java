@@ -157,7 +157,7 @@ public class Code01_SortGame {
 //			set.add(new Number(arr[i], i));
 //		}
 //
-////		System.out.println(set.size());
+//		System.out.println(set.size());
 //
 //		while(!set.isEmpty()) {
 //			System.out.println(set.pollLast().value);
