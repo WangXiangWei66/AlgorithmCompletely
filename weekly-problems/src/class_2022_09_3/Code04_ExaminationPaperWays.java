@@ -1,4 +1,7 @@
 package class_2022_09_3;
+
+import java.util.Arrays;
+
 //来自美团
 //有三个题库A、B、C，每个题库均有n道题目，且题目都是从1到n进行编号
 //每个题目都有一个难度值
@@ -18,4 +21,97 @@ package class_2022_09_3;
 //第四行为n个正整数c1, c2,...... cn，其中ci表示题库C中第i个题目的难度值
 //1 <= n <= 20000, 1 <= ai, bi, ci <= 10^9。
 public class Code04_ExaminationPaperWays {
+
+    public static int ways1(int[] a, int[] b, int[] c) {
+        int n = a.length;
+        Arrays.sort(a);
+        Arrays.sort(b);
+        Arrays.sort(c);
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n && b[j] <= a[i] * 2; j++) {
+                if (b[j] > a[i]) {
+                    for (int k = 0; k < n && c[k] <= b[j] * 2; k++) {
+                        if (c[k] > b[j]) {
+                            ans++;
+                        }
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+
+    public static int ways2(int[] a, int[] b, int[] c) {
+        int n = a.length;
+        Arrays.sort(a);
+        Arrays.sort(b);
+        Arrays.sort(c);
+        //b[j]对应的满足条件的c[k]数量
+        int[] help = new int[n];
+        for (int i = 0, l = -1, r = 0; i < n; i++) {
+            //找到c[k]中<=b[j]的最大索引
+            while (l + 1 < n && c[l + 1] <= b[i]) {
+                l++;
+            }
+            //找到c[k]中>=2*b[j]的最大索引
+            while (r < n && c[r] <= b[i] * 2) {
+                r++;
+            }
+            //有效的C_k数量
+            help[i] = Math.max(r - l - 1, 0);
+        }
+        //前缀和,快速查询区间总和
+        for (int i = 1; i < n; i++) {
+            help[i] += help[i - 1];
+        }
+        int ans = 0;
+        for (int i = 0, l = -1, r = 0; i < n; i++) {
+            while (l + 1 < n && b[l + 1] <= a[i]) {
+                l++;
+            }
+            while (r < n && b[r] <= a[i] * 2) {
+                r++;
+            }
+            if (r - l - 1 > 0) {
+                ans += sum(help, l + 1, r - 1);
+            }
+        }
+        return ans;
+    }
+
+    public static int sum(int[] help, int l, int r) {
+        return l == 0 ? help[r] : help[r] - help[l - 1];
+    }
+
+    public static int[] randomArray(int n, int v) {
+        int[] ans = new int[n];
+        for (int i = 0; i < n; i++) {
+            ans[i] = (int) (Math.random() * v);
+        }
+        return ans;
+    }
+
+    // 为了测试
+    public static void main(String[] args) {
+        int N = 100;
+        int V = 100;
+        int testTimes = 5000;
+        System.out.println("测试开始");
+        for (int i = 0; i < testTimes; i++) {
+            int n = (int) (Math.random() * N) + 1;
+            int[] a = randomArray(n, V);
+            int[] b = randomArray(n, V);
+            int[] c = randomArray(n, V);
+            int ans1 = ways1(a, b, c);
+            int ans2 = ways2(a, b, c);
+            if (ans1 != ans2) {
+                System.out.println("出错了!");
+                System.out.println(ans1);
+                System.out.println(ans2);
+                break;
+            }
+        }
+        System.out.println("测试结束");
+    }
 }
