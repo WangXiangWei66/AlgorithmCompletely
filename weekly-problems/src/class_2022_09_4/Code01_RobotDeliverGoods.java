@@ -1,4 +1,5 @@
 package class_2022_09_4;
+
 //来自学员问题
 //智能机器人要坐专用电梯把货物送到指定地点
 //整栋楼只有一部电梯，并且由于容量限制智能机器人只能放下一件货物
@@ -17,4 +18,144 @@ package class_2022_09_4;
 //to[i]表示i号货物要去往的楼层
 //返回最快的时间
 public class Code01_RobotDeliverGoods {
+    //status:已运送的货物集合
+    //last:上一次运送的货物索引,确定当前电梯的位置
+    public static int wang(int status, int last, int k, int[] from, int[] to) {
+        if (status == (1 << k) - 1) {
+            return to[last] - 1;
+        } else {
+            int ans = Integer.MAX_VALUE;
+            for (int cur = 0; cur < k; cur++) {
+                //判断cur件是否送达
+                if ((status & (1 << cur)) == 0) {
+                    int come = Math.abs(to[last] - from[cur]);
+                    int delive = Math.abs(to[cur] - from[cur]);
+                    int next = wang(status | (1 << cur), cur, k, from, to);
+                    int curAns = come + delive + next;
+                    ans = Math.min(ans, curAns);
+                }
+            }
+            return ans;
+        }
+    }
+
+    //使用全排列枚举和计算时间
+    public static int minCost1(int k, int[] from, int[] to) {
+        return process(0, k, from, to);
+    }
+
+    public static int process(int i, int k, int[] from, int[] to) {
+        if (i == k) {
+            int ans = 0;
+            //当前电梯的位置
+            int cur = 1;
+            //按当前排列的顺序计算时间
+            for (int j = 0; j < k; j++) {
+                //移动
+                ans += Math.abs(from[j] - cur);
+                //运送
+                ans += Math.abs(to[j] - from[j]);
+                //电梯来到位置
+                cur = to[j];
+            }
+            return ans + cur - 1;
+        } else {
+            int ans = Integer.MAX_VALUE;
+            for (int j = i; j < k; j++) {
+                swap(from, to, i, j);
+                ans = Math.min(ans, process(i + 1, k, from, to));
+                swap(from, to, i, j);
+            }
+            return ans;
+        }
+    }
+
+    public static void swap(int[] from, int[] to, int i, int j) {
+        int tmp = from[i];
+        from[i] = from[j];
+        from[j] = tmp;
+        tmp = to[i];
+        to[i] = to[j];
+        to[j] = tmp;
+    }
+
+    public static int minCost2(int k, int[] from, int[] to) {
+        int m = 1 << k;
+        int[][] dp = new int[m][k];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < k; j++) {
+                dp[i][j] = -1;
+            }
+        }
+        return f(0, 0, k, from, to, dp);
+    }
+
+    public static int f(int status, int i, int k, int[] from, int[] to, int[][] dp) {
+        if (dp[status][i] != -1) {
+            return dp[status][i];
+        }
+        int ans = Integer.MAX_VALUE;
+        if (status == (1 << k) - 1) {
+            ans = to[i] - 1;
+        } else {
+            //遍历枚举每一个货物
+            for (int j = 0; j < k; j++) {
+                if ((status & (1 << j)) == 0) {
+                    int come = Math.abs(from[j] - (status == 0 ? 1 : to[i]));
+                    int deliver = Math.abs(to[j] - from[j]);
+                    int next = f(status | (1 << j), j, k, from, to, dp);
+                    ans = Math.min(ans, come + deliver + next);
+                }
+            }
+        }
+        dp[status][i] = ans;
+        return ans;
+    }
+
+    public static int[] randomArray(int n, int v) {
+        int[] ans = new int[n];
+        for (int i = 0; i < n; i++) {
+            ans[i] = (int) (Math.random() * v) + 1;
+        }
+        return ans;
+    }
+
+    public static void main(String[] args) {
+        int k = 5;
+        int[] from = {1, 3, 6, 5, 7};
+        int[] to = {4, 6, 3, 2, 8};
+        System.out.println(minCost1(k, from, to));
+        System.out.println(minCost2(k, from, to));
+
+        int N = 8;
+        int V = 100;
+        int testTimes = 5000;
+        System.out.println("功能测试开始");
+        for (int i = 0; i < testTimes; i++) {
+            k = (int) (Math.random() * N) + 1;
+            from = randomArray(k, V);
+            to = randomArray(k, V);
+            int ans1 = minCost1(k, from, to);
+            int ans2 = minCost2(k, from, to);
+            if (ans1 != ans2) {
+                System.out.println("出错了!");
+            }
+        }
+        System.out.println("功能测试结束");
+
+        System.out.println("性能测试开始");
+        k = 16;
+        V = 10000;
+        from = randomArray(k, V);
+        to = randomArray(k, V);
+        System.out.println("货物数量 : " + k);
+        System.out.println("楼层范围 : " + V);
+        long start = System.currentTimeMillis();
+        minCost2(k, from, to);
+        long end = System.currentTimeMillis();
+        System.out.println("运行时间 : " + (end - start) + " 毫秒");
+        System.out.println("性能测试结束");
+
+    }
+
 }

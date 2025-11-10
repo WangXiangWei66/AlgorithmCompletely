@@ -1,4 +1,5 @@
 package class_2022_09_3;
+
 //来自阿里
 //小红定义一个仅有r、e、d三种字符的字符串中
 //如果仅有一个长度不小于2的回文子串，那么这个字符串定义为"好串"
@@ -10,4 +11,96 @@ package class_2022_09_3;
 //n = 3, 输出18
 //https://www.mashibing.com/question/detail/37485
 public class Code06_RedPalindromeGoodStrings {
+
+    public static int num1(int n) {
+        //存储当前递归构建的字符串
+        char[] path = new char[n];
+        return process1(path, 0);
+    }
+
+    public static int process1(char[] path, int i) {
+        if (i == path.length) {
+            //获取单个位置的回文子串信息
+            int[] dp = getManacherDP(path);
+            //统计长度>=2的回文子串数量
+            int cnt = 0;
+            for (int p : dp) {
+                if (p - 1 > 3) {
+                    return 0;
+                }
+                if (p - 1 >= 2) {
+                    cnt++;
+                }
+                if (cnt > 1) {
+                    return 0;
+                }
+            }
+            return cnt == 1 ? 1 : 0;
+        } else {
+            int ans = 0;
+            path[i] = 'r';
+            ans += process1(path, i + 1);
+            path[i] = 'e';
+            ans += process1(path, i + 1);
+            path[i] = 'd';
+            ans += process1(path, i + 1);
+            return ans;
+        }
+    }
+
+    //在线性时间内找到字符串中所有回文子串的长度
+    public static int[] getManacherDP(char[] s) {
+        //将原字符串转化为manacher字符串
+        char[] str = manacherString(s);
+        //存储每个位置的扩展半径
+        int[] pArr = new int[str.length];
+        //最近找到的最长回文子串的中心
+        int C = -1;
+        //最近找到的最长回文子串的右边界
+        int R = -1;
+        for (int i = 0; i < str.length; i++) {
+            pArr[i] = R > i ? Math.min(pArr[2 * C - i], R - i) : 1;
+            while (i + pArr[i] < str.length && i - pArr[i] > -1) {
+                //左右字符相等,半径加1
+                if (str[i + pArr[i]] == str[i - pArr[i]])
+                    pArr[i]++;
+                else {
+                    break;
+                }
+            }
+            if (i + pArr[i] > R) {
+                R = i + pArr[i];
+                C = i;
+            }
+        }
+        return pArr;
+    }
+
+    public static char[] manacherString(char[] s) {
+        char[] res = new char[s.length * 2 + 1];
+        int index = 0;
+        for (int i = 0; i != res.length; i++) {
+            res[i] = (i & 1) == 0 ? '#' : s[index++];
+        }
+        return res;
+    }
+
+    public static int num2(int n) {
+        if (n == 1) {
+            return 0;
+        }
+        if (n == 2) {
+            return 3;
+        }
+        if (n == 3) {
+            return 18;
+        }
+        return 6 * (n + 1);
+    }
+
+    public static void main(String[] args) {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("长度为:" + i + " , 答案:" + num1(i) + ", " + num2(i));
+        }
+    }
 }
