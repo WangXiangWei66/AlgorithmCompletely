@@ -1,4 +1,8 @@
 package class_2022_09_4;
+
+import java.util.HashMap;
+import java.util.HashSet;
+
 //来自字节
 //给定正数N，表示用户数量，用户编号从0~N-1
 //给定正数M，表示实验数量，实验编号从0~M-1
@@ -14,4 +18,8 @@ package class_2022_09_4;
 //1 <= Q <= 10^4
 //所有查询所列出的所有实验编号数量(也就是二维数组B，行*列的规模) <= 10^5
 public class Code05_EveryQueryUsers {
+
+    public static int[] record1(int n, int m, int q, int[][] A, int[][] B) {
+        HashMap<Integer, HashSet<Integer>> expUsersMap = new HashMap<>();
+    }
 }
