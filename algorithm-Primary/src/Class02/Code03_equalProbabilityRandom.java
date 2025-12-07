@@ -5,7 +5,7 @@ public class Code03_equalProbabilityRandom {
         return Math.random() < 0.8 ? 0 : 1;
     }
 
-    //等概率返回0和1
+    //等概率返回0和1,使用了拒绝采样策略
     public static int g() {
         int first = 0;
         do {
@@ -13,9 +13,8 @@ public class Code03_equalProbabilityRandom {
         } while (first == f());
         return first;
     }
-//111
     //这个结构是唯一的随机机制
-// 你只能初始化并使用，不能修改
+    //你只能初始化并使用，不能修改
     public static class RandomBox {
         private final double p;
 

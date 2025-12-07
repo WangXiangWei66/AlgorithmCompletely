@@ -13,18 +13,16 @@ public class Code02_RandToRand {
         int ans = 0;
         do {
             ans = f();
-
         } while (ans == 3);
         return ans < 3 ? 0 : 1;
-
     }
 
     //等概率返回0~6
     public static int b() {
         int ans = 0;
         do {
+            //拼接操作
             ans = (a() << 2) + (a() << 1) + a();
-
         } while (ans == 7);
         return ans;
     }
@@ -72,13 +70,14 @@ public class Code02_RandToRand {
         int mid = size / 2;
         int ans = 0;
         do {
+            //生成了0~size-1的随机数
             ans = randomBox.random() - min;
-        } while (odd && ans == mid);
+        } while (odd && ans == mid); // 奇数长度并且为中间值时,跳过
         return ans < mid ? 0 : 1;
     }
 
     //给你一个RandomBox，这是唯一能借助的随机机制
-//等概率返回from—to范围上任意一个数
+    //等概率返回from—to范围上任意一个数
     public static int random(RandomBox randomBox, int from, int to) {
         if (from == to) {
             return from;
@@ -130,7 +129,7 @@ public class Code02_RandToRand {
 
         int K = 9;
         //[0,K)->[0,8]
-        int[] counts = new int[9];
+        int[] counts = new int[9];//统计0~8每个元素出现的次数
         for (int i = 0; i < testTime; i++) {
             int ans = (int) (Math.random() * K);//[0,K-1]
             counts[ans]++;
@@ -173,6 +172,7 @@ public class Code02_RandToRand {
     //返回[0~1)的一个小数
     //任意的x,x属于[0,1),[0,x)范围上的数出出现概率由原来的x调整成x平方
     public static double xToXPower2() {
+        //in(a, b) < t 的概率 = 1 - P(min(a,b) ≥ t) = 1 - P(a ≥ t) * P(b ≥ t) = 1 - (1-t)² = 2t - t²
         return Math.min(Math.random(), Math.random());
     }
 

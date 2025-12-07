@@ -3,6 +3,7 @@ package Class01;
 import java.util.Arrays;
 
 public class Code05_BubbleSort {
+    //最终将大元素放在了末尾
     public static void bubbleSort(int[] arr) {
         if (arr == null || arr.length < 2) {
             return;
@@ -77,8 +78,8 @@ public class Code05_BubbleSort {
         }
         System.out.println();//指定的数据输出到标准输出，并在输出结束后自动添加一个换行符。
     }
-//for test
 
+    //for test
     public static void main(String[] args) {
         int testTime = 500000;
         int maxSize = 100;
